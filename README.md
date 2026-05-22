@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V4.3_双区降级-red?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V4.5_OOP重构-red?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-39.5%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -13,67 +13,9 @@
 
 ## 🎯 它能做什么
 
-<table>
-<tr><td width="25%" align="center">
-
-### � 一进二寻龙
-
-</td>
-<td width="25%" align="center">
-
-### 📐 个股预测
-
-</td>
-<td width="25%" align="center">
-
-### 📋 每日复盘
-
-</td>
-<td width="25%" align="center">
-
-### 🔍 深度分析
-
-</td>
-</tr>
-<tr>
-<td width="25%" valign="top">
-
-**全市场 3000+ 首板 → 13 闸过滤 → 三区择优 → ≤3 只推送**
-
-不是「推荐股票」，是「告诉你哪只票最有可能一进二」。每天 9:26 自动推送到你的微信。
-
-> **战绩：643 次推送，251 次命中，胜率 39.0%（V4.3 双区降级）**
-
-</td>
-<td width="25%" valign="top">
-
-**MA5 + KDJ + MACD + MA10 四维共振打分**
-
-大盘怎么看？个股要不要进？系统告诉你方向 + 仓位。
-
-> 输入代码，秒出信号：🔥强多 / 🔴偏多 / ⚪中性 / 🟢偏空 / ❄️强空
-
-</td>
-<td width="25%" valign="top">
-
-**收盘自动复盘：今天推了什么、中了多少、为什么漏了**
-
-每天 15:01 自动生成复盘报告，持续迭代优化策略。
-
-> 不怕亏损，怕不知道为什么亏。
-
-</td>
-<td width="25%" valign="top">
-
-**主力痕迹拆解：洗盘→试盘→吸筹→出货→拉升**
-
-预测看不清？深度分析把主力的每一步都标出来：哪天在吃货、哪天在试盘、哪天在出货。
-
-> 不是看图说话，是 8 种节点自动识别 + AI 拆解。
-
-</td>
-</tr>
-</table>
+| 🐉 一进二寻龙 | 📐 个股预测 | 📋 每日复盘 | 🔍 深度分析 | ⭐ 选好票 |
+|:---|:---|:---|:---|:---|
+| 全市场首板→13闸→三区→≤3只推送 | MA5+KDJ+MACD+MA10 四维打分 | 收盘自动复盘 命中/遗漏/盲区 | 主力痕迹：洗盘→试盘→出货→拉升 | 全市场≥10分强多票一键筛选 |
 
 ---
 
