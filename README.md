@@ -23,19 +23,6 @@
 
 ---
 
-## 🆕 V2026052301 更新
-
-| 改进 | 说明 |
-|------|------|
-| 🏗️ 架构重构 | `hermes_stock_lib`(纯工具库) / `data_fetcher`(数据层) 职责分离，代码量减 70% |
-| 🔒 数据完整性 | 选好票锁定连续3个交易日日期，缺数据打日志不静默跳过 |
-| 📋 stocks_info 自维护 | 涨停池自动同步股票信息，ST 自动标注，`_codes()` UNION 兜底不漏票 |
-| 🕐 统一入口 | `should_run(intraday)` 三脚本同一定时逻辑，A股真实交易日历 |
-| 🐛 修关键 Bug | `prev_trading_day` 非交易日 off-by-one、`__exit__` 连接泄漏、KDJ 递推缓存、cron 调度工作日等 10+ 项 |
-| 🧹 代码清理 | 死代码/未用 import/歧义命名 全清理 |
-
----
-
 ## 📱 直接接入你的微信/QQ
 
 <p align="center">
@@ -258,3 +245,29 @@
 <p align="center">
   <sub>⚠️ 行情数据来源：同花顺 / 新浪 / baostock | 仅供研究学习，不构成投资建议 | 市场有风险，投资需谨慎</sub>
 </p>
+
+---
+
+## 📝 更新日志
+
+### V2026052301 (2026-05-23)
+- 🏗️ 架构重构：`hermes_stock_lib`(纯工具库 243行) / `data_fetcher`(数据层 927行) 职责分离
+- 🔒 选好票锁定连续3个交易日日期，缺数据打日志不静默跳过
+- 📋 stocks_info 涨停池自动维护，ST 检测，`_codes()` UNION 兜底
+- 🕐 `should_run(intraday)` 三脚本统一入口，A股真实交易日历
+- 🐛 修：`prev_trading_day` off-by-one、`__exit__` 连接泄漏、KDJ 递推缓存、cron 工作日调度
+- 🧹 清理：死代码、未用 import、`C5`→`SEAL_TIME_MAX_MINUTES`、参数名歧义
+
+### V4.6 (2026-05-15)
+- DataFetcher 数据工厂重构，ensure 全自动治理
+- 选好票功能上线，全市场四维评分
+- 盘中实时K线刷新 (is_intraday 标记)
+
+### V4.5 (2026-05-01)
+- OOP 重构：MorningPush/AfternoonReview/MarketSignal 继承 DataFetcher
+- 13 闸硬逻辑 + 10 维软逻辑评分
+- 三区降级策略（一区 5.0-7.9% / 二区 3.0-5.0%）
+
+### V4.2 (2026-04-15)
+- 双区降级，牺牲部分胜率换低大面风险
+- 微信/QQ 全平台接入
