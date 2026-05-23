@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V4.6_数据工厂-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V2026052301-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-39.5%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -20,6 +20,19 @@
 | 📋 每日复盘 | 收盘自动复盘：推了什么、中了多少、为什么漏了。15:01 自动推送，策略持续迭代。 |
 | 🔍 深度分析 | 主力痕迹拆解：洗盘→试盘→吸筹→出货→拉升。30天全景K线 + AI 拆解。 |
 | ⭐ 选好票 | 全市场 3000+ 股票秒级扫描，MA5+KDJ+MACD+MA10 四维打分，一键筛出 ≥10 分强多票。 |
+
+---
+
+## 🆕 V2026052301 更新
+
+| 改进 | 说明 |
+|------|------|
+| 🏗️ 架构重构 | `hermes_stock_lib`(纯工具库) / `data_fetcher`(数据层) 职责分离，代码量减 70% |
+| 🔒 数据完整性 | 选好票锁定连续3个交易日日期，缺数据打日志不静默跳过 |
+| 📋 stocks_info 自维护 | 涨停池自动同步股票信息，ST 自动标注，`_codes()` UNION 兜底不漏票 |
+| 🕐 统一入口 | `should_run(intraday)` 三脚本同一定时逻辑，A股真实交易日历 |
+| 🐛 修关键 Bug | `prev_trading_day` 非交易日 off-by-one、`__exit__` 连接泄漏、KDJ 递推缓存、cron 调度工作日等 10+ 项 |
+| 🧹 代码清理 | 死代码/未用 import/歧义命名 全清理 |
 
 ---
 
