@@ -183,7 +183,7 @@ h1{
 .contact .qq{font-size:clamp(22px,4vw,28px);font-weight:900;color:var(--gold);letter-spacing:2px}
 .contact .note{font-size:12px;color:var(--dim);margin-top:6px}
 .contact .cta{
-  display:inline-block;margin-top:12px;
+  display:inline-block;margin-top:12px;margin-left:6px;margin-right:6px;
   background:linear-gradient(135deg,#d4a853,#8a6d30);
   color:#050508;padding:10px 30px;border-radius:24px;
   font-size:14px;font-weight:700;letter-spacing:2px;text-decoration:none;
@@ -481,6 +481,7 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
   <div class="qq">QQ / 微信：68110923</div>
   <div class="note">加好友备注「寻龙诀」 → 发我你的微信/QQ号 → 24小时内部署上线</div>
   <a class="cta" href="#" onclick="copyQQ();return false">📞 立即联系</a>
+  <a class="cta" style="background:#1a1b26;border:1px solid #d4a853" href="#" onclick="goReadme();return false">📖 查看文档</a>
 </div>
 
 <script>
@@ -492,6 +493,15 @@ function copyQQ(){
     document.body.appendChild(t);
     setTimeout(function(){t.style.opacity='0';t.style.transition='opacity .4s';setTimeout(function(){t.remove()},400)},1800);
   });
+}
+function goReadme(){
+  var host = window.location.hostname;
+  var path = window.location.pathname;
+  var parts = path.split('/').filter(Boolean);
+  var repo = parts[0] || 'xunlongjue';
+  // GitHub Pages: username.github.io/repo/ → username from subdomain
+  var username = host.endsWith('.github.io') ? host.replace('.github.io','') : '你的GitHub用户名';
+  window.open('https://github.com/' + username + '/' + repo + '#readme', '_blank');
 }
 </script>
 
