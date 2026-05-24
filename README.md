@@ -176,7 +176,7 @@
 
 > 一顿饭钱，换一个 7×24 小时不睡觉的量化助手。
 >
-> 💻 自行部署请查看 [部署文档](https://raw.githubusercontent.com/68110923/xunlongjue/main/DEPLOY.md)
+> 💻 自行部署请查看 [部署文档](https://github.com/68110923/xunlongjue/blob/main/DEPLOY.md#%E5%AF%BB%E9%BE%99%E8%AF%80--%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3)
 
 ---
 
