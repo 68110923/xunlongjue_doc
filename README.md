@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V2026052301-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V2026052601-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-39.5%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -251,6 +251,16 @@
 ---
 
 ## 📝 更新日志
+
+### V2026052601 (2026-05-25)
+- 🔧 **共振豁免机制** — 一字板票（gap_open≥5%）若行业共振(≥5只涨停)可豁免压分进入候选池，s_open线性扣分-5~-15
+- 📊 **共振板块SQL优化** — 判定改用全量涨停（含连板）JOIN查询，真实反映板块强度
+- 🗂️ **共振数据输出** — 早盘JSON新增resonance_sectors字段，复盘DATA_BLOCK新增共振板块{昨日/今日}对比
+- 🐛 **修：VR量比死代码** — compute_volume_ratio定义从未被调用，加到所有K线路径
+- 🐛 **修：_boards传错日期** — ensure()永远传self.today而非from_date
+- 🐛 **修：复盘推送漏报** — 推送数从daily_screen取而非一进二成功集合
+- 🐛 **修：收盘价偏差** — 盘后强制Sina刷新K线（15:00后）
+- 🔗 **软链修复** — /root/.hermes/scripts指向正确路径
 
 ### V2026052301 (2026-05-23)
 - 🏗️ 架构重构：`hermes_stock_lib`(纯工具库 243行) / `data_fetcher`(数据层 927行) 职责分离
