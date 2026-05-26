@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V2026052602-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V2026052603-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-39.5%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -251,6 +251,11 @@
 ---
 
 ## 📝 更新日志
+
+### V2026052603 (2026-05-26)
+- 🐛 **修：MACD DEA交叉判断用错日期** — `ydif > dea`/`ydif < dea` 中的 `dea` 取了当日值，应为昨日DEA。导致「DEA下涨」误触发。修复：加 `ydea = rp['macd_dea']`，两处改用 `ydea`。
+- ⚡ **MACD EMA精度提升** — `_incremental_indicators` 递推行数 35→300，EMA收敛更接近真值。
+- ✨ **选好票加行业字段** — `stock_screener --simple/--json` 输出新增 `industry` 字段，支持按板块分组展示。
 
 ### V2026052602 (2026-05-26)
 - 🐛 **修：竞价数据脏缓存** — 凌晨手动测试的auction_snapshots被9:26定时任务复用，导致涨停股次日gap全错。Step3前强制DELETE当天缓存重新拉Sina。
