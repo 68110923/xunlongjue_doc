@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V2026052601-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V2026052602-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-39.5%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -251,6 +251,10 @@
 ---
 
 ## 📝 更新日志
+
+### V2026052602 (2026-05-26)
+- 🐛 **修：竞价数据脏缓存** — 凌晨手动测试的auction_snapshots被9:26定时任务复用，导致涨停股次日gap全错。Step3前强制DELETE当天缓存重新拉Sina。
+- 🧹 **references清理** — 删7个过时文件+修剪4个保留文件
 
 ### V2026052601 (2026-05-25)
 - 🔧 **共振豁免机制** — 一字板票（gap_open≥5%）若行业共振(≥5只涨停)可豁免压分进入候选池，s_open线性扣分-5~-15
