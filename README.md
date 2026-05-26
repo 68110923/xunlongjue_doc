@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V2026052603-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V2026052604-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-39.5%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -251,6 +251,11 @@
 ---
 
 ## 📝 更新日志
+
+### V2026052604 (2026-05-26)
+- 🚪 **闸14：J<80 + 单日暴增≥30** — 首板日J值低于80且单日暴增≥30的超跌一日游票直接过滤。1936样本回测仅11.8%晋级率，阈值经25/30/35三档测试后定30。
+- 📐 **市值闸放宽** — GATE_CAP 45-200 → 42-800亿，最优区间 80-120 → 60-300亿，`_score_market_cap` 同步调整。
+- 🔢 **13闸→14闸** — 全局更新注释和文档。
 
 ### V2026052603 (2026-05-26)
 - 🐛 **修：MACD DEA交叉判断用错日期** — `ydif > dea`/`ydif < dea` 中的 `dea` 取了当日值，应为昨日DEA。导致「DEA下涨」误触发。修复：加 `ydea = rp['macd_dea']`，两处改用 `ydea`。
