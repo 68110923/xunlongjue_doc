@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V2026052604-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V2026052701-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-39.5%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -251,6 +251,15 @@
 ---
 
 ## 📝 更新日志
+
+### V2026052701 (2026-05-27)
+- 🗄️ **建表统一** — 新增 `schema.sql` 为建表唯一真源，`data_fetcher` 和 `setup_backfill` 均改读此文件，不再各自维护 CREATE TABLE。
+- 🧹 **DB 不进 git** — `hermes_stock.db` 从仓库移除，`.gitignore` 已排除。
+- 📄 **schema 文档精简** — `daily-kline-schema.md` 改为索引，指向 `schema.sql`。
+- ⚡ **`_gaps()` 加 120 天窗口** — GROUP BY 不全表扫，性能优化。
+- 🐛 **修：`_kline_insert_batch/one` 补 raw_json** — INSERT 漏写该列，已补全。
+- 🐛 **修：`import os` 缺失** — `data_fetcher.py` 模块级 `_SCHEMA_PATH` 需要 `os`。
+- 📋 **DEPLOY 更新** — 增加 `schema.sql` 建表步骤和 skill reload 说明。
 
 ### V2026052604 (2026-05-26)
 - 🚪 **闸14：J<80 + 单日暴增≥30** — 首板日J值低于80且单日暴增≥30的超跌一日游票直接过滤。1936样本回测仅11.8%晋级率，阈值经25/30/35三档测试后定30。
