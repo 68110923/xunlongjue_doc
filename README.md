@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V2026052701-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V2026052801-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-39.5%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -251,6 +251,14 @@
 ---
 
 ## 📝 更新日志
+
+### V2026052801 (2026-05-28)
+- 🔧 **闸14 完善** — 增加"前日J上涨"判定条件，J连涨两天 + 涨停日暴增≥30 + J<80 → 杀。精准过滤假强势票。
+- 🔧 **闸8 简化** — 移除复活机制，高开票直接按共振板块判定（共振过/不过），代码精简 88 行。
+- 📊 **共振双阈值** — `SECTOR_RESONANCE_MIN=5`（硬闸豁免）+ `SECTOR_RESONANCE_SOFT=4`（软加分），独立调参。
+- 📐 **量比评分重写** — 从"缩量最优"改为 0.8~3.3 最优区间，两端都扣分。
+- ⏰ **封板时间放宽** — 13:10 → 13:30。
+- 📝 **策略文档** — 新增 `references/strategy.md`，17 条策略按 KDJ/封板/市值/竞价分组编号。
 
 ### V2026052701 (2026-05-27)
 - 🗄️ **建表统一** — 新增 `schema.sql` 为建表唯一真源，`data_fetcher` 和 `setup_backfill` 均改读此文件，不再各自维护 CREATE TABLE。
