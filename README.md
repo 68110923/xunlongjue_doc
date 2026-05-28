@@ -258,7 +258,9 @@
 - 📊 **共振双阈值** — `SECTOR_RESONANCE_MIN=5`（硬闸豁免）+ `SECTOR_RESONANCE_SOFT=4`（软加分），独立调参。
 - 📐 **量比评分重写** — 从"缩量最优"改为 0.8~3.3 最优区间，两端都扣分。
 - ⏰ **封板时间放宽** — 13:10 → 13:30。
-- 📝 **策略文档** — 新增 `references/strategy.md`，17 条策略按 KDJ/封板/市值/竞价分组编号。
+- 📝 **策略文档** — 新增 `references/strategy.md`，17 条策略按功能分组编号。
+- 📝 **技术预测/选好票/深度分析常量抽取** — 阈值统一管理。
+- 🏷️ **行业归一化** — 新增 `normalize_industry()`，去证监会代码前缀+取首个分隔符前内容。stocks_info 写入加防覆盖（COALESCE），baostock/akshare 双路径归一化。
 
 ### V2026052701 (2026-05-27)
 - 🗄️ **建表统一** — 新增 `schema.sql` 为建表唯一真源，`data_fetcher` 和 `setup_backfill` 均改读此文件，不再各自维护 CREATE TABLE。
