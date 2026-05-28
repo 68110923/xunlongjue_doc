@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V2026052801-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V2026052901-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-39.5%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -251,6 +251,11 @@
 ---
 
 ## 📝 更新日志
+
+### V2026052901 (2026-05-29)
+- 📊 **共振阈值下调** — `SECTOR_RESONANCE_MIN` 5→4（硬闸豁免）、`SECTOR_RESONANCE_SOFT` 4→3（软加分）。适配当前缩量市场，降低同板块涨停聚集门槛。
+- 📋 **选好票分组优化** — 板块 ≤2 只归入「其他板块」（原 ≤3），≥3 只独立展示。
+- 📦 **DEPLOY 精简** — 加 `pyyaml` 依赖，建表步骤去掉手动 sqlite3（setup_backfill 已自动执行）。
 
 ### V2026052801 (2026-05-28)
 - 🔧 **闸14 完善** — 增加"前日J上涨"判定条件，J连涨两天 + 涨停日暴增≥30 + J<80 → 杀。精准过滤假强势票。
