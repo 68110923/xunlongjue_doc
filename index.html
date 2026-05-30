@@ -204,6 +204,34 @@ footer{text-align:center;padding:20px;position:relative;z-index:1}
 footer .risk{font-size:10px;color:var(--dim);line-height:1.6}
 footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px}
 
+/* Changelog */
+.cl-wrap{position:relative;z-index:1;margin-bottom:24px}
+.cl-version{
+  background:linear-gradient(180deg,var(--card),#06060e);
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px 20px;margin-bottom:10px;
+}
+.cl-version .vtag{
+  font-size:14px;font-weight:900;color:var(--gold);letter-spacing:1px;
+  margin-bottom:10px;display:block;
+}
+.cl-version .vtag .vdate{font-size:12px;color:var(--dim);font-weight:400;margin-left:8px}
+.cl-item{
+  font-size:12px;color:var(--text);line-height:1.7;
+  padding:3px 0 3px 16px;position:relative;
+}
+.cl-item::before{content:'▸';position:absolute;left:0;color:var(--gold);font-size:10px}
+.cl-sub-item{
+  font-size:11px;color:var(--dim);line-height:1.6;
+  padding:1px 0 1px 28px;position:relative;
+}
+.cl-sub-item::before{content:'·';position:absolute;left:18px;color:var(--dim)}
+.cl-item code,.cl-sub-item code{
+  background:rgba(212,168,83,.08);color:var(--gold);font-size:11px;
+  padding:1px 6px;border-radius:4px;font-family:monospace;
+}
+.cl-item strong{color:var(--wht);font-weight:700}
+
 .divider{
   height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,83,.12),transparent);
   margin:40px 0;position:relative;z-index:1;
@@ -499,11 +527,76 @@ function goReadme(){
   var path = window.location.pathname;
   var parts = path.split('/').filter(Boolean);
   var repo = parts[0] || 'xunlongjue';
-  // GitHub Pages: username.github.io/repo/ → username from subdomain
-  var username = host.endsWith('.github.io') ? host.replace('.github.io','') : '你的GitHub用户名';
+  var username = host.endsWith('.github.io') ? host.replace('.github.io','') : '68110923';
   window.open('https://github.com/' + username + '/' + repo + '#readme', '_blank');
 }
+
+// ── 读取 README.md 更新日志 ──
+function mdToHtml(t){
+  return t
+    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+    .replace(/`(.+?)`/g,'<code>$1</code>')
+    .replace(/\[(.+?)\]\((.+?)\)/g,'<a href="$2" target="_blank" style="color:var(--gold)">$1</a>');
+}
+function loadChangelog(){
+  var el=document.getElementById('changelog');
+  // Try relative path; fallback to GitHub raw
+  function parseAndRender(md){
+    var lines=md.split('\n');
+    var inCL=false, buf=[];
+    for(var i=0;i<lines.length;i++){
+      var l=lines[i];
+      if(/^##\s*📝/.test(l)){inCL=true;continue}
+      if(inCL&&/^##\s/.test(l)&&!/^###\s/.test(l))break;
+      if(inCL)buf.push(l);
+    }
+    var html='';
+    for(var i=0;i<buf.length;i++){
+      var l=buf[i];
+      if(/^###\s/.test(l)){
+        var m=l.match(/^###\s+(.+?)(?:\s+\((\d{4}-\d{2}-\d{2})\))?$/);
+        if(m) html+='<div class="cl-version"><span class="vtag">'+mdToHtml(m[1].trim())+(m[2]?'<span class="vdate">'+m[2]+'</span>':'')+'</span>';
+        else html+='<div class="cl-version"><span class="vtag">'+mdToHtml(l.replace(/^###\s+/,''))+'</span>';
+      }else if(/^\s{2,}\*\s/.test(l)){
+        html+='<div class="cl-sub-item">'+mdToHtml(l.replace(/^\s*\*\s+/,''))+'</div>';
+      }else if(/^-\s/.test(l)){
+        html+='<div class="cl-item">'+mdToHtml(l.replace(/^-\s+/,''))+'</div>';
+      }else if(/^$/.test(l)&&/cl-version/.test(html.slice(-50))){
+        html+='</div>';
+      }
+    }
+    // close last version div if needed
+    if(!html.endsWith('</div>\n')&&!html.endsWith('</div>'))html+='</div>';
+    el.innerHTML=html||'<p style="text-align:center;color:var(--dim);font-size:12px">暂无更新日志</p>';
+  }
+  fetch('README.md').then(function(r){
+    if(!r.ok)throw new Error('fail');
+    return r.text();
+  }).then(parseAndRender).catch(function(){
+    // Fallback to GitHub raw
+    var host=window.location.hostname;
+    var path=window.location.pathname;
+    var parts=path.split('/').filter(Boolean);
+    var repo=parts[0]||'xunlongjue';
+    var user=host.endsWith('.github.io')?host.replace('.github.io',''):'68110923';
+    fetch('https://raw.githubusercontent.com/'+user+'/'+repo+'/main/README.md').then(function(r2){
+      if(!r2.ok)throw new Error('fail2');
+      return r2.text();
+    }).then(parseAndRender).catch(function(){
+      el.innerHTML='<p style="text-align:center;color:var(--dim);font-size:12px">⚠️ 无法加载更新日志</p>';
+    });
+  });
+}
+loadChangelog();
 </script>
+
+<div class="divider"></div>
+
+<!-- ═══ 更新日志 ═══ -->
+<div class="sec-title">📝 更新日志</div>
+<div id="changelog" class="cl-wrap">
+  <p style="text-align:center;color:var(--dim);font-size:12px">⏳ 加载中...</p>
+</div>
 
 <div class="divider"></div>
 
