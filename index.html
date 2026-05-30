@@ -523,13 +523,21 @@ function copyQQ(){
   });
 }
 function goReadme(){
-  var host = window.location.hostname;
-  var path = window.location.pathname;
-  var parts = path.split('/').filter(Boolean);
-  var repo = parts[0] || 'xunlongjue';
-  var username = host.endsWith('.github.io') ? host.replace('.github.io','') : '68110923';
-  window.open('https://github.com/' + username + '/' + repo + '#readme', '_blank');
+  var repo=getRepoName()||'xunlongjue';
+  var username=window.location.hostname.endsWith('.github.io')?window.location.hostname.replace('.github.io',''):'68110923';
+  window.open('https://github.com/'+username+'/'+repo+'#readme','_blank');
 }
+
+// ── 从 URL 自动识别所在仓库 ──
+function getRepoName(){
+  var path=window.location.pathname.split('/').filter(Boolean);
+  if(window.location.hostname.endsWith('.github.io')&&path.length>0) return path[0];
+  // 本地 HTTP server：取首段非文件路径
+  for(var i=0;i<path.length;i++) if(path[i].indexOf('.')===-1&&!path[i].startsWith('~')) return path[i];
+  return '';
+}
+var REPO=getRepoName()||'xunlongjue';
+var RAW_URL='https://raw.githubusercontent.com/68110923/'+REPO+'/main/README.md';
 
 // ── 读取 README.md 更新日志 ──
 function mdToHtml(t){
@@ -540,7 +548,6 @@ function mdToHtml(t){
 }
 function loadChangelog(){
   var el=document.getElementById('changelog');
-  var RAW_URL='https://raw.githubusercontent.com/68110923/xunlongjue/main/README.md';
 
   function parseAndRender(md){
     var lines=md.split('\n');
