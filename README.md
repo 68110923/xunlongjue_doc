@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V2026052901-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V2026053101-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-39.5%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -251,6 +251,9 @@
 ---
 
 ## 📝 更新日志
+
+### V2026053101 (2026-05-31)
+- 📅 **交割日提醒上线** — 新增 `get_delivery_alert()`，算法：每月第三个周五（节假日顺延）。交割日前3个交易日 + 交割日当天 = 共4天窗口提醒。早盘推送 JSON 新增 `delivery_alert` 字段，当天显示「⚠️ 今日股指期货交割日」，提前显示「⏳ 距交割日还有N个交易日」。2026年6月交割日 6/19 顺延至 6/22（端午节）已验证。
 
 ### V2026052902 (2026-05-29)
 - 📊 **共振阈值调升** — `SECTOR_RESONANCE_MIN` 4→7（硬闸豁免）、`SECTOR_RESONANCE_SOFT` 3→5（软加分）。10天回测均值1.1共振板块/天，仅大行情日触发，提高信号纯度。
