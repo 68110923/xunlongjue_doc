@@ -205,7 +205,15 @@ footer .risk{font-size:10px;color:var(--dim);line-height:1.6}
 footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px}
 
 /* Changelog */
-.cl-wrap{position:relative;z-index:1;margin-bottom:24px}
+.cl-details{
+  background:linear-gradient(180deg,var(--card),#06060e);
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:16px 20px;margin-bottom:24px;position:relative;z-index:1;
+}
+.cl-details summary{
+  font-size:13px;color:var(--wht);cursor:pointer;font-weight:700;letter-spacing:4px;text-align:center;
+}
+.cl-wrap{position:relative;z-index:1;margin-top:16px}
 .cl-version{
   background:linear-gradient(180deg,var(--card),#06060e);
   border:1px solid var(--border);border-radius:var(--radius);
@@ -261,6 +269,7 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 .pulse{animation:pulse 2s infinite}
 </style>
+
 </head>
 <body>
 
@@ -508,99 +517,8 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
 <div class="contact">
   <div class="qq">QQ / 微信：68110923</div>
   <div class="note">加好友备注「寻龙诀」 → 发我你的微信/QQ号 → 24小时内部署上线</div>
-  <a class="cta" href="#" onclick="copyQQ();return false">📞 立即联系</a>
-  <a class="cta" style="background:#1a1b26;border:1px solid #d4a853" href="#" onclick="goReadme();return false">📖 查看文档</a>
-</div>
-
-<script>
-function copyQQ(){
-  navigator.clipboard.writeText('68110923').then(function(){
-    var t=document.createElement('div');
-    t.style.cssText='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#d4a853;color:#050508;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;z-index:999;pointer-events:none';
-    t.textContent='✅ 已复制 68110923，打开微信/QQ搜索添加';
-    document.body.appendChild(t);
-    setTimeout(function(){t.style.opacity='0';t.style.transition='opacity .4s';setTimeout(function(){t.remove()},400)},1800);
-  });
-}
-function goReadme(){
-  var repo=getRepoName()||'xunlongjue';
-  var username=window.location.hostname.endsWith('.github.io')?window.location.hostname.replace('.github.io',''):'68110923';
-  window.open('https://github.com/'+username+'/'+repo+'#readme','_blank');
-}
-
-// ── 从 URL 自动识别所在仓库 ──
-function getRepoName(){
-  var path=window.location.pathname.split('/').filter(Boolean);
-  if(window.location.hostname.endsWith('.github.io')&&path.length>0) return path[0];
-  // 本地 HTTP server：取首段非文件路径
-  for(var i=0;i<path.length;i++) if(path[i].indexOf('.')===-1&&!path[i].startsWith('~')) return path[i];
-  return '';
-}
-var REPO=getRepoName()||'xunlongjue';
-var RAW_URL='https://raw.githubusercontent.com/68110923/'+REPO+'/main/README.md';
-
-// ── 读取 README.md 更新日志 ──
-function mdToHtml(t){
-  return t
-    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
-    .replace(/`(.+?)`/g,'<code>$1</code>')
-    .replace(/\[(.+?)\]\((.+?)\)/g,'<a href="$2" target="_blank" style="color:var(--gold)">$1</a>');
-}
-function loadChangelog(){
-  var el=document.getElementById('changelog');
-
-  function parseAndRender(md){
-    var lines=md.split('\n');
-    var inCL=false, buf=[];
-    for(var i=0;i<lines.length;i++){
-      var l=lines[i];
-      if(/^##\s*📝/.test(l)){inCL=true;continue}
-      if(inCL&&/^##\s/.test(l)&&!/^###\s/.test(l))break;
-      if(inCL)buf.push(l);
-    }
-    var html='';
-    for(var i=0;i<buf.length;i++){
-      var l=buf[i];
-      if(/^###\s/.test(l)){
-        var m=l.match(/^###\s+(.+?)(?:\s+\((\d{4}-\d{2}-\d{2})\))?$/);
-        if(m) html+='<div class="cl-version"><span class="vtag">'+mdToHtml(m[1].trim())+(m[2]?'<span class="vdate">'+m[2]+'</span>':'')+'</span>';
-        else html+='<div class="cl-version"><span class="vtag">'+mdToHtml(l.replace(/^###\s+/,''))+'</span>';
-      }else if(/^\s{2,}\*\s/.test(l)){
-        html+='<div class="cl-sub-item">'+mdToHtml(l.replace(/^\s*\*\s+/,''))+'</div>';
-      }else if(/^-\s/.test(l)){
-        html+='<div class="cl-item">'+mdToHtml(l.replace(/^-\s+/,''))+'</div>';
-      }else if(/^$/.test(l)&&/cl-version/.test(html.slice(-50))){
-        html+='</div>';
-      }
-    }
-    if(!html.endsWith('</div>\n')&&!html.endsWith('</div>'))html+='</div>';
-    el.innerHTML=html||'<p style="text-align:center;color:var(--dim);font-size:12px">暂无更新日志</p>';
-  }
-
-  // Try relative path first (works on GitHub Pages & local HTTP servers)
-  fetch('README.md').then(function(r){
-    if(!r.ok)throw new Error('fail');
-    return r.text();
-  }).then(parseAndRender).catch(function(){
-    // Fallback: try GitHub raw URL (works for public repos on file://)
-    fetch(RAW_URL).then(function(r2){
-      if(!r2.ok)throw new Error('fail2');
-      return r2.text();
-    }).then(parseAndRender).catch(function(){
-      // If both fail, try to read from embedded data
-      el.innerHTML='<p style="text-align:center;color:var(--dim);font-size:12px">⚠️ 无法加载更新日志。如果以 file:// 协议打开，请改用 HTTP 服务器：<code style="background:rgba(212,168,83,.08);color:var(--gold);padding:1px 6px;border-radius:4px">python3 -m http.server</code></p>';
-    });
-  });
-}
-loadChangelog();
-</script>
-
-<div class="divider"></div>
-
-<!-- ═══ 更新日志 ═══ -->
-<div class="sec-title">📝 更新日志</div>
-<div id="changelog" class="cl-wrap">
-  <p style="text-align:center;color:var(--dim);font-size:12px">⏳ 加载中...</p>
+  <a class="cta" href="#" id="btn-copy-qq">📞 立即联系</a>
+  <a class="cta" style="background:#1a1b26;border:1px solid #d4a853" href="#" id="btn-go-readme">📖 查看文档</a>
 </div>
 
 <div class="divider"></div>
@@ -630,6 +548,18 @@ loadChangelog();
   </details>
 </div>
 
+<div class="divider"></div>
+
+<!-- ═══ 更新日志 ═══ -->
+<details class="cl-details">
+  <summary>📝 更新日志</summary>
+  <div id="changelog" class="cl-wrap">
+    <p style="text-align:center;color:var(--dim);font-size:12px">⏳ 加载中...</p>
+  </div>
+</details>
+
+<div class="divider"></div>
+
 <footer>
   <div class="brand">🐉 寻龙诀 · 大A主板一进二竞价量化系统</div>
   <div class="risk">
@@ -639,5 +569,93 @@ loadChangelog();
 </footer>
 
 </div>
+<script>
+// ── 从 URL 自动识别所在仓库 ──
+function getRepoName(){
+  var path=window.location.pathname.split('/').filter(Boolean);
+  if(window.location.hostname.endsWith('.github.io')&&path.length>0) return path[0];
+  for(var i=0;i<path.length;i++) if(path[i].indexOf('.')===-1&&!path[i].startsWith('~')) return path[i];
+  return '';
+}
+var REPO=getRepoName()||'xunlongjue';
+var RAW_URL='https://raw.githubusercontent.com/68110923/'+REPO+'/main/README.md';
+
+// ── 复制 QQ ──
+function copyQQ(){
+  navigator.clipboard.writeText('68110923').then(function(){
+    var t=document.createElement('div');
+    t.style.cssText='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#d4a853;color:#050508;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;z-index:999;pointer-events:none';
+    t.textContent='✅ 已复制 68110923，打开微信/QQ搜索添加';
+    document.body.appendChild(t);
+    setTimeout(function(){t.style.opacity='0';t.style.transition='opacity .4s';setTimeout(function(){t.remove()},400)},1800);
+  });
+}
+
+// ── 打开 GitHub ──
+function goReadme(){
+  var repo=getRepoName()||'xunlongjue';
+  var username=window.location.hostname.endsWith('.github.io')?window.location.hostname.replace('.github.io',''):'68110923';
+  window.open('https://github.com/'+username+'/'+repo+'#readme','_blank');
+}
+
+// ── Markdown → HTML 行内渲染 ──
+function mdToHtml(t){
+  return t
+    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+    .replace(/`(.+?)`/g,'<code>$1</code>')
+    .replace(/\[(.+?)\]\((.+?)\)/g,'<a href="$2" target="_blank" style="color:var(--gold)">$1</a>');
+}
+
+// ── 加载更新日志 ──
+function loadChangelog(){
+  var el=document.getElementById('changelog');
+  if(!el) return;
+  function parseAndRender(md){
+    var lines=md.split('\n');
+    var inCL=false, buf=[];
+    for(var i=0;i<lines.length;i++){
+      var l=lines[i];
+      if(/^##\s*📝/.test(l)){inCL=true;continue}
+      if(inCL&&/^##\s/.test(l)&&!/^###\s/.test(l))break;
+      if(inCL)buf.push(l);
+    }
+    var html='', versionOpen=false;
+    for(var i=0;i<buf.length;i++){
+      var l=buf[i];
+      if(/^###\s/.test(l)){
+        if(versionOpen) html+='</div>';
+        versionOpen=true;
+        var m=l.match(/^###\s+(.+?)(?:\s+\((\d{4}-\d{2}-\d{2})\))?$/);
+        if(m) html+='<div class="cl-version"><span class="vtag">'+mdToHtml(m[1].trim())+(m[2]?'<span class="vdate">'+m[2]+'</span>':'')+'</span>';
+        else html+='<div class="cl-version"><span class="vtag">'+mdToHtml(l.replace(/^###\s+/,''))+'</span>';
+      }else if(/^\s{2,}\*\s/.test(l)){
+        html+='<div class="cl-sub-item">'+mdToHtml(l.replace(/^\s*\*\s+/,''))+'</div>';
+      }else if(/^-\s/.test(l)){
+        html+='<div class="cl-item">'+mdToHtml(l.replace(/^-\s+/,''))+'</div>';
+      }
+    }
+    if(versionOpen) html+='</div>';
+    el.innerHTML=html||'<p style="text-align:center;color:var(--dim);font-size:12px">暂无更新日志</p>';
+  }
+  fetch('README.md').then(function(r){
+    if(!r.ok)throw new Error();
+    return r.text();
+  }).then(parseAndRender).catch(function(){
+    fetch(RAW_URL).then(function(r2){
+      if(!r2.ok)throw new Error();
+      return r2.text();
+    }).then(parseAndRender).catch(function(){
+      el.innerHTML='<p style="text-align:center;color:var(--dim);font-size:12px">⚠️ 无法加载更新日志</p>';
+    });
+  });
+}
+
+// ── DOM 就绪后执行 ──
+document.addEventListener('DOMContentLoaded',function(){
+  loadChangelog();
+  document.getElementById('btn-copy-qq')?.addEventListener('click',function(e){e.preventDefault();copyQQ()});
+  document.getElementById('btn-go-readme')?.addEventListener('click',function(e){e.preventDefault();goReadme()});
+});
+</script>
 </body>
 </html>
