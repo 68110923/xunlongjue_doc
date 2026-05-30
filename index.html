@@ -540,7 +540,8 @@ function mdToHtml(t){
 }
 function loadChangelog(){
   var el=document.getElementById('changelog');
-  // Try relative path; fallback to GitHub raw
+  var RAW_URL='https://raw.githubusercontent.com/68110923/xunlongjue/main/README.md';
+
   function parseAndRender(md){
     var lines=md.split('\n');
     var inCL=false, buf=[];
@@ -565,25 +566,22 @@ function loadChangelog(){
         html+='</div>';
       }
     }
-    // close last version div if needed
     if(!html.endsWith('</div>\n')&&!html.endsWith('</div>'))html+='</div>';
     el.innerHTML=html||'<p style="text-align:center;color:var(--dim);font-size:12px">暂无更新日志</p>';
   }
+
+  // Try relative path first (works on GitHub Pages & local HTTP servers)
   fetch('README.md').then(function(r){
     if(!r.ok)throw new Error('fail');
     return r.text();
   }).then(parseAndRender).catch(function(){
-    // Fallback to GitHub raw
-    var host=window.location.hostname;
-    var path=window.location.pathname;
-    var parts=path.split('/').filter(Boolean);
-    var repo=parts[0]||'xunlongjue';
-    var user=host.endsWith('.github.io')?host.replace('.github.io',''):'68110923';
-    fetch('https://raw.githubusercontent.com/'+user+'/'+repo+'/main/README.md').then(function(r2){
+    // Fallback: try GitHub raw URL (works for public repos on file://)
+    fetch(RAW_URL).then(function(r2){
       if(!r2.ok)throw new Error('fail2');
       return r2.text();
     }).then(parseAndRender).catch(function(){
-      el.innerHTML='<p style="text-align:center;color:var(--dim);font-size:12px">⚠️ 无法加载更新日志</p>';
+      // If both fail, try to read from embedded data
+      el.innerHTML='<p style="text-align:center;color:var(--dim);font-size:12px">⚠️ 无法加载更新日志。如果以 file:// 协议打开，请改用 HTTP 服务器：<code style="background:rgba(212,168,83,.08);color:var(--gold);padding:1px 6px;border-radius:4px">python3 -m http.server</code></p>';
     });
   });
 }
