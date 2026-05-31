@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V2026053102-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V2026053103-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-39.5%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -251,6 +251,14 @@
 ---
 
 ## 📝 更新日志
+
+### V2026053103 (2026-05-31)
+- 🏗️ **stocks_info 重构** — 统一为**只读静态表**，写入口唯一：`weekly_refresh_stocks_info.py`（每周六 00:00 全量刷新，~52s）
+- 🗑️ **移除冗余写入** — `data_fetcher._fetch_first_boards()` 不再写 stocks_info（-13行），`setup_backfill` 移除 `backfill_industries()` + `backfill_stock_shares()`（-84行）
+- ⚡ **批量接口优化** — `circulating_shares` 改用东方财富 datacenter 批量 API，3481只 19s（原逐只 adata 需~12min）
+- 📅 **新增 cron** — `3d859895708b` 每周六 stocks_info 全量刷新（no_agent）
+- 🗄️ **schema 新增** — `stocks_info.full_update_time` 字段，控制刷新可靠性，缺失率>5%告警
+- 🧹 **死代码清理** — `data_fetcher` 移除未使用的 `normalize_industry` import
 
 ### V2026053102 (2026-05-31)
 - 🏛️ **数据层增强** — `daily_kline` 新增 `turnover`(换手率%)字段，`fetch_realtime()` 捕获新浪行情自带的换手率(`d[10]`)并入库
