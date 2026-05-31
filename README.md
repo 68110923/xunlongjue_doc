@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V2026053101-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V2026053102-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-39.5%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -251,6 +251,14 @@
 ---
 
 ## 📝 更新日志
+
+### V2026053102 (2026-05-31)
+- 🏛️ **数据层增强** — `daily_kline` 新增 `turnover`(换手率%)字段，`fetch_realtime()` 捕获新浪行情自带的换手率(`d[10]`)并入库
+- 🗄️ **stocks_info 补全** — 新增 `circulating_shares`(流通股本/股) + `ipo_date`(上市日期)字段，`setup_backfill` 新增 Step5 用 `ak.stock_individual_info_em()` 一次调用补全两个字段
+- 🔒 **stocks_info 写入保护** — `UPDATE` 改用 `INSERT ... ON CONFLICT DO UPDATE`，避免 `circulating_shares`/`ipo_date` 被覆盖清空
+- 🗑️ **移除 script.js** — JS 全部回退到 `index.html` 内联，方便维护
+- 📄 **网页更新日志动态化** — `index.html` 自动从 `README.md` 读取 `## 📝 更新日志` 渲染，只维护 README 即可
+- 🎨 **更新日志可折叠** — 网页端日志改为 `<details>` 默认收起，位于 FAQ 下方
 
 ### V2026053101 (2026-05-31)
 - 📅 **交割日提醒上线** — 新增 `get_delivery_alert()`，算法：每月第三个周五（节假日顺延）。交割日前3个交易日 + 交割日当天 = 共4天窗口提醒。早盘推送 JSON 新增 `delivery_alert` 字段，当天显示「⚠️ 今日股指期货交割日」，提前显示「⏳ 距交割日还有N个交易日」。2026年6月交割日 6/19 顺延至 6/22（端午节）已验证。
