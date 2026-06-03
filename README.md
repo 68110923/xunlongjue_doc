@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V2026053103-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260603-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-39.5%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -251,6 +251,10 @@
 ---
 
 ## 📝 更新日志
+
+### V20260603 (2026-06-03)
+- 🐛 **复盘市值修复** — DATA_BLOCK 一进二成功新增 `market_cap`(总市值/亿)字段，修复 AI 误把 `amount`(成交额)当市值用的问题（亨通光电 63亿成交额被写成 63亿市值，实际 1900亿）
+- 📝 **模板文档同步** — `cron-prompt-templates.md` DATA_BLOCK 结构追加 `market_cap` + 字段说明（`amount`=成交额、`seal_money`=封单额、`market_cap`=总市值）
 
 ### V2026053103 (2026-05-31)
 - 🏗️ **stocks_info 重构** — 统一为**只读静态表**，写入口唯一：`weekly_refresh_stocks_info.py`（每周六 00:00 全量刷新，~52s）
