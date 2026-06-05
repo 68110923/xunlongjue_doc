@@ -198,11 +198,6 @@
   <table>
   <tr>
     <td align="center" width="33%">
-      <b>关注公众号</b><br>
-      <img src="media/公众号/公众号二维码.jpg" width="180" height="180" /><br>
-      <sub>策略更新 · 实盘案例</sub>
-    </td>
-    <td align="center" width="33%">
       <b>微信捐款 ¥18.88</b><br>
       <img src="media/收款码/微信收款码.jpg" width="180" height="180" /><br>
       <sub>扫码支持 ¥18.88</sub>
@@ -211,6 +206,11 @@
       <b>支付宝捐 ¥88.88</b><br>
       <img src="media/收款码/支付宝收款码.jpg" width="180" height="180" /><br>
       <sub>扫码支持 ¥88.88</sub>
+    </td>
+    <td align="center" width="33%">
+      <b>关注公众号</b><br>
+      <img src="media/公众号/公众号二维码.jpg" width="180" height="180" /><br>
+      <sub>策略更新 · 实盘案例</sub>
     </td>
   </tr>
   </table>
