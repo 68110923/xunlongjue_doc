@@ -48,8 +48,11 @@ body{
 }
 .nav-links{
   display:flex;align-items:center;gap:2px;flex:1;
-  overflow-x:auto;justify-content:center;
+  overflow-x:auto;justify-content:flex-start;
   -webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+@media(min-width:640px){
+  .nav-links{justify-content:center}
 }
 .nav-links::-webkit-scrollbar{display:none}
 .nav-links a{
