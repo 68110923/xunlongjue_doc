@@ -7,26 +7,68 @@
 <title>寻龙诀 · 一进二打板竞价选股 | 自动推送微信QQ | 大盘个股预测</title>
 <style>
 :root{
-  --bg:#050508; --card:#0a0a12; --border:#1a1a2a;
-  --gold:#d4a853; --gold2:#8a6d30; --red:#e53935; --green:#4caf50;
-  --text:#c8c4be; --dim:#6a6662; --wht:#e8e4e0;
-  --radius:10px;
+  --bg:#0f0f13; --bg2:#1a1a23; --bg3:#22222e;
+  --card:#1a1a23; --border:#27272a; --section-alt:#15151e;
+  --accent:#818cf8; --accent2:#1e1b4a; --accent-light:#6366f1;
+  --gold:#d4a853; --gold2:#8a6d30;
+  --red:#e53935; --green:#4caf50; --green2:#22c55e;
+  --text:#e4e4e7; --text2:#a1a1aa; --dim:#71717a; --wht:#f4f4f5;
+  --radius:10px; --nav-bg:rgba(15,15,19,.85);
 }
+
+body.light{
+  --bg:#f8f9fa; --bg2:#ffffff; --bg3:#f1f3f5;
+  --card:#ffffff; --border:#dee2e6; --section-alt:#f1f3f5;
+  --accent:#4F46E5; --accent2:#eef2ff; --accent-light:#6366f1;
+  --gold:#b8860b; --gold2:#8a6d30;
+  --text:#212529; --text2:#495057; --dim:#6c757d; --wht:#212529;
+  --radius:10px; --nav-bg:rgba(248,249,250,.9);
+}
+body.light .bar-wrap{background:#e9ecef}
+body.light .feat .hl{color:var(--accent)}
+body.light .tag{color:var(--accent)}
+
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:56px}
 body{
   background:var(--bg); color:var(--text);
   font-family:'PingFang SC','Noto Sans SC','Microsoft YaHei',system-ui,sans-serif;
   -webkit-font-smoothing:antialiased; line-height:1.6;
+  transition:background .3s,color .3s;
 }
 
-.wrap{max-width:900px;margin:0 auto;padding:60px 24px 40px;position:relative}
+/* ── 顶部导航 ── */
+.top-nav{
+  position:sticky;top:0;z-index:100;
+  background:var(--nav-bg);backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  padding:0 16px;height:48px;gap:2px;overflow-x:auto;
+  transition:background .3s;
+}
+.top-nav a{
+  color:var(--dim);text-decoration:none;font-size:12px;
+  padding:6px 12px;border-radius:6px;white-space:nowrap;
+  transition:color .3s,background .3s;
+}
+.top-nav a:hover{color:var(--accent);background:rgba(129,140,248,.08)}
+.theme-btn{
+  flex-shrink:0;margin-left:auto;background:none;border:1px solid var(--border);
+  border-radius:6px;color:var(--dim);font-size:14px;cursor:pointer;
+  padding:4px 10px;transition:color .3s,border-color .3s;
+  line-height:1;
+}
+.theme-btn:hover{color:var(--accent);border-color:var(--accent)}
+
+.wrap{max-width:900px;margin:0 auto;padding:40px 24px 40px;position:relative}
 .bg-glow{
   position:fixed;top:-200px;left:50%;transform:translateX(-50%);
-  width:600px;height:600px;
-  background:radial-gradient(ellipse,rgba(212,168,83,.06) 0%,transparent 70%);
-  pointer-events:none;z-index:0;
+  width:700px;height:700px;
+  background:radial-gradient(ellipse,rgba(129,140,248,.07) 0%,transparent 70%);
+  pointer-events:none;z-index:0;transition:opacity .3s;
 }
+body.light .bg-glow{opacity:.5}
 
 /* Header */
 header{text-align:center;margin-bottom:40px;position:relative;z-index:1}
@@ -40,9 +82,9 @@ h1{
 .subtitle{font-size:14px;color:var(--dim);letter-spacing:4px}
 .tag-row{display:flex;justify-content:center;gap:8px;margin-top:12px;flex-wrap:wrap}
 .tag{
-  background:linear-gradient(135deg,rgba(212,168,83,.1),rgba(212,168,83,.03));
-  border:1px solid rgba(212,168,83,.15);border-radius:20px;
-  padding:3px 14px;font-size:11px;color:var(--gold);letter-spacing:1px;
+  background:linear-gradient(135deg,rgba(129,140,248,.1),rgba(129,140,248,.03));
+  border:1px solid rgba(129,140,248,.15);border-radius:20px;
+  padding:3px 14px;font-size:11px;color:var(--accent);letter-spacing:1px;
   white-space:nowrap;
 }
 
@@ -54,48 +96,52 @@ h1{
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
 .hero .big-unit{font-size:clamp(30px,5vw,42px);font-weight:700;color:var(--red);vertical-align:super}
-.hero .lbl{font-size:13px;color:var(--gold);letter-spacing:2px;font-weight:700;margin-top:4px}
+.hero .lbl{font-size:13px;color:var(--accent);letter-spacing:2px;font-weight:700;margin-top:4px}
 .hero .sub{font-size:11px;color:var(--dim);margin-top:2px}
 
-/* Cards */
+/* Cards Grid */
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:36px;position:relative;z-index:1}
 .card{
-  background:linear-gradient(180deg,var(--card),#06060e);
+  background:linear-gradient(180deg,var(--bg2),var(--section-alt));
   border:1px solid var(--border);border-radius:var(--radius);
-  padding:20px 12px;text-align:center;
+  padding:20px 12px;text-align:center;transition:border-color .3s,transform .3s,background .3s;
 }
+.card:hover{border-color:rgba(129,140,248,.3);transform:translateY(-2px)}
 .card .val{font-size:clamp(18px,3vw,28px);font-weight:900;line-height:1.1}
 .card .val.r{color:var(--red)}.card .val.g{color:var(--gold)}.card .val.w{color:var(--wht)}.card .val.gr{color:var(--green)}
 .card .lbl{font-size:10px;color:var(--dim);margin-top:4px}
 
-/* Section titles */
+/* Section titles / anchors */
 .sec-title{
   text-align:center;font-size:13px;color:var(--dim);letter-spacing:4px;
   margin:50px 0 24px;position:relative;z-index:1;
 }
 .sec-title::after{
   content:'';display:block;width:40px;height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
   margin:10px auto 0;
 }
+.anchor{scroll-margin-top:64px}
 
 /* Features */
 .features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px;position:relative;z-index:1}
 .feat{
-  background:linear-gradient(180deg,var(--card),#06060e);
+  background:linear-gradient(180deg,var(--bg2),var(--section-alt));
   border:1px solid var(--border);border-radius:var(--radius);
-  padding:24px 16px;text-align:center;
+  padding:24px 16px;text-align:center;transition:border-color .3s,transform .3s,background .3s;
 }
+.feat:hover{border-color:rgba(129,140,248,.25);transform:translateY(-2px)}
 .feat .icon{font-size:36px;margin-bottom:10px}
 .feat h3{font-size:16px;font-weight:700;color:var(--wht);margin-bottom:8px}
 .feat p{font-size:12px;color:var(--dim);line-height:1.7}
-.feat .hl{color:var(--gold);font-weight:700}
+.feat .hl{color:var(--accent);font-weight:700}
 
 /* Chart */
 .chart-wrap{
-  background:linear-gradient(180deg,var(--card),#06060e);
+  background:linear-gradient(180deg,var(--bg2),var(--section-alt));
   border:1px solid var(--border);border-radius:var(--radius);
   padding:28px 24px;margin-bottom:24px;position:relative;z-index:1;
+  transition:background .3s;
 }
 .chart-wrap h3{font-size:13px;color:var(--dim);text-align:center;letter-spacing:3px;margin-bottom:16px}
 .bar-row{display:flex;align-items:center;gap:10px;padding:4px 0}
@@ -110,10 +156,11 @@ h1{
 
 /* Case */
 .case{
-  background:linear-gradient(135deg,var(--card),#0e0e18);
+  background:linear-gradient(135deg,var(--bg2),var(--section-alt));
   border:1px solid var(--border);border-radius:var(--radius);
-  padding:24px;margin-bottom:16px;position:relative;z-index:1;
+  padding:24px;margin-bottom:16px;position:relative;z-index:1;transition:border-color .3s,background .3s;
 }
+.case:hover{border-color:rgba(129,140,248,.2)}
 .case h4{font-size:14px;color:var(--gold);margin-bottom:12px}
 .case .kv{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px}
 .case .kv-item{font-size:12px;padding:6px 10px;background:rgba(255,255,255,.02);border-radius:6px}
@@ -122,7 +169,7 @@ h1{
 
 /* Platform */
 .platform{
-  background:linear-gradient(135deg,var(--card),#0e0e18);
+  background:linear-gradient(135deg,var(--bg2),var(--section-alt));
   border:1px solid var(--border);border-radius:var(--radius);
   padding:28px 24px;margin-bottom:24px;text-align:center;position:relative;z-index:1;
 }
@@ -140,10 +187,11 @@ h1{
   margin-bottom:24px;position:relative;z-index:1;
 }
 .aud-card{
-  background:linear-gradient(180deg,var(--card),#06060e);
+  background:linear-gradient(180deg,var(--bg2),var(--section-alt));
   border:1px solid var(--border);border-radius:var(--radius);
-  padding:20px 14px;text-align:center;
+  padding:20px 14px;text-align:center;transition:border-color .3s,background .3s;
 }
+.aud-card:hover{border-color:rgba(129,140,248,.25)}
 .aud-card .emoji{font-size:28px;margin-bottom:6px}
 .aud-card h4{font-size:13px;color:var(--wht);margin-bottom:4px}
 .aud-card p{font-size:11px;color:var(--dim);line-height:1.5}
@@ -151,11 +199,11 @@ h1{
 /* Pricing */
 .pricing{
   text-align:center;padding:32px 24px;
-  background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(212,168,83,.01));
-  border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);
+  background:linear-gradient(135deg,rgba(129,140,248,.06),rgba(129,140,248,.01));
+  border:1px solid rgba(129,140,248,.2);border-radius:var(--radius);
   margin-bottom:24px;position:relative;z-index:1;
 }
-.pricing .price{font-size:clamp(40px,6vw,56px);font-weight:900;color:var(--gold);line-height:1}
+.pricing .price{font-size:clamp(40px,6vw,56px);font-weight:900;color:var(--accent);line-height:1;transition:color .3s}
 .pricing .price small{font-size:18px;color:var(--dim)}
 .pricing .desc{font-size:13px;color:var(--dim);margin:6px 0 16px}
 .pricing .perks{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:0}
@@ -163,64 +211,69 @@ h1{
 .pricing .perk::before{content:'✓ ';color:var(--green)}
 .pricing .urgency{font-size:11px;color:var(--red);margin-top:10px;letter-spacing:1px}
 
-/* Donation */
-.donate{
+/* QR Sections */
+.qr-section{
   text-align:center;padding:28px 24px;
-  background:linear-gradient(135deg,rgba(212,168,83,.04),rgba(212,168,83,.01));
-  border:1px solid rgba(212,168,83,.12);border-radius:var(--radius);
+  background:linear-gradient(135deg,rgba(129,140,248,.04),rgba(129,140,248,.01));
+  border:1px solid rgba(129,140,248,.12);border-radius:var(--radius);
   margin-bottom:24px;position:relative;z-index:1;
 }
-.donate h3{font-size:15px;color:var(--gold);margin-bottom:6px}
-.donate .sub{font-size:11px;color:var(--dim);margin-bottom:20px}
-.donate .qr-row{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
-.donate .qr-item{text-align:center}
-.donate .qr-item img{width:160px;height:160px;border-radius:8px;border:1px solid var(--border)}
-.donate .qr-item .qr-label{font-size:12px;color:var(--wht);margin-top:6px;font-weight:700}
-.donate .qr-item .qr-amt{font-size:11px;color:var(--dim)}
+.qr-section h3{font-size:15px;color:var(--accent);margin-bottom:6px}
+.qr-section .sub{font-size:11px;color:var(--dim);margin-bottom:20px}
+.qr-row{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.qr-item{text-align:center}
+.qr-item img{width:160px;height:160px;border-radius:8px;border:1px solid var(--border);object-fit:cover}
+.qr-item .qr-label{font-size:12px;color:var(--wht);margin-top:6px;font-weight:700}
+.qr-item .qr-amt{font-size:11px;color:var(--dim)}
+
+/* Contact */
 .contact{
   text-align:center;padding:24px;position:relative;z-index:1;
 }
-.contact .qq{font-size:clamp(22px,4vw,28px);font-weight:900;color:var(--gold);letter-spacing:2px}
+.contact .qq{font-size:clamp(22px,4vw,28px);font-weight:900;color:var(--accent);letter-spacing:2px}
 .contact .note{font-size:12px;color:var(--dim);margin-top:6px}
 .contact .cta{
   display:inline-block;margin-top:12px;margin-left:6px;margin-right:6px;
   background:linear-gradient(135deg,#d4a853,#8a6d30);
   color:#050508;padding:10px 30px;border-radius:24px;
-  font-size:14px;font-weight:700;letter-spacing:2px;text-decoration:none;
+  font-size:14px;font-weight:700;letter-spacing:2px;text-decoration:none;transition:opacity .3s;
 }
+.contact .cta:hover{opacity:.85}
 
 /* FAQ */
 .faq{position:relative;z-index:1;margin-bottom:24px}
 .faq details{
-  background:linear-gradient(180deg,var(--card),#06060e);
+  background:linear-gradient(180deg,var(--bg2),var(--section-alt));
   border:1px solid var(--border);border-radius:8px;
-  padding:16px 20px;margin-bottom:8px;
+  padding:16px 20px;margin-bottom:8px;transition:border-color .3s,background .3s;
 }
-.faq summary{font-size:13px;color:var(--wht);cursor:pointer;font-weight:700}
+.faq details[open]{border-color:rgba(129,140,248,.2)}
+.faq summary{font-size:13px;color:var(--wht);cursor:pointer;font-weight:700;user-select:none}
 .faq details p{font-size:12px;color:var(--dim);margin-top:8px;line-height:1.7}
 
 /* Footer */
 footer{text-align:center;padding:20px;position:relative;z-index:1}
 footer .risk{font-size:10px;color:var(--dim);line-height:1.6}
-footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px}
+footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4px}
 
 /* Changelog */
 .cl-details{
-  background:linear-gradient(180deg,var(--card),#06060e);
+  background:linear-gradient(180deg,var(--bg2),var(--section-alt));
   border:1px solid var(--border);border-radius:var(--radius);
   padding:16px 20px;margin-bottom:24px;position:relative;z-index:1;
 }
+.cl-details[open]{border-color:rgba(129,140,248,.2)}
 .cl-details summary{
-  font-size:13px;color:var(--wht);cursor:pointer;font-weight:700;letter-spacing:4px;text-align:center;
+  font-size:13px;color:var(--wht);cursor:pointer;font-weight:700;letter-spacing:4px;text-align:center;user-select:none;
 }
 .cl-wrap{position:relative;z-index:1;margin-top:16px}
 .cl-version{
-  background:linear-gradient(180deg,var(--card),#06060e);
+  background:linear-gradient(180deg,var(--bg2),var(--section-alt));
   border:1px solid var(--border);border-radius:var(--radius);
   padding:18px 20px;margin-bottom:10px;
 }
 .cl-version .vtag{
-  font-size:14px;font-weight:900;color:var(--gold);letter-spacing:1px;
+  font-size:14px;font-weight:900;color:var(--accent);letter-spacing:1px;
   margin-bottom:10px;display:block;
 }
 .cl-version .vtag .vdate{font-size:12px;color:var(--dim);font-weight:400;margin-left:8px}
@@ -228,20 +281,20 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
   font-size:12px;color:var(--text);line-height:1.7;
   padding:3px 0 3px 16px;position:relative;
 }
-.cl-item::before{content:'▸';position:absolute;left:0;color:var(--gold);font-size:10px}
+.cl-item::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:10px}
 .cl-sub-item{
   font-size:11px;color:var(--dim);line-height:1.6;
   padding:1px 0 1px 28px;position:relative;
 }
 .cl-sub-item::before{content:'·';position:absolute;left:18px;color:var(--dim)}
 .cl-item code,.cl-sub-item code{
-  background:rgba(212,168,83,.08);color:var(--gold);font-size:11px;
+  background:rgba(129,140,248,.08);color:var(--accent);font-size:11px;
   padding:1px 6px;border-radius:4px;font-family:monospace;
 }
 .cl-item strong{color:var(--wht);font-weight:700}
 
 .divider{
-  height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,83,.12),transparent);
+  height:1px;background:linear-gradient(90deg,transparent,rgba(129,140,248,.12),transparent);
   margin:40px 0;position:relative;z-index:1;
 }
 
@@ -261,6 +314,10 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
   .dragon{font-size:36px}
   .bar-row .mon{width:58px;font-size:10px}
   .bar-row .pct{width:28px;font-size:10px}
+  .qr-item img{width:130px;height:130px}
+  .qr-row{gap:20px}
+  .top-nav{gap:0;padding:0 8px}
+  .top-nav a{font-size:11px;padding:6px 8px}
 }
 @media(min-width:601px) and (max-width:900px){
   .wrap{padding:40px 20px 32px}
@@ -269,9 +326,20 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 .pulse{animation:pulse 2s infinite}
 </style>
-
 </head>
 <body>
+
+<nav class="top-nav" id="topNav">
+  <a href="#features">🎯 功能</a>
+  <a href="#chart">📊 胜率</a>
+  <a href="#cases">📸 案例</a>
+  <a href="#audience">👤 用户</a>
+  <a href="#platform">📱 接入</a>
+  <a href="#pricing">💰 定价</a>
+  <a href="#faq">❓ FAQ</a>
+  <a href="#changelog">📝 日志</a>
+  <button class="theme-btn" id="themeBtn" title="切换日间/夜间模式">🌙</button>
+</nav>
 
 <div class="bg-glow"></div>
 <div class="wrap">
@@ -313,48 +381,40 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
 </div>
 
 <!-- ═══ 五大功能 ═══ -->
+<div class="anchor" id="features"></div>
 <div class="sec-title">🎯 它能帮你做什么</div>
 <div class="features">
   <div class="feat">
     <div class="icon">🔥</div>
     <h3>一进二寻龙</h3>
-    <p>全市场 <span class="hl">3000+ 首板</span> 扫描<br>
-    13 道硬逻辑 + 10 维评分<br>
-    每天 <span class="hl">9:26</span> 推 ≤3 只到微信</p>
+    <p>全市场 <span class="hl">3000+ 首板</span> 扫描<br>13 道硬逻辑 + 10 维评分<br>每天 <span class="hl">9:26</span> 推 ≤3 只到微信</p>
   </div>
   <div class="feat">
     <div class="icon">📐</div>
     <h3>个股 / 大盘预测</h3>
-    <p>发代码「600519」或「上证指数」<br>
-    <span class="hl">秒回</span> 方向 + 仓位建议<br>
-    MA5 / KDJ / MACD / MA10 四维打分</p>
+    <p>发代码「600519」或「上证指数」<br><span class="hl">秒回</span> 方向 + 仓位建议<br>MA5 / KDJ / MACD / MA10 四维打分</p>
   </div>
   <div class="feat">
     <div class="icon">📋</div>
     <h3>每日自动复盘</h3>
-    <p>15:01 收盘自动推送复盘<br>
-    推了什么、中了多少、<br>
-    <span class="hl">为什么漏了——全透明</span></p>
+    <p>15:01 收盘自动推送复盘<br>推了什么、中了多少、<br><span class="hl">为什么漏了——全透明</span></p>
   </div>
   <div class="feat">
     <div class="icon">🕵️</div>
     <h3>深度分析 · 主力痕迹</h3>
-    <p>预测看不清？拉 <span class="hl">30天全景K线</span><br>
-    AI 解析30天价量序列<br>
-    <span class="hl">自由拆解主力意图</span> 无处可藏</p>
+    <p>预测看不清？拉 <span class="hl">30天全景K线</span><br>AI 解析30天价量序列<br><span class="hl">自由拆解主力意图</span> 无处可藏</p>
   </div>
   <div class="feat">
     <div class="icon">⭐</div>
     <h3>全市场选好票</h3>
-    <p>全市场 <span class="hl">3000+ 股票</span> 秒级扫描<br>
-    MA5+KDJ+MACD+MA10 四维打分<br>
-    <span class="hl">一键筛出≥10分强多票</span></p>
+    <p>全市场 <span class="hl">3000+ 股票</span> 秒级扫描<br>MA5+KDJ+MACD+MA10 四维打分<br><span class="hl">一键筛出≥10分强多票</span></p>
   </div>
 </div>
 
 <div class="divider"></div>
 
 <!-- ═══ 月度胜率 ═══ -->
+<div class="anchor" id="chart"></div>
 <div class="chart-wrap">
   <h3>📊 月度有效胜率追踪（2025.01 — 2026.04）</h3>
   <div class="bar-row"><div class="mon">2025年01月</div><div class="bar-wrap"><div class="bar-fill red" style="width:38%">38%</div></div><div class="pct" style="color:var(--red)">38%</div></div>
@@ -366,11 +426,11 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
   <div class="bar-row"><div class="mon">2025年07月</div><div class="bar-wrap"><div class="bar-fill orange" style="width:55%">55%</div></div><div class="pct" style="color:#ff9800">55%</div></div>
   <div class="bar-row"><div class="mon">2025年08月</div><div class="bar-wrap"><div class="bar-fill orange" style="width:58%">58%</div></div><div class="pct" style="color:#ff9800">58%</div></div>
   <div class="bar-row"><div class="mon">2025年09月</div><div class="bar-wrap"><div class="bar-fill orange" style="width:50%">50%</div></div><div class="pct" style="color:#ff9800">50%</div></div>
-  <div class="bar-row"><div class="mon">2025年10月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:62%">62%</div></div><div class="pct" style="color:var(--gold)">62%</div></div>
-  <div class="bar-row"><div class="mon">2025年11月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:68%">68%</div></div><div class="pct" style="color:var(--gold)">68%</div></div>
+  <div class="bar-row"><div class="mon">2025年10月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:62%">62%</div></div><div class="pct" style="color:var(--accent)">62%</div></div>
+  <div class="bar-row"><div class="mon">2025年11月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:68%">68%</div></div><div class="pct" style="color:var(--accent)">68%</div></div>
   <div class="bar-row"><div class="mon">2025年12月</div><div class="bar-wrap"><div class="bar-fill green" style="width:72%">72%</div></div><div class="pct" style="color:var(--green)">72%</div></div>
   <div class="bar-row"><div class="mon">2026年01月</div><div class="bar-wrap"><div class="bar-fill orange" style="width:55%">55%</div></div><div class="pct" style="color:#ff9800">55%</div></div>
-  <div class="bar-row"><div class="mon">2026年02月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:65%">65%</div></div><div class="pct" style="color:var(--gold)">65%</div></div>
+  <div class="bar-row"><div class="mon">2026年02月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:65%">65%</div></div><div class="pct" style="color:var(--accent)">65%</div></div>
   <div class="bar-row"><div class="mon">2026年03月</div><div class="bar-wrap"><div class="bar-fill green" style="width:70%">70%</div></div><div class="pct" style="color:var(--green)">70%</div></div>
   <div class="bar-row"><div class="mon">2026年04月</div><div class="bar-wrap"><div class="bar-fill green" style="width:73%">73%</div></div><div class="pct" style="color:var(--green)">73%</div></div>
 </div>
@@ -378,6 +438,7 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
 <div class="divider"></div>
 
 <!-- ═══ 真实案例 ═══ -->
+<div class="anchor" id="cases"></div>
 <div class="sec-title">📸 真实推送案例</div>
 
 <div class="case">
@@ -400,9 +461,7 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
 
 <div class="case">
   <h4>📐 案例二：个股预测 —— 连喊 4 天 🔥强多，一天洗盘后继续涨</h4>
-  <div style="font-size:12px;color:var(--dim);margin-bottom:12px;text-align:center">
-    国安股份（000839）· 每天收盘自动更新预测
-  </div>
+  <div style="font-size:12px;color:var(--dim);margin-bottom:12px;text-align:center">国安股份（000839）· 每天收盘自动更新预测</div>
   <div class="kv">
     <div class="kv-item"><span>5月08日</span> <b style="color:var(--red)">+9 🔥强多</b> 仓位100%</div>
     <div class="kv-item"><span>5月11日</span> <b style="color:var(--red)">+7 🔥强多</b> 仓位100%</div>
@@ -415,17 +474,12 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
       <span style="color:var(--dim)"> —— 提前看多，扛住洗盘，信号从未失效</span>
     </div>
   </div>
-  <div class="result">
-    📱 微信发个代码 → 秒回完整预测<br>
-    <span style="font-size:11px;color:var(--dim)">不懂技术指标没关系，看到 🔥 就是强，看到仓位就是信心</span>
-  </div>
+  <div class="result">📱 微信发个代码 → 秒回完整预测<br><span style="font-size:11px;color:var(--dim)">不懂技术指标没关系，看到 🔥 就是强，看到仓位就是信心</span></div>
 </div>
 
 <div class="case">
   <h4>🔍 案例三：深度分析 —— 主力在干嘛？一目了然</h4>
-  <div style="font-size:12px;color:var(--dim);margin-bottom:12px;text-align:center">
-    宁波东力（002164）· 30天全景K线 → AI拆解主力痕迹
-  </div>
+  <div style="font-size:12px;color:var(--dim);margin-bottom:12px;text-align:center">宁波东力（002164）· 30天全景K线 → AI拆解主力痕迹</div>
   <div class="kv">
     <div class="kv-item"><span>04/01-04/03</span> <b style="color:var(--dim)">🔻地量三连</b> 压价洗盘，浮筹洗光</div>
     <div class="kv-item"><span>04/10</span> <b style="color:#ff9800">💥天量 4.16亿</b> 拉高试盘后跳空低开套人</div>
@@ -439,15 +493,13 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
       <span style="color:var(--dim)"> —— 30天主力每一步都还原出来</span>
     </div>
   </div>
-  <div class="result">
-    🕵️ 预测给方向，深度分析给逻辑<br>
-    <span style="font-size:11px;color:var(--dim)">洗盘→试盘→吸筹→出货→拉升——主力痕迹无处可藏</span>
-  </div>
+  <div class="result">🕵️ 预测给方向，深度分析给逻辑<br><span style="font-size:11px;color:var(--dim)">洗盘→试盘→吸筹→出货→拉升——主力痕迹无处可藏</span></div>
 </div>
 
 <div class="divider"></div>
 
 <!-- ═══ 适合谁 ═══ -->
+<div class="anchor" id="audience"></div>
 <div class="sec-title">👤 谁在用</div>
 <div class="audience">
   <div class="aud-card">
@@ -468,13 +520,10 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
 </div>
 
 <!-- ═══ 接入 ═══ -->
+<div class="anchor" id="platform"></div>
 <div class="platform">
   <h3>📱 不是 APP，不是网页，就是你的微信聊天窗口</h3>
-  <p>
-    <b>到点自动推</b> —— 9:26 早盘选股、15:01 收盘复盘，闹钟一样准时<br>
-    <b>想问随时问</b> —— 发「600519」或「上证指数」，秒回预测<br>
-    像多了一个懂量化、不睡觉的兄弟
-  </p>
+  <p><b>到点自动推</b> —— 9:26 早盘选股、15:01 收盘复盘，闹钟一样准时<br><b>想问随时问</b> —— 发「600519」或「上证指数」，秒回预测<br>像多了一个懂量化、不睡觉的兄弟</p>
   <div class="apps">
     <span class="app">💬 微信</span>
     <span class="app">🐧 QQ</span>
@@ -483,6 +532,7 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
 </div>
 
 <!-- ═══ 定价 ═══ -->
+<div class="anchor" id="pricing"></div>
 <div class="pricing">
   <div class="price">100 <small>元</small></div>
   <div class="desc">一次付费 · 永久使用 · 永久迭代</div>
@@ -495,10 +545,23 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
   <div class="urgency">⚡ 一顿饭钱，换一个 7×24 不睡觉的量化助手</div>
 </div>
 
+<!-- ═══ 关注公众号 ═══ -->
+<div class="qr-section">
+  <h3>📢 关注公众号</h3>
+  <div class="sub">量化干货 · 策略更新 · 实盘案例</div>
+  <div class="qr-row">
+    <div class="qr-item">
+      <img src="media/公众号/公众号二维码.jpg" alt="公众号二维码">
+      <div class="qr-label">扫码关注</div>
+      <div class="qr-amt">第一时间获取策略更新</div>
+    </div>
+  </div>
+</div>
+
 <!-- ═══ 捐款支持 ═══ -->
-<div class="donate">
+<div class="qr-section">
   <h3>❤️ 支持项目</h3>
-  <div class="sub">如果你觉得这个项目对你有帮助，可以支持我继续开发</div>
+  <div class="sub">如果觉得对你有帮助，可以支持我继续开发</div>
   <div class="qr-row">
     <div class="qr-item">
       <img src="media/收款码/微信收款码.jpg" alt="微信支持">
@@ -524,6 +587,7 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
 <div class="divider"></div>
 
 <!-- ═══ FAQ ═══ -->
+<div class="anchor" id="faq"></div>
 <div class="sec-title">❓ 你可能想问</div>
 <div class="faq">
   <details>
@@ -551,6 +615,7 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
 <div class="divider"></div>
 
 <!-- ═══ 更新日志 ═══ -->
+<div class="anchor" id="changelog"></div>
 <details class="cl-details">
   <summary>📝 更新日志</summary>
   <div id="changelog" class="cl-wrap">
@@ -562,14 +627,24 @@ footer .brand{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px
 
 <footer>
   <div class="brand">🐉 寻龙诀 · 大A主板一进二竞价量化系统</div>
-  <div class="risk">
-    ⚠️ 行情数据来源：同花顺 / 新浪 / baostock<br>
-    仅供研究学习 · 不构成投资建议 · 市场有风险 · 投资需谨慎
-  </div>
+  <div class="risk">⚠️ 行情数据来源：同花顺 / 新浪 / baostock<br>仅供研究学习 · 不构成投资建议 · 市场有风险 · 投资需谨慎</div>
 </footer>
 
 </div>
 <script>
+// ── 主题切换 ──
+(function(){
+  var btn=document.getElementById('themeBtn');
+  var theme=localStorage.getItem('ss-theme');
+  if(theme==='light'){document.body.classList.add('light');btn.textContent='☀️'}
+  btn.onclick=function(){
+    document.body.classList.toggle('light');
+    var isLight=document.body.classList.contains('light');
+    btn.textContent=isLight?'☀️':'🌙';
+    localStorage.setItem('ss-theme',isLight?'light':'dark');
+  };
+})();
+
 // ── 从 URL 自动识别所在仓库 ──
 function getRepoName(){
   var path=window.location.pathname.split('/').filter(Boolean);
@@ -599,63 +674,29 @@ function goReadme(){
 }
 
 // ── Markdown → HTML 行内渲染 ──
-function mdToHtml(t){
-  return t
-    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
-    .replace(/`(.+?)`/g,'<code>$1</code>')
-    .replace(/\[(.+?)\]\((.+?)\)/g,'<a href="$2" target="_blank" style="color:var(--gold)">$1</a>');
-}
+function mdToHtml(t){return t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/`(.+?)`/g,'<code>$1</code>').replace(/\[(.+?)\]\((.+?)\)/g,'<a href="$2" target="_blank" style="color:var(--accent)">$1</a>')}
 
 // ── 加载更新日志 ──
 function loadChangelog(){
-  var el=document.getElementById('changelog');
-  if(!el) return;
+  var el=document.getElementById('changelog');if(!el)return;
   function parseAndRender(md){
-    var lines=md.split('\n');
-    var inCL=false, buf=[];
-    for(var i=0;i<lines.length;i++){
-      var l=lines[i];
-      if(/^##\s*📝/.test(l)){inCL=true;continue}
-      if(inCL&&/^##\s/.test(l)&&!/^###\s/.test(l))break;
-      if(inCL)buf.push(l);
-    }
-    var html='', versionOpen=false;
+    var lines=md.split('\n'),inCL=false,buf=[];
+    for(var i=0;i<lines.length;i++){var l=lines[i];if(/^##\s*📝/.test(l)){inCL=true;continue}if(inCL&&/^##\s/.test(l)&&!/^###\s/.test(l))break;if(inCL)buf.push(l)}
+    var html='',versionOpen=false;
     for(var i=0;i<buf.length;i++){
       var l=buf[i];
       if(/^###\s/.test(l)){
-        if(versionOpen) html+='</div>';
-        versionOpen=true;
+        if(versionOpen)html+='</div>';versionOpen=true;
         var m=l.match(/^###\s+(.+?)(?:\s+\((\d{4}-\d{2}-\d{2})\))?$/);
-        if(m) html+='<div class="cl-version"><span class="vtag">'+mdToHtml(m[1].trim())+(m[2]?'<span class="vdate">'+m[2]+'</span>':'')+'</span>';
-        else html+='<div class="cl-version"><span class="vtag">'+mdToHtml(l.replace(/^###\s+/,''))+'</span>';
-      }else if(/^\s{2,}\*\s/.test(l)){
-        html+='<div class="cl-sub-item">'+mdToHtml(l.replace(/^\s*\*\s+/,''))+'</div>';
-      }else if(/^-\s/.test(l)){
-        html+='<div class="cl-item">'+mdToHtml(l.replace(/^-\s+/,''))+'</div>';
-      }
+        if(m)html+='<div class="cl-version"><span class="vtag">'+mdToHtml(m[1].trim())+(m[2]?'<span class="vdate">'+m[2]+'</span>':'')+'</span>';else html+='<div class="cl-version"><span class="vtag">'+mdToHtml(l.replace(/^###\s+/,''))+'</span>'
+      }else if(/^\s{2,}\*\s/.test(l)){html+='<div class="cl-sub-item">'+mdToHtml(l.replace(/^\s*\*\s+/,''))+'</div>'}else if(/^-\s/.test(l)){html+='<div class="cl-item">'+mdToHtml(l.replace(/^-\s+/,''))+'</div>'}
     }
-    if(versionOpen) html+='</div>';
-    el.innerHTML=html||'<p style="text-align:center;color:var(--dim);font-size:12px">暂无更新日志</p>';
+    if(versionOpen)html+='</div>';el.innerHTML=html||'<p style="text-align:center;color:var(--dim);font-size:12px">暂无更新日志</p>'
   }
-  fetch('README.md').then(function(r){
-    if(!r.ok)throw new Error();
-    return r.text();
-  }).then(parseAndRender).catch(function(){
-    fetch(RAW_URL).then(function(r2){
-      if(!r2.ok)throw new Error();
-      return r2.text();
-    }).then(parseAndRender).catch(function(){
-      el.innerHTML='<p style="text-align:center;color:var(--dim);font-size:12px">⚠️ 无法加载更新日志</p>';
-    });
-  });
+  fetch('README.md').then(function(r){if(!r.ok)throw Error();return r.text()}).then(parseAndRender).catch(function(){fetch(RAW_URL).then(function(r2){if(!r2.ok)throw Error();return r2.text()}).then(parseAndRender).catch(function(){el.innerHTML='<p style="text-align:center;color:var(--dim);font-size:12px">⚠️ 无法加载更新日志</p>'})})
 }
 
-// ── DOM 就绪后执行 ──
-document.addEventListener('DOMContentLoaded',function(){
-  loadChangelog();
-  document.getElementById('btn-copy-qq')?.addEventListener('click',function(e){e.preventDefault();copyQQ()});
-  document.getElementById('btn-go-readme')?.addEventListener('click',function(e){e.preventDefault();goReadme()});
-});
+document.addEventListener('DOMContentLoaded',function(){loadChangelog();document.getElementById('btn-copy-qq')?.addEventListener('click',function(e){e.preventDefault();copyQQ()});document.getElementById('btn-go-readme')?.addEventListener('click',function(e){e.preventDefault();goReadme()})});
 </script>
 </body>
 </html>
