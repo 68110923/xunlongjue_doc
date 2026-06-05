@@ -43,18 +43,23 @@ body{
   background:var(--nav-bg);backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
   border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  padding:0 52px 0 0;height:48px;gap:2px;overflow-x:auto;
+  display:flex;align-items:center;height:48px;padding:0 12px;
   transition:background .3s;
 }
-.top-nav a{
+.nav-links{
+  display:flex;align-items:center;gap:2px;flex:1;
+  overflow-x:auto;justify-content:center;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{
   color:var(--dim);text-decoration:none;font-size:12px;
-  padding:6px 12px;border-radius:6px;white-space:nowrap;
+  padding:6px 12px;border-radius:6px;white-space:nowrap;flex-shrink:0;
   transition:color .3s,background .3s;
 }
-.top-nav a:hover{color:var(--accent);background:rgba(129,140,248,.08)}
+.nav-links a:hover{color:var(--accent);background:rgba(129,140,248,.08)}
 .theme-btn{
-  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  flex-shrink:0;margin-left:8px;
   background:none;border:1px solid var(--border);
   border-radius:6px;color:var(--dim);font-size:14px;cursor:pointer;
   padding:4px 10px;transition:color .3s,border-color .3s;
@@ -323,10 +328,9 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
   .bar-row .pct{width:28px;font-size:10px}
   .qr-item img{width:130px;height:130px}
   .qr-row{gap:20px}
-  .top-nav{gap:0;padding:0 8px}
   .contact .btns{gap:8px}
   .contact .cta,.contact .cta2{padding:8px 16px;font-size:12px}
-  .top-nav a{font-size:11px;padding:6px 8px}
+  .nav-links a{font-size:11px;padding:6px 8px}
 }
 @media(min-width:601px) and (max-width:900px){
   .wrap{padding:40px 20px 32px}
@@ -336,16 +340,18 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
 .pulse{animation:pulse 2s infinite}
 </style>
 </head>
-<body>
+<body class="light">
 
 <nav class="top-nav" id="topNav">
-  <a href="#features">🎯 功能</a>
-  <a href="#chart">📊 胜率</a>
-  <a href="#cases">📸 案例</a>
-  <a href="#audience">👤 用户</a>
-  <a href="#faq">❓ FAQ</a>
-  <a href="#changelog-anchor">📝 日志</a>
-  <a href="https://68110923.github.io/">🏠 个人主页</a>
+  <div class="nav-links">
+    <a href="#features">🎯 功能</a>
+    <a href="#chart">📊 胜率</a>
+    <a href="#cases">📸 案例</a>
+    <a href="#audience">👤 用户</a>
+    <a href="#faq">❓ FAQ</a>
+    <a href="#changelog-anchor">📝 日志</a>
+    <a href="https://68110923.github.io/">🏠 个人主页</a>
+  </div>
   <button class="theme-btn" id="themeBtn" title="切换日间/夜间模式">🌙</button>
 </nav>
 
@@ -638,7 +644,7 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
 (function(){
   var btn=document.getElementById('themeBtn');
   var theme=localStorage.getItem('ss-theme');
-  if(theme==='light'){document.body.classList.add('light');btn.textContent='☀️'}
+  if(theme==='dark'){document.body.classList.remove('light');btn.textContent='☀️'}
   btn.onclick=function(){
     document.body.classList.toggle('light');
     var isLight=document.body.classList.contains('light');
