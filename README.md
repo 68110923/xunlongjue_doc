@@ -6,7 +6,7 @@
 </p>
 
 <h1 align="center">🐉 寻龙诀</h1>
-<h3 align="center"><a href="https://68110923.github.io/xunlongjue_doc/">大A主板 · 一进二量化系统官网</a></h3>
+<h3 align="center">官方网站：<a href="https://68110923.github.io/xunlongjue_doc/">大A主板 · 量化系统</a></h3>
 <p align="center"><i>—— 不做预测，只抓确定性。首板三千，二板寻龙。</i></p>
 
 ---
