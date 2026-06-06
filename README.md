@@ -260,7 +260,8 @@
 ### V20260606 (2026-06-06)
 - 🔓 **闸14改为条件闸** — 10:30前封板的票豁免KDJ暴增检查。避免误杀早盘强势真龙头（如2024-11-21华胜天成，J暴增52.5但10:30前封板，7连板被误杀）
 - ⚙️ `morning_push.py` / `backtest.py` — 闸14调用前加 `seal_time <= '103000'` 豁免判断
-- 📊 **评分函数优化** — `score_gap`竞价<3%拆两档（0~3%=-5, <0%=-15）、`score_volume_ratio`量比>3.3线性递减(3.3~5: +10→+3, >5: 0)、`score_turnover_est`改用`circulating_shares`真实流通股本算换手率
+- 📊 **评分函数三处优化** — `score_gap`竞价<3%拆两档（0~3%=-5, <0%=-15）、`score_volume_ratio`量比>3.3线性递减(3.3~5: +10→+3, >5: 0)、`score_turnover`改用`circulating_shares`真实流通股本算换手率
+- 🧹 **换手率评分统一** — `hermes_stock_lib.score_turnover_est` → `score_turnover`，支持`turnover/volume/close/code`四参数，`morning_push` 删除自己的`_score_turnover`统一走此函数（-7行）
 - 📖 `strategy.md` — 同步闸14条件闸 + 评分函数三处优化
 
 ### V20260603 (2026-06-03)
