@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260603-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260606-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-39.5%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -256,6 +256,11 @@
 ---
 
 ## 📝 更新日志
+
+### V20260606 (2026-06-06)
+- 🔓 **闸14改为条件闸** — 10:30前封板的票豁免KDJ暴增检查。避免误杀早盘强势真龙头（如2024-11-21华胜天成，J暴增52.5但10:30前封板，7连板被误杀）
+- ⚙️ `morning_push.py` / `backtest.py` — 闸14调用前加 `seal_time <= '103000'` 豁免判断
+- 📖 `strategy.md` — 同步更新闸14为"条件闸"并追加豁免条件
 
 ### V20260603 (2026-06-03)
 - 🐛 **复盘市值修复** — DATA_BLOCK 一进二成功新增 `market_cap`(总市值/亿)字段，修复 AI 误把 `amount`(成交额)当市值用的问题（亨通光电 63亿成交额被写成 63亿市值，实际 1900亿）
