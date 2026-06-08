@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260606-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260608-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-39.5%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -256,6 +256,10 @@
 ---
 
 ## 📝 更新日志
+
+### V20260608 (2026-06-08)
+- 📊 **竞价数据透传** — morning_push JSON `pushed`/`multi_board` 新增 `auction_vol`(竞价量/万手) + `auction_amt`(竞价额/万元)，复盘 DATA_BLOCK `一进二成功`/`推送明细` 同步新增，AI分析盘面时可参考竞价资金参与度
+- 📝 **Cron Prompt 同步** — mp/ar 两 job prompt 更新字段说明，整体盘面分析规则补充竞价量额参考指引
 
 ### V20260606 (2026-06-06)
 - 🔓 **闸14改为条件闸** — 10:30前封板的票豁免KDJ暴增检查。避免误杀早盘强势真龙头（如2024-11-21华胜天成，J暴增52.5但10:30前封板，7连板被误杀）
