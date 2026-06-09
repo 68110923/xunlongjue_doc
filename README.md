@@ -135,22 +135,22 @@
 
 | 月份 | 胜率 |
 |------|:----:|
-| 2025年01月 | <img src="https://via.placeholder.com/38x18/e53935/fff?text=38%25" width="114" height="18"> |
-| 2025年02月 | <img src="https://via.placeholder.com/42x18/e53935/fff?text=42%25" width="126" height="18"> |
-| 2025年03月 | <img src="https://via.placeholder.com/35x18/e53935/fff?text=35%25" width="105" height="18"> |
-| 2025年04月 | <img src="https://via.placeholder.com/48x18/ff9800/fff?text=48%25" width="144" height="18"> |
-| 2025年05月 | <img src="https://via.placeholder.com/52x18/ff9800/fff?text=52%25" width="156" height="18"> |
-| 2025年06月 | <img src="https://via.placeholder.com/45x18/ff9800/fff?text=45%25" width="135" height="18"> |
-| 2025年07月 | <img src="https://via.placeholder.com/55x18/ff9800/fff?text=55%25" width="165" height="18"> |
-| 2025年08月 | <img src="https://via.placeholder.com/58x18/ff9800/fff?text=58%25" width="174" height="18"> |
-| 2025年09月 | <img src="https://via.placeholder.com/50x18/ff9800/fff?text=50%25" width="150" height="18"> |
-| 2025年10月 | <img src="https://via.placeholder.com/62x18/d4a853/fff?text=62%25" width="186" height="18"> |
-| 2025年11月 | <img src="https://via.placeholder.com/68x18/d4a853/fff?text=68%25" width="204" height="18"> |
-| 2025年12月 | <img src="https://via.placeholder.com/72x18/4caf50/fff?text=72%25" width="216" height="18"> |
-| 2026年01月 | <img src="https://via.placeholder.com/55x18/ff9800/fff?text=55%25" width="165" height="18"> |
-| 2026年02月 | <img src="https://via.placeholder.com/65x18/d4a853/fff?text=65%25" width="195" height="18"> |
-| 2026年03月 | <img src="https://via.placeholder.com/70x18/4caf50/fff?text=70%25" width="210" height="18"> |
-| 2026年04月 | <img src="https://via.placeholder.com/73x18/4caf50/fff?text=73%25" width="219" height="18"> |
+| 2025年01月 | 38% |
+| 2025年02月 | 42% |
+| 2025年03月 | 35% |
+| 2025年04月 | 48% |
+| 2025年05月 | 52% |
+| 2025年06月 | 45% |
+| 2025年07月 | 55% |
+| 2025年08月 | 58% |
+| 2025年09月 | 50% |
+| 2025年10月 | 62% |
+| 2025年11月 | 68% |
+| 2025年12月 | 72% |
+| 2026年01月 | 55% |
+| 2026年02月 | 65% |
+| 2026年03月 | 70% |
+| 2026年04月 | **73%** |
 
 > 近5个月全量回测有效胜率 **69.8%** · 8400+ 首板样本 · 累计推送 650+ 次
 
