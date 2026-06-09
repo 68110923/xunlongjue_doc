@@ -175,20 +175,14 @@
   源码交付 · 策略持续迭代 · 拉群答疑
 </p>
 
+<p align="center">
+  <b>QQ / 微信：68110923</b><br>
+  <span style="color: #999;">加好友备注「寻龙诀」</span>
+</p>
+
 > 一顿饭钱，换一个 7×24 小时不睡觉的量化助手。
 >
 > 💻 自行部署请查看 [部署文档](https://github.com/68110923/xunlongjue/blob/main/DEPLOY.md#%E5%AF%BB%E9%BE%99%E8%AF%80--%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3)
-
----
-
-### 📞 联系我
-
-<p align="center">
-  <b>QQ / 微信：68110923</b><br><br>
-  加好友备注「寻龙诀」<br>
-  发我你的微信/QQ号<br>
-  24 小时内部署上线
-</p>
 
 ---
 
