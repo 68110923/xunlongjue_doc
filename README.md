@@ -170,8 +170,9 @@
 ### 💰 远程部署
 
 <p align="center">
-  <b style="font-size: 1.5em;">100 元 / 永久</b><br>
-  一次付费，永久使用，永久迭代。
+  <span style="text-decoration: line-through; color: #999;">原价 1888 元</span><br>
+  <b style="font-size: 1.5em;">288 元 / 永久</b><br>
+  包含持续更新的源码 + 拉群答疑服务
 </p>
 
 > 一顿饭钱，换一个 7×24 小时不睡觉的量化助手。
