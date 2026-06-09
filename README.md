@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://img.shields.io/badge/版本-V20260609-blue?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/胜率-39.5%25-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/胜率-69.8%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
 </p>
@@ -15,7 +15,7 @@
 
 | 功能 | 介绍 |
 |------|------|
-| 🐉 一进二寻龙 | 全市场 3000+ 首板 → 14 闸过滤 → 三区择优 → ≤3 只推送。每天 9:26 自动推送到微信。 |
+| 🐉 一进二寻龙 | 全市场 3000+ 首板 → 14 闸过滤 → 双区择优 → ≤3 只推送。每天 9:26 自动推送到微信。 |
 | 📐 个股/大盘预测 | MA5 + KDJ + MACD + MA10 四维共振打分。秒出信号：🔥强多/🔴偏多/⚪中性/🟢偏空/❄️强空 |
 | 📋 每日复盘 | 收盘自动复盘：推了什么、中了多少、为什么漏了。15:01 自动推送，策略持续迭代。 |
 | 🔍 深度分析 | 主力痕迹拆解：洗盘→试盘→吸筹→出货→拉升。30天全景K线 + AI 拆解。 |
@@ -54,7 +54,7 @@
 ```
 ⚡ 上证信号：+2 🔴偏多 → 可以搞
 📊 统计：昨首板61 → 候选16 → 推送1
-▸ 推送：滨化股份 +67分 Gap +10.04% 123亿 化学原料
+▸ 推送：滨化股份 +67分 Gap +3.27% 123亿 化学原料
 🏆 最高分：百合花 39分 未推送
 ```
 
@@ -235,7 +235,7 @@
 </details>
 
 <details>
-<summary><b>Q：胜率 39.0% 够用吗？</b></summary>
+<summary><b>Q：胜率 68.5% 够用吗？</b></summary>
 <p>一进二的本质是用高赔率覆盖胜率。命中一次涨停 ≈ 10% 收益，覆盖 2 次失败绰绰有余。V4.2 三区降级牺牲了部分胜率，换来了更低的大面风险——7%+ 高开陷阱一票不碰。</p>
 </details>
 
