@@ -133,24 +133,104 @@
 
 ## 📊 月度有效胜率追踪（2025.01 — 2026.04）
 
-| 月份 | 胜率 |
-|------|------|
-| 2025年01月 | 38% |
-| 2025年02月 | 42% |
-| 2025年03月 | 35% |
-| 2025年04月 | 48% |
-| 2025年05月 | 52% |
-| 2025年06月 | 45% |
-| 2025年07月 | 55% |
-| 2025年08月 | 58% |
-| 2025年09月 | 50% |
-| 2025年10月 | 62% |
-| 2025年11月 | 68% |
-| 2025年12月 | 72% |
-| 2026年01月 | 55% |
-| 2026年02月 | 65% |
-| 2026年03月 | 70% |
-| 2026年04月 | **73%** |
+<div style="margin:16px 0">
+  <div style="display:flex;align-items:center;gap:8px;padding:3px 0">
+    <span style="width:80px;text-align:right;font-size:12px;color:#666;flex-shrink:0">2025年01月</span>
+    <div style="flex:1;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden">
+      <div style="width:38%;height:100%;background:linear-gradient(90deg,#b71c1c,#e53935);border-radius:9px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:10px;font-weight:700;color:#fff;min-width:36px">38%</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;padding:3px 0">
+    <span style="width:80px;text-align:right;font-size:12px;color:#666;flex-shrink:0">2025年02月</span>
+    <div style="flex:1;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden">
+      <div style="width:42%;height:100%;background:linear-gradient(90deg,#b71c1c,#e53935);border-radius:9px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:10px;font-weight:700;color:#fff;min-width:36px">42%</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;padding:3px 0">
+    <span style="width:80px;text-align:right;font-size:12px;color:#666;flex-shrink:0">2025年03月</span>
+    <div style="flex:1;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden">
+      <div style="width:35%;height:100%;background:linear-gradient(90deg,#b71c1c,#e53935);border-radius:9px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:10px;font-weight:700;color:#fff;min-width:36px">35%</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;padding:3px 0">
+    <span style="width:80px;text-align:right;font-size:12px;color:#666;flex-shrink:0">2025年04月</span>
+    <div style="flex:1;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden">
+      <div style="width:48%;height:100%;background:linear-gradient(90deg,#e65100,#ff9800);border-radius:9px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:10px;font-weight:700;color:#fff;min-width:36px">48%</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;padding:3px 0">
+    <span style="width:80px;text-align:right;font-size:12px;color:#666;flex-shrink:0">2025年05月</span>
+    <div style="flex:1;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden">
+      <div style="width:52%;height:100%;background:linear-gradient(90deg,#e65100,#ff9800);border-radius:9px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:10px;font-weight:700;color:#fff;min-width:36px">52%</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;padding:3px 0">
+    <span style="width:80px;text-align:right;font-size:12px;color:#666;flex-shrink:0">2025年06月</span>
+    <div style="flex:1;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden">
+      <div style="width:45%;height:100%;background:linear-gradient(90deg,#e65100,#ff9800);border-radius:9px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:10px;font-weight:700;color:#fff;min-width:36px">45%</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;padding:3px 0">
+    <span style="width:80px;text-align:right;font-size:12px;color:#666;flex-shrink:0">2025年07月</span>
+    <div style="flex:1;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden">
+      <div style="width:55%;height:100%;background:linear-gradient(90deg,#e65100,#ff9800);border-radius:9px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:10px;font-weight:700;color:#fff;min-width:36px">55%</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;padding:3px 0">
+    <span style="width:80px;text-align:right;font-size:12px;color:#666;flex-shrink:0">2025年08月</span>
+    <div style="flex:1;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden">
+      <div style="width:58%;height:100%;background:linear-gradient(90deg,#e65100,#ff9800);border-radius:9px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:10px;font-weight:700;color:#fff;min-width:36px">58%</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;padding:3px 0">
+    <span style="width:80px;text-align:right;font-size:12px;color:#666;flex-shrink:0">2025年09月</span>
+    <div style="flex:1;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden">
+      <div style="width:50%;height:100%;background:linear-gradient(90deg,#e65100,#ff9800);border-radius:9px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:10px;font-weight:700;color:#fff;min-width:36px">50%</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;padding:3px 0">
+    <span style="width:80px;text-align:right;font-size:12px;color:#666;flex-shrink:0">2025年10月</span>
+    <div style="flex:1;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden">
+      <div style="width:62%;height:100%;background:linear-gradient(90deg,#8a6d30,#d4a853);border-radius:9px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:10px;font-weight:700;color:#fff;min-width:36px">62%</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;padding:3px 0">
+    <span style="width:80px;text-align:right;font-size:12px;color:#666;flex-shrink:0">2025年11月</span>
+    <div style="flex:1;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden">
+      <div style="width:68%;height:100%;background:linear-gradient(90deg,#8a6d30,#d4a853);border-radius:9px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:10px;font-weight:700;color:#fff;min-width:36px">68%</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;padding:3px 0">
+    <span style="width:80px;text-align:right;font-size:12px;color:#666;flex-shrink:0">2025年12月</span>
+    <div style="flex:1;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden">
+      <div style="width:72%;height:100%;background:linear-gradient(90deg,#2e7d32,#66bb6a);border-radius:9px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:10px;font-weight:700;color:#fff;min-width:36px">72%</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;padding:3px 0">
+    <span style="width:80px;text-align:right;font-size:12px;color:#666;flex-shrink:0">2026年01月</span>
+    <div style="flex:1;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden">
+      <div style="width:55%;height:100%;background:linear-gradient(90deg,#e65100,#ff9800);border-radius:9px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:10px;font-weight:700;color:#fff;min-width:36px">55%</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;padding:3px 0">
+    <span style="width:80px;text-align:right;font-size:12px;color:#666;flex-shrink:0">2026年02月</span>
+    <div style="flex:1;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden">
+      <div style="width:65%;height:100%;background:linear-gradient(90deg,#8a6d30,#d4a853);border-radius:9px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:10px;font-weight:700;color:#fff;min-width:36px">65%</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;padding:3px 0">
+    <span style="width:80px;text-align:right;font-size:12px;color:#666;flex-shrink:0">2026年03月</span>
+    <div style="flex:1;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden">
+      <div style="width:70%;height:100%;background:linear-gradient(90deg,#2e7d32,#66bb6a);border-radius:9px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:10px;font-weight:700;color:#fff;min-width:36px">70%</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;padding:3px 0">
+    <span style="width:80px;text-align:right;font-size:12px;color:#666;flex-shrink:0">2026年04月</span>
+    <div style="flex:1;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden">
+      <div style="width:73%;height:100%;background:linear-gradient(90deg,#2e7d32,#66bb6a);border-radius:9px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:10px;font-weight:700;color:#fff;min-width:36px">73%</div>
+    </div>
+  </div>
+</div>
 
 > 近5个月全量回测有效胜率 **69.8%** · 8400+ 首板样本 · 累计推送 650+ 次
 
