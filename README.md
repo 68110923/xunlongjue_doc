@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260608-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260609-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-39.5%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -256,6 +256,10 @@
 ---
 
 ## 📝 更新日志
+
+### V20260609 (2026-06-09)
+- 🐛 **冰点标记修复** — `ice_day` 不再依赖"二区有候选"才触发。改为：一区空即标冰点（无论二区是否有票）。修复今日场景：5候选 gap 全<3%，双区皆空但冰点标记丢失。
+- 🧹 **双区降级重构** — `if/elif/elif` 三路分支替换原 `for zone_id in [1,2]` 循环，逻辑更直观：一区有→用一区 / 一区空→二区+冰点 / 二区也空→仍冰点
 
 ### V20260608 (2026-06-08)
 - 📊 **竞价数据透传** — morning_push JSON `pushed`/`multi_board` 新增 `auction_vol`(竞价量/万手) + `auction_amt`(竞价额/万元)，复盘 DATA_BLOCK `一进二成功`/`推送明细` 同步新增，AI分析盘面时可参考竞价资金参与度
