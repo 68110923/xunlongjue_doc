@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260609-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260610-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-69.8%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -264,6 +264,9 @@
 
 ## 📝 更新日志
 
+### V20260610 (2026-06-10)
+- 🎯 **Gap分区阈值下调** — 一/二区分割线 5.0%→4.84%。0609中晶科技gap=4.84%（score=51 bomb=0 半导体共振）被原5.0%一刀切排除，双星新材gap=5.82%一区独推但炸板7次。对齐实际案例。morning_push/backtest/hermes_stock_lib/strategy.md/schema.sql 同步。
+
 ### V20260609 (2026-06-09)
 - 🐛 **冰点标记修复** — `ice_day` 不再依赖"二区有候选"才触发。一区空即标冰点。修复5候选gap全<3%双区皆空时冰点标记丢失。
 - 🧹 **双区降级重构** — `if/elif/elif` 三路分支替换循环，逻辑更直观。
@@ -374,7 +377,7 @@
 ### V4.5 (2026-05-01)
 - OOP 重构：MorningPush/AfternoonReview/MarketSignal 继承 DataFetcher
 - 14 闸硬逻辑 + 10 维软逻辑评分
-- 三区降级策略（一区 5.0-7.9% / 二区 3.0-5.0%）
+- 三区降级策略（一区 4.84-7.9% / 二区 3.0-4.84%）
 
 ### V4.2 (2026-04-15)
 - 双区降级，牺牲部分胜率换低大面风险
