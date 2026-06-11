@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260610-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260611-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-69.8%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -263,6 +263,10 @@
 ---
 
 ## 📝 更新日志
+
+### V20260611 (2026-06-11)
+- 💣 **炸板评分重构** — 从纯惩罚改为对称加减分。bomb≥3 → -8，bomb<3 → +8（原 bomb>1 → -10）。首末封间隔>10min扣分从8降至4。morning_push/backtest/hermes_stock_lib/strategy.md 同步。
+- 🔧 `score_bomb_penalty` 统一到 `hermes_stock_lib`，morning_push 和 backtest 共用。
 
 ### V20260610 (2026-06-10)
 - 🎯 **Gap分区阈值下调** — 一/二区分割线 5.0%→4.84%。0609中晶科技gap=4.84%（score=51 bomb=0 半导体共振）被原5.0%一刀切排除，双星新材gap=5.82%一区独推但炸板7次。对齐实际案例。morning_push/backtest/hermes_stock_lib/strategy.md/schema.sql 同步。
