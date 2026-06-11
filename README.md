@@ -265,14 +265,14 @@
 ## 📝 更新日志
 
 ### V20260611 (2026-06-11)
-- 💣 **炸板评分重构** — 从纯惩罚改为对称加减分。bomb≥3 → -8，bomb<3 → +8（原 bomb>1 → -10）。首末封间隔>10min扣分从8降至4。morning_push/backtest/hermes_stock_lib/strategy.md 同步。
+- 💣 **炸板评分重构** — 从纯惩罚改为对称加减分。炸板次数超阈值扣分、低于阈值奖励。首末封间隔扣分力度降低。morning_push/backtest/hermes_stock_lib/strategy.md 同步。
 - 🔧 `score_bomb_penalty` 统一到 `hermes_stock_lib`，morning_push 和 backtest 共用。
 
 ### V20260610 (2026-06-10)
-- 🎯 **Gap分区阈值下调** — 一/二区分割线 5.0%→4.84%。0609中晶科技gap=4.84%（score=51 bomb=0 半导体共振）被原5.0%一刀切排除，双星新材gap=5.82%一区独推但炸板7次。对齐实际案例。morning_push/backtest/hermes_stock_lib/strategy.md/schema.sql 同步。
+- 🎯 **Gap分区阈值下调** — 一/二区分割线微调，对齐实际案例（一区票被阈值一刀切排除、二区独推但质量差）。morning_push/backtest/hermes_stock_lib/strategy.md/schema.sql 同步。
 
 ### V20260609 (2026-06-09)
-- 🐛 **冰点标记修复** — `ice_day` 不再依赖"二区有候选"才触发。一区空即标冰点。修复5候选gap全<3%双区皆空时冰点标记丢失。
+- 🐛 **冰点标记修复** — `ice_day` 不再依赖"二区有候选"才触发。一区空即标冰点。修复候选gap全低于阈值时冰点标记丢失。
 - 🧹 **双区降级重构** — `if/elif/elif` 三路分支替换循环，逻辑更直观。
 - 🗑️ **移除 config.yaml** — DB路径改为 `os.path.dirname` 自适应解析，不再依赖外部配置文件。删 `pyyaml` 依赖。
 - 📝 **复盘模板优化** — 明日建议限定为交易建议（禁策略/代码修改），整体盘面禁涉策略表现。
@@ -280,98 +280,98 @@
 - 📄 **文档同步** — SKILL.md/DEPLOY.md 路径描述同步，冰点模板精简。
 
 ### V20260608 (2026-06-08)
-- 📊 **竞价数据透传** — morning_push JSON `pushed`/`multi_board` 新增 `auction_vol`(竞价量/万手) + `auction_amt`(竞价额/万元)，复盘 DATA_BLOCK `一进二成功`/`推送明细` 同步新增，AI分析盘面时可参考竞价资金参与度
+- 📊 **竞价数据透传** — morning_push JSON `pushed`/`multi_board` 新增 `auction_vol`(竞价量) + `auction_amt`(竞价额)，复盘 DATA_BLOCK `一进二成功`/`推送明细` 同步新增，AI分析盘面时可参考竞价资金参与度
 - 📝 **Cron Prompt 同步** — mp/ar 两 job prompt 更新字段说明，整体盘面分析规则补充竞价量额参考指引
 
 ### V20260606 (2026-06-06)
-- 🔓 **闸14改为条件闸** — 10:30前封板的票豁免KDJ暴增检查。避免误杀早盘强势真龙头（如2024-11-21华胜天成，J暴增52.5但10:30前封板，7连板被误杀）
-- ⚙️ `morning_push.py` / `backtest.py` — 闸14调用前加 `seal_time <= '103000'` 豁免判断
-- 📊 **评分函数三处优化** — `score_gap`竞价<3%拆两档（0~3%=-5, <0%=-15）、`score_volume_ratio`量比>3.3线性递减(3.3~5: +10→+3, >5: 0)、`score_turnover`改用`circulating_shares`真实流通股本算换手率
-- 🧹 **换手率评分统一** — `hermes_stock_lib.score_turnover_est` → `score_turnover`，支持`turnover/volume/close/code`四参数，`morning_push` 删除自己的`_score_turnover`统一走此函数（-7行）
+- 🔓 **闸14改为条件闸** — 早盘快速封板的票豁免KDJ暴增检查。避免误杀早盘强势真龙头（如华胜天成J暴增但早封板→7连板被误杀）
+- ⚙️ `morning_push.py` / `backtest.py` — 闸14调用前加早封板豁免判断
+- 📊 **评分函数三处优化** — 竞价低开分档细化、量比超阈值线性递减、换手率改用真实流通股本计算
+- 🧹 **换手率评分统一** — `hermes_stock_lib.score_turnover_est` → `score_turnover`，支持多参数，`morning_push` 删除自己的重复函数
 - 📖 `strategy.md` — 同步闸14条件闸 + 评分函数三处优化
 
 ### V20260603 (2026-06-03)
-- 🐛 **复盘市值修复** — DATA_BLOCK 一进二成功新增 `market_cap`(总市值/亿)字段，修复 AI 误把 `amount`(成交额)当市值用的问题（亨通光电 63亿成交额被写成 63亿市值，实际 1900亿）
-- 📝 **模板文档同步** — `cron-prompt-templates.md` DATA_BLOCK 结构追加 `market_cap` + 字段说明（`amount`=成交额、`seal_money`=封单额、`market_cap`=总市值）
+- 🐛 **复盘市值修复** — DATA_BLOCK 一进二成功新增 `market_cap`(总市值)字段，修复 AI 误把成交额当市值用的问题
+- 📝 **模板文档同步** — `cron-prompt-templates.md` DATA_BLOCK 结构追加 `market_cap` + 字段说明
 
 ### V2026053103 (2026-05-31)
-- 🏗️ **stocks_info 重构** — 统一为**只读静态表**，写入口唯一：`weekly_refresh_stocks_info.py`（每周六 00:00 全量刷新，~52s）
-- 🗑️ **移除冗余写入** — `data_fetcher._fetch_first_boards()` 不再写 stocks_info（-13行），`setup_backfill` 移除 `backfill_industries()` + `backfill_stock_shares()`（-84行）
-- ⚡ **批量接口优化** — `circulating_shares` 改用东方财富 datacenter 批量 API，3481只 19s（原逐只 adata 需~12min）
-- 📅 **新增 cron** — `3d859895708b` 每周六 stocks_info 全量刷新（no_agent）
-- 🗄️ **schema 新增** — `stocks_info.full_update_time` 字段，控制刷新可靠性，缺失率>5%告警
-- 🧹 **死代码清理** — `data_fetcher` 移除未使用的 `normalize_industry` import
+- 🏗️ **stocks_info 重构** — 统一为**只读静态表**，写入口唯一：`weekly_refresh_stocks_info.py`（每周六全量刷新）
+- 🗑️ **移除冗余写入** — `data_fetcher._fetch_first_boards()` 不再写 stocks_info，`setup_backfill` 移除冗余回填函数
+- ⚡ **批量接口优化** — `circulating_shares` 改用东方财富 datacenter 批量 API，数千只股票秒级完成
+- 📅 **新增 cron** — 每周六 stocks_info 全量刷新（no_agent）
+- 🗄️ **schema 新增** — `stocks_info.full_update_time` 字段，控制刷新可靠性，缺失率告警
+- 🧹 **死代码清理** — `data_fetcher` 移除未使用的 import
 
 ### V2026053102 (2026-05-31)
-- 🏛️ **数据层增强** — `daily_kline` 新增 `turnover`(换手率%)字段，`fetch_realtime()` 捕获新浪行情自带的换手率(`d[10]`)并入库
-- 🗄️ **stocks_info 补全** — 新增 `circulating_shares`(流通股本/股) + `ipo_date`(上市日期)字段，`setup_backfill` 新增 Step5 用 `ak.stock_individual_info_em()` 一次调用补全两个字段
-- 🔒 **stocks_info 写入保护** — `UPDATE` 改用 `INSERT ... ON CONFLICT DO UPDATE`，避免 `circulating_shares`/`ipo_date` 被覆盖清空
+- 🏛️ **数据层增强** — `daily_kline` 新增 `turnover`(换手率)字段，`fetch_realtime()` 捕获新浪行情自带的换手率并入库
+- 🗄️ **stocks_info 补全** — 新增 `circulating_shares`(流通股本) + `ipo_date`(上市日期)字段
+- 🔒 **stocks_info 写入保护** — `UPDATE` 改用 `INSERT ... ON CONFLICT DO UPDATE`，避免字段被覆盖清空
 - 🗑️ **移除 script.js** — JS 全部回退到 `index.html` 内联，方便维护
-- 📄 **网页更新日志动态化** — `index.html` 自动从 `README.md` 读取 `## 📝 更新日志` 渲染，只维护 README 即可
-- 🎨 **更新日志可折叠** — 网页端日志改为 `<details>` 默认收起，位于 FAQ 下方
+- 📄 **网页更新日志动态化** — `index.html` 自动从 `README.md` 读取渲染，只维护 README 即可
+- 🎨 **更新日志可折叠** — 网页端日志改为 `<details>` 默认收起
 
 ### V2026053101 (2026-05-31)
-- 📅 **交割日提醒上线** — 新增 `get_delivery_alert()`，算法：每月第三个周五（节假日顺延）。交割日前3个交易日 + 交割日当天 = 共4天窗口提醒。早盘推送 JSON 新增 `delivery_alert` 字段，当天显示「⚠️ 今日股指期货交割日」，提前显示「⏳ 距交割日还有N个交易日」。2026年6月交割日 6/19 顺延至 6/22（端午节）已验证。
+- 📅 **交割日提醒上线** — 新增 `get_delivery_alert()`，每月第三个周五（节假日顺延），交割日前多日 + 交割日当天窗口提醒。早盘推送 JSON 新增 `delivery_alert` 字段。
 
 ### V2026052902 (2026-05-29)
-- 📊 **共振阈值调升** — `SECTOR_RESONANCE_MIN` 4→7（硬闸豁免）、`SECTOR_RESONANCE_SOFT` 3→5（软加分）。10天回测均值1.1共振板块/天，仅大行情日触发，提高信号纯度。
-- 🐛 **早盘推送修正** — 共振板块完整列出（resonance_sectors数组不截断）；个股industry字段核对（曾把华塑控股光学光电错归房地产）。
+- 📊 **共振阈值调升** — 硬闸豁免和软加分阈值同时上调，仅大行情日触发，提高信号纯度。
+- 🐛 **早盘推送修正** — 共振板块完整列出；个股行业字段核对修正。
 
 ### V2026052901 (2026-05-29)
-- 📋 **选好票分组优化** — 板块 ≤2 只归入「其他板块」（原 ≤3），≥3 只独立展示。
-- 📦 **DEPLOY 精简** — 加 `pyyaml` 依赖，建表步骤去掉手动 sqlite3（setup_backfill 已自动执行）。
+- 📋 **选好票分组优化** — 板块内票数过少归入「其他板块」，超阈值独立展示。
+- 📦 **DEPLOY 精简** — 加依赖，建表步骤精简。
 
 ### V2026052801 (2026-05-28)
-- 🔧 **闸14 完善** — 增加"前日J上涨"判定条件，J连涨两天 + 涨停日暴增≥30 + J<80 → 杀。精准过滤假强势票。
-- 🔧 **闸8 简化** — 移除复活机制，高开票直接按共振板块判定（共振过/不过），代码精简 88 行。
-- 📊 **共振双阈值** — `SECTOR_RESONANCE_MIN=5`（硬闸豁免）+ `SECTOR_RESONANCE_SOFT=4`（软加分），独立调参。
-- 📐 **量比评分重写** — 从"缩量最优"改为 0.8~3.3 最优区间，两端都扣分。
-- ⏰ **封板时间放宽** — 13:10 → 13:30。
-- 📝 **策略文档** — 新增 `references/strategy.md`，17 条策略按功能分组编号。
+- 🔧 **闸14 完善** — 增加"前日J上涨"判定条件，J连涨 + 涨停日暴增 + J低值 → 过滤。精准过滤假强势票。
+- 🔧 **闸8 简化** — 移除复活机制，高开票直接按共振板块判定，代码大幅精简。
+- 📊 **共振双阈值** — 硬闸豁免 + 软加分独立调参。
+- 📐 **量比评分重写** — 从"缩量最优"改为对称区间，两端都扣分。
+- ⏰ **封板时间放宽** — 午后封板时限后移。
+- 📝 **策略文档** — 新增 `references/strategy.md`，策略按功能分组编号。
 - 📝 **技术预测/选好票/深度分析常量抽取** — 阈值统一管理。
-- 🏷️ **行业归一化** — 新增 `normalize_industry()`，去证监会代码前缀+取首个分隔符前内容。stocks_info 写入加防覆盖（COALESCE），baostock/akshare 双路径归一化。
+- 🏷️ **行业归一化** — 新增 `normalize_industry()`，baostock/akshare 双路径归一化。
 
 ### V2026052701 (2026-05-27)
-- 🗄️ **建表统一** — 新增 `schema.sql` 为建表唯一真源，`data_fetcher` 和 `setup_backfill` 均改读此文件，不再各自维护 CREATE TABLE。
+- 🗄️ **建表统一** — 新增 `schema.sql` 为建表唯一真源，`data_fetcher` 和 `setup_backfill` 均改读此文件。
 - 🧹 **DB 不进 git** — `hermes_stock.db` 从仓库移除，`.gitignore` 已排除。
 - 📄 **schema 文档精简** — `daily-kline-schema.md` 改为索引，指向 `schema.sql`。
-- ⚡ **`_gaps()` 加 120 天窗口** — GROUP BY 不全表扫，性能优化。
+- ⚡ **`_gaps()` 加天窗口** — GROUP BY 不全表扫，性能优化。
 - 🐛 **修：`_kline_insert_batch/one` 补 raw_json** — INSERT 漏写该列，已补全。
-- 🐛 **修：`import os` 缺失** — `data_fetcher.py` 模块级 `_SCHEMA_PATH` 需要 `os`。
-- 📋 **DEPLOY 更新** — 增加 `schema.sql` 建表步骤和 skill reload 说明。
+- 🐛 **修：`import os` 缺失** — `data_fetcher.py` 模块级路径变量需要 `os`。
+- 📋 **DEPLOY 更新** — 增加建表步骤和 skill reload 说明。
 
 ### V2026052604 (2026-05-26)
-- 🚪 **闸14：J<80 + 单日暴增≥30** — 首板日J值低于80且单日暴增≥30的超跌一日游票直接过滤。1936样本回测仅11.8%晋级率，阈值经25/30/35三档测试后定30。
-- 📐 **市值闸放宽** — GATE_CAP 45-200 → 42-800亿，最优区间 80-120 → 60-300亿，`_score_market_cap` 同步调整。
+- 🚪 **闸14** — 首板日J值低于阈值且单日暴增超阈值的超跌一日游票直接过滤。经回测验证晋级率极低。
+- 📐 **市值闸放宽** — 市值上下限和最优区间同步调整。
 - 🔢 **13闸→14闸** — 全局更新注释和文档。
 
 ### V2026052603 (2026-05-26)
-- 🐛 **修：MACD DEA交叉判断用错日期** — `ydif > dea`/`ydif < dea` 中的 `dea` 取了当日值，应为昨日DEA。导致「DEA下涨」误触发。修复：加 `ydea = rp['macd_dea']`，两处改用 `ydea`。
-- ⚡ **MACD EMA精度提升** — `_incremental_indicators` 递推行数 35→300，EMA收敛更接近真值。
-- ✨ **选好票加行业字段** — `stock_screener --simple/--json` 输出新增 `industry` 字段，支持按板块分组展示。
-- 🔧 **`_kline_all` 重构** — 移除 `need_full`(MACD空检测)和盘后强制刷新，intraday 已算 MACD 后不再需要。刷新与指标不再互斥，第二次跑直接跳过。
+- 🐛 **修：MACD DEA交叉判断用错日期** — 交叉判定中DEA值误取当日而非昨日，导致误触发。已修复。
+- ⚡ **MACD EMA精度提升** — 递推行数大幅增加，EMA收敛更接近真值。
+- ✨ **选好票加行业字段** — 输出新增 `industry` 字段，支持按板块分组展示。
+- 🔧 **`_kline_all` 重构** — 移除死代码和盘后强制刷新，intraday 已算 MACD 后不再需要。
 
 ### V2026052602 (2026-05-26)
-- 🐛 **修：竞价数据脏缓存** — 凌晨手动测试的auction_snapshots被9:26定时任务复用，导致涨停股次日gap全错。Step3前强制DELETE当天缓存重新拉Sina。
-- 🧹 **references清理** — 删7个过时文件+修剪4个保留文件
+- 🐛 **修：竞价数据脏缓存** — 凌晨手动测试的快照被定时任务复用，导致涨停股次日gap全错。拉取前强制清除当天缓存。
+- 🧹 **references清理** — 删过时文件+修剪保留文件
 
 ### V2026052601 (2026-05-25)
-- 🔧 **共振豁免机制** — 一字板票（gap_open≥5%）若行业共振(≥5只涨停)可豁免压分进入候选池，s_open线性扣分-5~-15
-- 📊 **共振板块SQL优化** — 判定改用全量涨停（含连板）JOIN查询，真实反映板块强度
-- 🗂️ **共振数据输出** — 早盘JSON新增resonance_sectors字段，复盘DATA_BLOCK新增共振板块{昨日/今日}对比
-- 🐛 **修：VR量比死代码** — compute_volume_ratio定义从未被调用，加到所有K线路径
-- 🐛 **修：_boards传错日期** — ensure()永远传self.today而非from_date
-- 🐛 **修：复盘推送漏报** — 推送数从daily_screen取而非一进二成功集合
-- 🐛 **修：收盘价偏差** — 盘后强制Sina刷新K线（15:00后）
-- 🔗 **软链修复** — /root/.hermes/scripts指向正确路径
+- 🔧 **共振豁免机制** — 一字板票若行业共振可豁免压分进入候选池，s_open线性扣分
+- 📊 **共振板块SQL优化** — 判定改用全量涨停JOIN查询，真实反映板块强度
+- 🗂️ **共振数据输出** — 早盘JSON新增共振板块字段，复盘DATA_BLOCK新增昨日/今日对比
+- 🐛 **修：VR量比死代码** — 函数从未被调用，加到所有K线路径
+- 🐛 **修：_boards传错日期** — ensure()日期参数修正
+- 🐛 **修：复盘推送漏报** — 推送数取数来源修正
+- 🐛 **修：收盘价偏差** — 盘后强制刷新K线
+- 🔗 **软链修复** — 指向正确路径
 
 ### V2026052301 (2026-05-23)
-- 🏗️ 架构重构：`hermes_stock_lib`(纯工具库 243行) / `data_fetcher`(数据层 927行) 职责分离
-- 🔒 选好票锁定连续3个交易日日期，缺数据打日志不静默跳过
-- 📋 stocks_info 涨停池自动维护，ST 检测，`_codes()` UNION 兜底
+- 🏗️ 架构重构：`hermes_stock_lib`(纯工具库) / `data_fetcher`(数据层) 职责分离
+- 🔒 选好票锁定连续交易日日期，缺数据打日志不静默跳过
+- 📋 stocks_info 涨停池自动维护，ST 检测，编码兜底
 - 🕐 `should_run(intraday)` 三脚本统一入口，A股真实交易日历
-- 🐛 修：`prev_trading_day` off-by-one、`__exit__` 连接泄漏、KDJ 递推缓存、cron 工作日调度
-- 🧹 清理：死代码、未用 import、`C5`→`SEAL_TIME_MAX_MINUTES`、参数名歧义
+- 🐛 修：交易日计算、连接泄漏、KDJ递推缓存、cron工作日调度
+- 🧹 清理：死代码、未用 import、命名规范化
 
 ### V4.6 (2026-05-15)
 - DataFetcher 数据工厂重构，ensure 全自动治理
@@ -380,8 +380,8 @@
 
 ### V4.5 (2026-05-01)
 - OOP 重构：MorningPush/AfternoonReview/MarketSignal 继承 DataFetcher
-- 14 闸硬逻辑 + 10 维软逻辑评分
-- 三区降级策略（一区 4.84-7.9% / 二区 3.0-4.84%）
+- 多闸硬逻辑 + 多维软逻辑评分
+- 三区降级策略
 
 ### V4.2 (2026-04-15)
 - 双区降级，牺牲部分胜率换低大面风险
