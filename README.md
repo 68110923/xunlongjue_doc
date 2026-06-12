@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260611-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260612-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-69.8%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -263,6 +263,9 @@
 ---
 
 ## 📝 更新日志
+
+### V20260612 (2026-06-12)
+- 📐 **量比重构** — 硬闸VR下限 0.3→0.5，评分完全重写：0.5~1.0线性扣分(-8→0)，1.0~3.0最优平台(+15)，3.0~5.0递减至+5。跨度从13扩大到25分，提升量比维度权重。
 
 ### V20260611 (2026-06-11)
 - 💣 **炸板评分重构** — 从纯惩罚改为对称加减分。炸板次数超阈值扣分、低于阈值奖励。首末封间隔扣分力度降低。
