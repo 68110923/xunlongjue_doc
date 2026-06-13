@@ -215,7 +215,7 @@
       <sub>策略更新 · 实盘案例</sub>
     </td>
     <td align="center" width="25%">
-      <b>扫码进试用群</b><br>
+      <b>扫码进临时群</b><br>
       <img src="media/试用群/6月16日前有效.jpg" width="160" height="160" /><br>
       <sub>6月16日前有效</sub>
     </td>
