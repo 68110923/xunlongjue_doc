@@ -184,13 +184,13 @@
 
 <p align="center">
   <s style="color: #999;">原价 1888</s><br>
-  <b style="font-size: 1.5em;">288 元 / 永久</b><br>
+  <b style="font-size: 1.5em;">588 元 / 永久</b><br>
   源码交付 · 策略持续迭代 · 拉群答疑
 </p>
 
 <p align="center">
   <b>QQ / 微信：68110923</b><br>
-  <span style="color: #999;">加好友备注「寻龙诀」</span>
+  <span style="color: #999;">加好友备注「购买源码」</span>
 </p>
 
 > 一顿饭钱，换一个 7×24 小时不睡觉的量化助手。
@@ -199,9 +199,9 @@
 
 ---
 
-### ❤️ 支持项目
+### ❤️ 购买源码
 
-如果你觉得这个项目对你有帮助，可以通过以下方式支持我，替我回血一些token支出：
+如果你觉得这个项目对你有帮助，可以通过以下方式下单，备注联系方式，我会尽快联系你发你源代码：
 
 <p align="center">
   <table>
@@ -209,12 +209,12 @@
     <td align="center" width="25%">
       <b>微信捐款 ¥18.88</b><br>
       <img src="media/收款码/微信收款码.jpg" width="160" height="160" /><br>
-      <sub>扫码支持 ¥18.88</sub>
+      <sub>扫码支付 ¥588</sub>
     </td>
     <td align="center" width="25%">
       <b>支付宝捐 ¥88.88</b><br>
       <img src="media/收款码/支付宝收款码.jpg" width="160" height="160" /><br>
-      <sub>扫码支持 ¥88.88</sub>
+      <sub>扫码支付 ¥588</sub>
     </td>
     <td align="center" width="25%">
       <b>关注公众号</b><br>
