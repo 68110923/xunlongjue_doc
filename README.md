@@ -197,7 +197,7 @@
   <span style="color: #999;">加好友备注「购买源码」</span>
 </p>
 
-> 一顿饭钱，换一个 7×24 小时不睡觉的量化助手。
+> 一次足浴，换一个 7×24 小时不睡觉的量化助手。
 >
 > 💻 自行部署请查看 [部署文档](https://github.com/68110923/xunlongjue/blob/main/DEPLOY.md#%E5%AF%BB%E9%BE%99%E8%AF%80--%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3)
 
@@ -228,7 +228,7 @@
     <td align="center" width="25%">
       <b>WhatsApp</b><br>
       <img src="media/联系群/WhatsApp群.jpg" width="160" height="160" /><br>
-      <sub>WhatsApp · 扫码进群交流</sub>
+      <sub>WhatsApp · 扫码进付费交流群</sub>
     </td>
   </tr>
   </table>
