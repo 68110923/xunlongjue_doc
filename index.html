@@ -734,88 +734,95 @@ function goReadme(){
 // ── Markdown → HTML 行内渲染 ──
 function mdToHtml(t){return t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/`(.+?)`/g,'<code>$1</code>').replace(/\[(.+?)\]\((.+?)\)/g,'<a href="$2" target="_blank" style="color:var(--accent)">$1</a>')}
 
-// ── 加载更新日志 ──
-function loadChangelog(){
-  var el=document.getElementById('changelog');if(!el)return;
-  function parseAndRender(md){
-    var lines=md.split('\n'),inCL=false,buf=[];
-    for(var i=0;i<lines.length;i++){var l=lines[i];if(/^##\s*📝/.test(l)){inCL=true;continue}if(inCL&&/^##\s/.test(l)&&!/^###\s/.test(l))break;if(inCL)buf.push(l)}
-    var html='',versionOpen=false;
-    for(var i=0;i<buf.length;i++){
-      var l=buf[i];
-      if(/^###\s/.test(l)){
-        if(versionOpen)html+='</div>';versionOpen=true;
-        var m=l.match(/^###\s+(.+?)(?:\s+\((\d{4}-\d{2}-\d{2})\))?$/);
-        if(m)html+='<div class="cl-version"><span class="vtag">'+mdToHtml(m[1].trim())+(m[2]?'<span class="vdate">'+m[2]+'</span>':'')+'</span>';else html+='<div class="cl-version"><span class="vtag">'+mdToHtml(l.replace(/^###\s+/,''))+'</span>'
-      }else if(/^\s{2,}\*\s/.test(l)){html+='<div class="cl-sub-item">'+mdToHtml(l.replace(/^\s*\*\s+/,''))+'</div>'}else if(/^-\s/.test(l)){html+='<div class="cl-item">'+mdToHtml(l.replace(/^-\s+/,''))+'</div>'}
-    }
-    if(versionOpen)html+='</div>';el.innerHTML=html||'<p style="text-align:center;color:var(--dim);font-size:12px">暂无更新日志</p>'
+// ── 更新日志解析 ──
+function parseChangelog(md, el){
+  var lines=md.split('\n'),inCL=false,buf=[];
+  for(var i=0;i<lines.length;i++){var l=lines[i];if(/^##\s*📝/.test(l)){inCL=true;continue}if(inCL&&/^##\s/.test(l)&&!/^###\s/.test(l))break;if(inCL)buf.push(l)}
+  var html='',versionOpen=false;
+  for(var i=0;i<buf.length;i++){
+    var l=buf[i];
+    if(/^###\s/.test(l)){
+      if(versionOpen)html+='</div>';versionOpen=true;
+      var m=l.match(/^###\s+(.+?)(?:\s+\((\d{4}-\d{2}-\d{2})\))?$/);
+      if(m)html+='<div class="cl-version"><span class="vtag">'+mdToHtml(m[1].trim())+(m[2]?'<span class="vdate">'+m[2]+'</span>':'')+'</span>';else html+='<div class="cl-version"><span class="vtag">'+mdToHtml(l.replace(/^###\s+/,''))+'</span>'
+    }else if(/^\s{2,}\*\s/.test(l)){html+='<div class="cl-sub-item">'+mdToHtml(l.replace(/^\s*\*\s+/,''))+'</div>'}else if(/^-\s/.test(l)){html+='<div class="cl-item">'+mdToHtml(l.replace(/^-\s+/,''))+'</div>'}
   }
-  fetch('README.md').then(function(r){if(!r.ok)throw Error();return r.text()}).then(parseAndRender).catch(function(){fetch(RAW_URL).then(function(r2){if(!r2.ok)throw Error();return r2.text()}).then(parseAndRender).catch(function(){el.innerHTML='<p style="text-align:center;color:var(--dim);font-size:12px">⚠️ 无法加载更新日志</p>'})})
+  if(versionOpen)html+='</div>';el.innerHTML=html||'<p style="text-align:center;color:var(--dim);font-size:12px">暂无更新日志</p>'
 }
 
-// ── 加载通知 ──
-function loadNotifications(){
-  var el=document.getElementById('notifWrap');if(!el)return;
+// ── 通知解析 ──
+function parseNotifications(md, el){
   function todayBetween(start,end){
     var t=parseInt(new Date().toISOString().slice(0,10).replace(/-/g,''));
     if(start&&t<start)return false;
     if(end&&t>end)return false;
     return true;
   }
-  function parseAndShow(md){
-    var lines=md.split('\n'),sec='',inNotif=false;
-    for(var i=0;i<lines.length;i++){
-      var l=lines[i];
-      if(/^##\s*📢/.test(l)){inNotif=true;continue}
-      if(inNotif&&/^##\s/.test(l)&&!/^###\s/.test(l))break;
-      if(inNotif)sec+=l+'\n';
-    }
-    var notifs=[],reTitle=/^###\s+(.+?)\s*`([^`]+)`\s*$/;
-    var lines2=sec.split('\n'),title='',dateStr='',buf='';
-    for(var i=0;i<lines2.length;i++){
-      var l=lines2[i],m=l.match(reTitle);
-      if(m){
-        if(title&&dateStr&&buf){
-          var r=dateStr.split('-');
-          if(todayBetween(r[0]?parseInt(r[0]):0,r[1]?parseInt(r[1]):0))
-            notifs.push({title:title,body:buf.trim()});
-        }
-        title=m[1].trim();dateStr=m[2].trim();buf='';
-      }else if(title&&!/^###/.test(l)&&!/^##/.test(l)&&!/^---$/.test(l.trim())){
-        buf+=l+'\n';
-      }
-    }
-    if(title&&dateStr&&buf){
-      var r=dateStr.split('-');
-      if(todayBetween(r[0]?parseInt(r[0]):0,r[1]?parseInt(r[1]):0))
-        notifs.push({title:title,body:buf.trim()});
-    }
-    if(!notifs.length)return;
-    el.style.display='flex';
-    notifs.forEach(function(n,i){
-      var card=document.createElement('div');card.className='notif-card';
-      card.innerHTML='<button class="n-close" data-idx="'+i+'">✕</button>'+
-        '<div class="n-title">📢 '+n.title+'</div>'+
-        '<div class="n-body">'+mdToHtml(n.body.replace(/\n/g,'<br>'))+'</div>';
-      el.appendChild(card);
-      setTimeout(function(){card.style.opacity='0';card.style.transform='translateY(-10px)';card.style.transition='.3s';setTimeout(function(){card.remove();if(!el.children.length)el.style.display='none'},300)},5000);
-    });
-    el.addEventListener('click',function(e){
-      if(e.target.classList.contains('n-close')){
-        var card=e.target.parentElement;
-        card.style.opacity='0';card.style.transform='translateY(-10px)';
-        card.style.transition='.3s';
-        setTimeout(function(){card.remove();if(!el.children.length)el.style.display='none'},300);
-      }
-    });
+  var lines=md.split('\n'),sec='',inNotif=false;
+  for(var i=0;i<lines.length;i++){
+    var l=lines[i];
+    if(/^##\s*📢/.test(l)){inNotif=true;continue}
+    if(inNotif&&/^##\s/.test(l)&&!/^###\s/.test(l))break;
+    if(inNotif)sec+=l+'\n';
   }
-  fetch('README.md').then(function(r){if(!r.ok)throw Error();return r.text()}).then(parseAndShow).catch(function(){
-    fetch(RAW_URL).then(function(r2){if(!r2.ok)throw Error();return r2.text()}).then(parseAndShow).catch(function(){})
+  var notifs=[],reTitle=/^###\s+(.+?)\s*`([^`]+)`\s*$/;
+  var lines2=sec.split('\n'),title='',dateStr='',buf='';
+  for(var i=0;i<lines2.length;i++){
+    var l=lines2[i],m=l.match(reTitle);
+    if(m){
+      if(title&&dateStr&&buf){
+        var r=dateStr.split('-');
+        if(todayBetween(r[0]?parseInt(r[0]):0,r[1]?parseInt(r[1]):0))
+          notifs.push({title:title,body:buf.trim()});
+      }
+      title=m[1].trim();dateStr=m[2].trim();buf='';
+    }else if(title&&!/^###/.test(l)&&!/^##/.test(l)&&!/^---$/.test(l.trim())){
+      buf+=l+'\n';
+    }
+  }
+  if(title&&dateStr&&buf){
+    var r=dateStr.split('-');
+    if(todayBetween(r[0]?parseInt(r[0]):0,r[1]?parseInt(r[1]):0))
+      notifs.push({title:title,body:buf.trim()});
+  }
+  if(!notifs.length)return;
+  el.style.display='flex';
+  notifs.forEach(function(n,i){
+    var card=document.createElement('div');card.className='notif-card';
+    card.innerHTML='<button class="n-close" data-idx="'+i+'">✕</button>'+
+      '<div class="n-title">📢 '+n.title+'</div>'+
+      '<div class="n-body">'+mdToHtml(n.body.replace(/\n/g,'<br>'))+'</div>';
+    el.appendChild(card);
+    setTimeout(function(){card.style.opacity='0';card.style.transform='translateY(-10px)';card.style.transition='.3s';setTimeout(function(){card.remove();if(!el.children.length)el.style.display='none'},300)},5000);
+  });
+  el.addEventListener('click',function(e){
+    if(e.target.classList.contains('n-close')){
+      var card=e.target.parentElement;
+      card.style.opacity='0';card.style.transform='translateY(-10px)';
+      card.style.transition='.3s';
+      setTimeout(function(){card.remove();if(!el.children.length)el.style.display='none'},300);
+    }
   });
 }
 
-document.addEventListener('DOMContentLoaded',function(){loadChangelog();loadNotifications();document.getElementById('btn-copy-qq')?.addEventListener('click',function(e){e.preventDefault();copyQQ()});document.getElementById('btn-go-readme')?.addEventListener('click',function(e){e.preventDefault();goReadme()})});
+// ── 统一加载 ──
+function loadAll(){
+  var clEl=document.getElementById('changelog');
+  var nfEl=document.getElementById('notifWrap');
+
+  function apply(md){
+    if(clEl) parseChangelog(md, clEl);
+    if(nfEl) parseNotifications(md, nfEl);
+  }
+
+  fetch('README.md').then(function(r){if(!r.ok)throw Error();return r.text()}).then(apply).catch(function(){
+    fetch(RAW_URL).then(function(r2){if(!r2.ok)throw Error();return r2.text()}).then(apply).catch(function(){
+      if(clEl) clEl.innerHTML='<p style="text-align:center;color:var(--dim);font-size:12px">⚠️ 无法加载更新日志</p>';
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded',function(){loadAll();document.getElementById('btn-copy-qq')?.addEventListener('click',function(e){e.preventDefault();copyQQ()});document.getElementById('btn-go-readme')?.addEventListener('click',function(e){e.preventDefault();goReadme()})});
 </script>
 </body>
 </html>
