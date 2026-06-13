@@ -308,6 +308,30 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
 }
 .cl-item strong{color:var(--wht);font-weight:700}
 
+/* Notifications */
+.notif-wrap{
+  position:fixed;top:56px;left:50%;transform:translateX(-50%);
+  z-index:99;width:100%;max-width:500px;padding:0 16px;
+  display:none;flex-direction:column;gap:8px;
+}
+.notif-card{
+  background:linear-gradient(135deg,var(--bg2),var(--section-alt));
+  border:1px solid var(--accent);border-radius:var(--radius);
+  padding:14px 40px 14px 16px;position:relative;
+  box-shadow:0 4px 20px rgba(0,0,0,.4);animation:notifSlide .4s ease-out;
+}
+@keyframes notifSlide{
+  from{opacity:0;transform:translateY(-20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.notif-card .n-title{font-size:13px;font-weight:700;color:var(--wht);margin-bottom:4px}
+.notif-card .n-body{font-size:11px;color:var(--dim);line-height:1.5}
+.notif-card .n-close{
+  position:absolute;top:8px;right:10px;
+  background:none;border:none;color:var(--dim);font-size:16px;cursor:pointer;padding:2px;line-height:1;
+}
+.notif-card .n-close:hover{color:var(--accent)}
+
 .divider{
   height:1px;background:linear-gradient(90deg,transparent,rgba(129,140,248,.12),transparent);
   margin:40px 0;position:relative;z-index:1;
@@ -367,6 +391,7 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
 </nav>
 
 <div class="bg-glow"></div>
+<div id="notifWrap" class="notif-wrap"></div>
 <div class="wrap">
 
 <header>
@@ -729,7 +754,67 @@ function loadChangelog(){
   fetch('README.md').then(function(r){if(!r.ok)throw Error();return r.text()}).then(parseAndRender).catch(function(){fetch(RAW_URL).then(function(r2){if(!r2.ok)throw Error();return r2.text()}).then(parseAndRender).catch(function(){el.innerHTML='<p style="text-align:center;color:var(--dim);font-size:12px">⚠️ 无法加载更新日志</p>'})})
 }
 
-document.addEventListener('DOMContentLoaded',function(){loadChangelog();document.getElementById('btn-copy-qq')?.addEventListener('click',function(e){e.preventDefault();copyQQ()});document.getElementById('btn-go-readme')?.addEventListener('click',function(e){e.preventDefault();goReadme()})});
+// ── 加载通知 ──
+function loadNotifications(){
+  var el=document.getElementById('notifWrap');if(!el)return;
+  function todayBetween(start,end){
+    var t=parseInt(new Date().toISOString().slice(0,10).replace(/-/g,''));
+    if(start&&t<start)return false;
+    if(end&&t>end)return false;
+    return true;
+  }
+  function parseAndShow(md){
+    var lines=md.split('\n'),sec='',inNotif=false;
+    for(var i=0;i<lines.length;i++){
+      var l=lines[i];
+      if(/^##\s*📢/.test(l)){inNotif=true;continue}
+      if(inNotif&&/^##\s/.test(l)&&!/^###\s/.test(l))break;
+      if(inNotif)sec+=l+'\n';
+    }
+    var notifs=[],reTitle=/^###\s+(.+?)\s*`([^`]+)`\s*$/;
+    var lines2=sec.split('\n'),title='',dateStr='',buf='';
+    for(var i=0;i<lines2.length;i++){
+      var l=lines2[i],m=l.match(reTitle);
+      if(m){
+        if(title&&dateStr&&buf){
+          var r=dateStr.split('-');
+          if(todayBetween(r[0]?parseInt(r[0]):0,r[1]?parseInt(r[1]):0))
+            notifs.push({title:title,body:buf.trim()});
+        }
+        title=m[1].trim();dateStr=m[2].trim();buf='';
+      }else if(title&&!/^###/.test(l)&&!/^##/.test(l)){
+        buf+=l+'\n';
+      }
+    }
+    if(title&&dateStr&&buf){
+      var r=dateStr.split('-');
+      if(todayBetween(r[0]?parseInt(r[0]):0,r[1]?parseInt(r[1]):0))
+        notifs.push({title:title,body:buf.trim()});
+    }
+    if(!notifs.length)return;
+    el.style.display='flex';
+    notifs.forEach(function(n,i){
+      var card=document.createElement('div');card.className='notif-card';
+      card.innerHTML='<button class="n-close" data-idx="'+i+'">✕</button>'+
+        '<div class="n-title">📢 '+n.title+'</div>'+
+        '<div class="n-body">'+mdToHtml(n.body.replace(/\n/g,'<br>'))+'</div>';
+      el.appendChild(card);
+    });
+    el.addEventListener('click',function(e){
+      if(e.target.classList.contains('n-close')){
+        var card=e.target.parentElement;
+        card.style.opacity='0';card.style.transform='translateY(-10px)';
+        card.style.transition='.3s';
+        setTimeout(function(){card.remove();if(!el.children.length)el.style.display='none'},300);
+      }
+    });
+  }
+  fetch('README.md').then(function(r){if(!r.ok)throw Error();return r.text()}).then(parseAndShow).catch(function(){
+    fetch(RAW_URL).then(function(r2){if(!r2.ok)throw Error();return r2.text()}).then(parseAndShow).catch(function(){})
+  });
+}
+
+document.addEventListener('DOMContentLoaded',function(){loadChangelog();loadNotifications();document.getElementById('btn-copy-qq')?.addEventListener('click',function(e){e.preventDefault();copyQQ()});document.getElementById('btn-go-readme')?.addEventListener('click',function(e){e.preventDefault();goReadme()})});
 </script>
 </body>
 </html>
