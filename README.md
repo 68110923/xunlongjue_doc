@@ -207,12 +207,12 @@
   <table>
   <tr>
     <td align="center" width="25%">
-      <b>微信捐款 ¥18.88</b><br>
+      <b>微信支付 ¥588</b><br>
       <img src="media/收款码/微信收款码.jpg" width="160" height="160" /><br>
       <sub>扫码支付 ¥588</sub>
     </td>
     <td align="center" width="25%">
-      <b>支付宝捐 ¥88.88</b><br>
+      <b>支付宝支付 ¥588</b><br>
       <img src="media/收款码/支付宝收款码.jpg" width="160" height="160" /><br>
       <sub>扫码支付 ¥588</sub>
     </td>
