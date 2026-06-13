@@ -782,7 +782,7 @@ function loadNotifications(){
             notifs.push({title:title,body:buf.trim()});
         }
         title=m[1].trim();dateStr=m[2].trim();buf='';
-      }else if(title&&!/^###/.test(l)&&!/^##/.test(l)){
+      }else if(title&&!/^###/.test(l)&&!/^##/.test(l)&&!/^---$/.test(l.trim())){
         buf+=l+'\n';
       }
     }
@@ -799,6 +799,7 @@ function loadNotifications(){
         '<div class="n-title">📢 '+n.title+'</div>'+
         '<div class="n-body">'+mdToHtml(n.body.replace(/\n/g,'<br>'))+'</div>';
       el.appendChild(card);
+      setTimeout(function(){card.style.opacity='0';card.style.transform='translateY(-10px)';card.style.transition='.3s';setTimeout(function(){card.remove();if(!el.children.length)el.style.display='none'},300)},5000);
     });
     el.addEventListener('click',function(e){
       if(e.target.classList.contains('n-close')){
