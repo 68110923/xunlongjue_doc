@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260612-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260613-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-69.8%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -339,6 +339,15 @@
 ### V2026052901 (2026-05-29)
 - 📋 **选好票分组优化** — 板块内票数过少归入「其他板块」，超阈值独立展示。
 - 📦 **DEPLOY 精简** — 加依赖，建表步骤精简。
+
+### V20260613 (2026-06-13)
+- 🕐 **复盘支持历史日期** — `afternoon_review.py` 新增 `--date YYYYMMDD` 参数，可复盘任意历史交易日。
+- 🚫 **历史日期零 API 调用** — morning_push + afternoon_review 跑历史日期时跳过 K 线 API 拉取，全离线。
+- 🐛 **修：daily_screen 脏数据** — `INSERT OR REPLACE` + 缺唯一约束导致重复行。改 DELETE 前置 + INSERT。
+- 🐛 **修：复盘命中率虚高** — `SUM(next_is_lu)` 把非推送票也算进去，改 `SUM(CASE WHEN pushed=1 ...)`。
+- 🐛 **修：复盘 pct 错用 auction prev_close** — 历史日期从 daily_kline 直取 pct，不重算。
+- 💰 **推送明细加 pnl 字段** — `(close-open)/open×100`，open 取 daily_kline 实际开盘价（非集合竞价）。
+- 📝 **早盘/复盘输出格式优化** — 行业前移、Gap→开盘、收盘+X%→盈亏X%。
 
 ### V2026052801 (2026-05-28)
 - 🔧 **闸14 完善** — 增加"前日J上涨"判定条件，J连涨 + 涨停日暴增 + J低值 → 过滤。精准过滤假强势票。
