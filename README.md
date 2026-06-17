@@ -294,7 +294,14 @@
 **其他修复**
 - 🐛 修 `fetch_realtime` 指数 code 解析冲突（Sina 符号→原始 code 反向映射）
 - 🐛 修 `ensure_market_indicators` force 模式 DELETE 未 commit 导致锁冲突
+- 🐛 修 `fetch_latest_close` 排除指数（`code NOT LIKE '%.%'`）
 - 📝 早盘/复盘/回测策略过滤不变（仍限 60/00 主板）
+
+**选好票优化**
+- 🔍 VR 阈值 1.5→1.35，评分有效 264→303 只
+- 🚀 放开 30/68 板块（创业板+科创板），全市场 3194→5136 只
+- 📊 统计区分「全市场 / VR过滤 / 评分有效」，不再混淆
+- 📝 模板同步更新
 
 ### V20260614 (2026-06-14)
 - 🧮 **MACD/KDJ 抽象为纯算函数** — 新增 `compute_macd(closes, mode, fast, slow, signal)` 和 `compute_kdj(highs, lows, closes, mode, period, k_smooth, d_smooth)`，均支持参数化周期。消除 `intraday_refresh`/`data_fetcher` 共 8 处重复 EMA/RSV 循环，净删 116 行，计算逻辑各只留一份。
