@@ -272,11 +272,29 @@
 ## 📝 更新日志
 
 ### V20260617 (2026-06-17)
-- 🏗️ **指数 code 规范化** — 指数 code 统一为带前缀格式（sh.000001/sz.399001），`.`` 即指数标识。删 `_INDEX_CODES` 硬编码集合，改用 `'.' in code` 判断。`000001` 回归平安银行个股，互不冲突。
-- 🔧 **新增 `to_sina_symbol()`** — 统一 code→Sina API 符号转换，自动处理带点格式（sh.000001→sh000001）。
-- 📝 **DB 存量迁移** — 7 个指数 code 全量更新（daily_kline/daily_screen/first_boards），补平安银行 140 条 K 线。
-- 🐛 **修 `weekly_refresh_stocks_info` DB 路径硬编码** — `/root/hermes_stock.db` → 从 `hermes_stock_lib` 导入相对路径，适配任意部署环境。
-- 🐛 **修 `weekly_refresh_stocks_info` 只覆盖主板** — baostock/东财过滤放宽至全市场（60/00/30/688），修复 14 只截断行业 + 1926 只缺流通股本。
+
+**指数 code 规范化**
+- 🏗️ 指数 code 统一带前缀格式（sh.000001/sz.399001），`.` 即指数标识；`000001` 回归平安银行个股
+- 🔧 新增 `to_sina_symbol()` — code→Sina API 符号统一转换
+- 📝 DB 存量迁移：7 指数全量更新 + 平安银行 140 条 K 线
+- 🗑️ 删 `_INDEX_CODES` 硬编码集合，改用 `'.' in code`
+
+**全市场覆盖**
+- 📊 `weekly_refresh_stocks_info` 放宽至全市场（60/00/30/68），修复 14 只截断行业 + 1926 只缺流通股本
+- 🐛 修 DB 路径硬编码 → 从 `hermes_stock_lib` 导入相对路径
+- 🚀 `DataFetcher._codes()` 放开 30/68 前缀，`fetch_realtime` 反向映射保留原始 code
+- 🔄 盘中/复盘拉数据统一走 Sina，指数与个股同批，不再单独走 baostock
+
+**指数数据保障**
+- ✅ `ensure_market_indicators` 改为遍历全部 7 个指数（非仅 sh.000001）
+- ⚡ 盘中 `intraday_refresh`：指数随个股 Sina 批量拉取（is_intraday=1）
+- 📋 盘后 `afternoon_review`：复用 `ensure('daily_kline')` → `fetch_realtime` 拉取（is_intraday=0）
+- 🧹 删除冗余 `refresh_index_intraday` + 复盘单独 baostock 拉取
+
+**其他修复**
+- 🐛 修 `fetch_realtime` 指数 code 解析冲突（Sina 符号→原始 code 反向映射）
+- 🐛 修 `ensure_market_indicators` force 模式 DELETE 未 commit 导致锁冲突
+- 📝 早盘/复盘/回测策略过滤不变（仍限 60/00 主板）
 
 ### V20260614 (2026-06-14)
 - 🧮 **MACD/KDJ 抽象为纯算函数** — 新增 `compute_macd(closes, mode, fast, slow, signal)` 和 `compute_kdj(highs, lows, closes, mode, period, k_smooth, d_smooth)`，均支持参数化周期。消除 `intraday_refresh`/`data_fetcher` 共 8 处重复 EMA/RSV 循环，净删 116 行，计算逻辑各只留一份。
