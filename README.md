@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260614-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260617-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-69.8%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -270,6 +270,11 @@
 ---
 
 ## 📝 更新日志
+
+### V20260617 (2026-06-17)
+- 🏗️ **指数 code 规范化** — 指数 code 统一为带前缀格式（sh.000001/sz.399001），`.`` 即指数标识。删 `_INDEX_CODES` 硬编码集合，改用 `'.' in code` 判断。`000001` 回归平安银行个股，互不冲突。
+- 🔧 **新增 `to_sina_symbol()`** — 统一 code→Sina API 符号转换，自动处理带点格式（sh.000001→sh000001）。
+- 📝 **DB 存量迁移** — 7 个指数 code 全量更新（daily_kline/daily_screen/first_boards），补平安银行 140 条 K 线。
 
 ### V20260614 (2026-06-14)
 - 🧮 **MACD/KDJ 抽象为纯算函数** — 新增 `compute_macd(closes, mode, fast, slow, signal)` 和 `compute_kdj(highs, lows, closes, mode, period, k_smooth, d_smooth)`，均支持参数化周期。消除 `intraday_refresh`/`data_fetcher` 共 8 处重复 EMA/RSV 循环，净删 116 行，计算逻辑各只留一份。
