@@ -303,6 +303,12 @@
 - 📊 统计区分「全市场 / VR过滤 / 评分有效」，不再混淆
 - 📝 模板同步更新
 
+**策略优化**
+- 📈 闸15新增：J ≥ 110 且 J涨幅 < 2.5 → 高位钝化杀（morning_push + backtest 同步）
+- 📊 量比评分调整：0.5~1.0 区间从 -8→0 扣分区改为 +4→+12 加分线性递增
+- 🔧 baostock 指数 K 线改前复权（adjustflag 1→2）
+- 📝 策略文档同步更新
+
 ### V20260614 (2026-06-14)
 - 🧮 **MACD/KDJ 抽象为纯算函数** — 新增 `compute_macd(closes, mode, fast, slow, signal)` 和 `compute_kdj(highs, lows, closes, mode, period, k_smooth, d_smooth)`，均支持参数化周期。消除 `intraday_refresh`/`data_fetcher` 共 8 处重复 EMA/RSV 循环，净删 116 行，计算逻辑各只留一份。
 - 🐛 **修复全市场陈旧 MACD 数据** — 增量刷新会跳过已有非 NULL 指标的行，导致部分日期 MACD 值偏离。全量重校正近 30 天 3269 只票 46875 行，修复前大盘预测 MACD 评分偏差 +1→+4。
