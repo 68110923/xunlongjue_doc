@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260617-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260618-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-69.8%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -270,6 +270,11 @@
 ---
 
 ## 📝 更新日志
+
+### V20260618 (2026-06-18)
+- 📏 **振幅闸上调** — 12.5%→13.0%，减少边界误杀（如中京电子12.51%被卡）。
+- 🔧 **封板评分修正** — s_seal 线性区间 790→810min，与硬闸 13:30 对齐策略文档。
+- 🧹 **去诱导性注释** — 清除代码中"闸X"编号注释（morning_push/backtest/hermes_stock_lib），统一为功能命名（高开共振/KDJ假强势/J高位钝化）。
 
 ### V20260617 (2026-06-17)
 - 🏗️ **指数 code 规范化** — 统一带前缀格式（sh.000001/sz.399001），`.` 即指数标识，`000001` 回归个股。删 `_INDEX_CODES` 硬编码集合，新增 `to_sina_symbol()` 统一符号转换。
