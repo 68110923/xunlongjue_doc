@@ -277,7 +277,7 @@
 - 🔧 **backtest CLI 改模式参数** — 第一参数改为模式名（当前仅支持 `精确`），用法 `python3 backtest.py 精确 [天数|日期范围]`。
 - 🐛 **修 auction price=None 崩溃** — `ad.get()` 取不到时额外判 None 兜底 fb_prev/fb_open。
 - 📝 **回测输出模板入库** — `cron-prompt-templates.md` 新增 Backtest 章节。
-- 🧹 **morning_push 清理** — 删 3 个已迁移评分方法 + 多余 import。
+- 🧹 **morning_push 清理** — 删 3 个已迁移评分方法 + 多余 import。删 `backtest_hist` 建表语句 + DB 实体表。
 
 ### V20260619 (2026-06-19)
 - 🏗️ **选好票前置过滤** — VR ≥ 1.35 + 市值 ≥ 45亿 推至 SQL 层（JOIN stocks_info + 子查询），Python 循环只做评分计算，"共 X 只" 日志。
