@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260618-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260620-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-69.8%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -270,6 +270,14 @@
 ---
 
 ## 📝 更新日志
+
+### V20260620 (2026-06-20)
+- 🏗️ **mp/backtest 统一重构** — 闸+评分抽成 `score_candidates()` 搬至 `hermes_stock_lib`，mp 和 backtest 调同一函数。删 backtest 旧数据兜底逻辑，补 market_coeff。验证 0618 日 13 只候选逐行一致。
+- 🗑️ **backtest 去表化** — 删 `backtest_hist` 表读写，纯内存预加载 close/auction/latest 缓存，直接打印表格+汇总。
+- 🔧 **backtest CLI 改模式参数** — 第一参数改为模式名（当前仅支持 `精确`），用法 `python3 backtest.py 精确 [天数|日期范围]`。
+- 🐛 **修 auction price=None 崩溃** — `ad.get()` 取不到时额外判 None 兜底 fb_prev/fb_open。
+- 📝 **回测输出模板入库** — `cron-prompt-templates.md` 新增 Backtest 章节。
+- 🧹 **morning_push 清理** — 删 3 个已迁移评分方法 + 多余 import。
 
 ### V20260619 (2026-06-19)
 - 🏗️ **选好票前置过滤** — VR ≥ 1.35 + 市值 ≥ 45亿 推至 SQL 层（JOIN stocks_info + 子查询），Python 循环只做评分计算，"共 X 只" 日志。
