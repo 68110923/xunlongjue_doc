@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260620-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260621-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-69.8%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -270,6 +270,13 @@
 ---
 
 ## 📝 更新日志
+
+### V20260621 (2026-06-21)
+- 📊 **新增 BOLL 布林带指标** — `daily_kline` 加 5 字段 (mid/upper/lower/width/pct_b)，全量补算 130 万行。`compute_boll()` 标准 N=20/K=2 计算。
+- 🎯 **策略 19：s_boll 布林带评分 (-12 ~ +8)** — 收口突破 +8 / 开口突破 +4 / 普通 0 / 高位加速 -6 / 极端高位 -12。涨停带宽越紧越加分，越松越扣分。
+- 🐛 **修 pct_b 量纲** — compute_boll 返 ratio 但 score_boll 按百分比判 >=100，统一为百分比。
+- 📋 **回测加分数列** — backtest 输出新增「分」列，推送/最高分一目了然。
+- 📝 **策略文档同步** — strategy.md 策略 19 更新为 5 档 -12~+8。
 
 ### V20260620 (2026-06-20)
 - 🏗️ **mp/backtest 统一重构** — 闸+评分抽成 `score_candidates()` 搬至 `hermes_stock_lib`，mp 和 backtest 调同一函数。删 backtest 旧数据兜底逻辑，补 market_coeff。验证 0618 日 13 只候选逐行一致。
