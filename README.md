@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260621-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260622-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-69.8%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -270,6 +270,11 @@
 ---
 
 ## 📝 更新日志
+
+### V20260622 (2026-06-22)
+- ⏰ **封板时间评分重校准** — 满分时段收紧、区间重划，各段斜率调整，午后封板加速扣分。
+- 📊 **换手率评分简化** — 最优区间大幅放宽，新增灰色区按量比分流，其余情况统一处理。
+- 🎯 **推送门槛微调** — 最低推送分下调1分，扩大候选覆盖面。
 
 ### V20260621 (2026-06-21)
 - 🧠 **寻龙诀心法（xunlongjue-mind）** — 六书融合的AI思考框架：养家心法(大局观/合力)、涅槃语录(情绪周期)、大作手(仓位风控)、短线大师(择时节奏)、盘口解读(真伪涨停)、瑞鹤仙/退学(心态出手)。六个维度渗透所有AI输出。
