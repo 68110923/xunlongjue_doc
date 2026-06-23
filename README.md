@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260622-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260623-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-69.8%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -270,6 +270,11 @@
 ---
 
 ## 📝 更新日志
+
+### V20260623 (2026-06-23)
+- 🎯 **双区推送策略重构** — 一区+二区混合择优，替代纯一区优先。冰点自动扩容，零冗余公共函数，早盘与回测同源调用。
+- 📈 **回测新增7日最佳涨幅** — 推送股买入后7日内最高收益追踪，数据不足按实时兜底，汇总加平均涨跌+7日最佳均值双指标。
+- 📋 **复盘格式强化** — 推送表现段股票列表强制代码块包裹，排版一致性提升。
 
 ### V20260622 (2026-06-22)
 - ⏰ **封板时间评分重校准** — 满分时段收紧、区间重划，各段斜率调整，午后封板加速扣分。
