@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260623-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260624-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-69.8%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -270,6 +270,12 @@
 ---
 
 ## 📝 更新日志
+
+### V20260624 (2026-06-24)
+- 📊 **Gap评分六区间重做** — 通用`lerp()`线性插值函数驱动，0~2.8% -10→0、2.8~4.80% 10→15、4.80~7.9% 18→15、7.9~9.9% -10、>9.9% 0。淘汰旧5档毛刺评分。
+- 📏 **二区下限下调** — 双区推送二区门槛 3.0%→2.8%，与评分区间对齐，减少边界误杀。
+- 📉 **大盘系数压缩** — 强多1.15→1.05、偏多1.08→1.03、偏空0.90→0.95、强空0.80→0.92，避免极端行情过度放大/缩小分数。
+- 🐛 **大盘系数取昨收** — 修复早盘和回测都取当日盘中信号的问题，统一取首板日（昨日）收盘数据，消除手动重跑与cron结果不一致。
 
 ### V20260623 (2026-06-23)
 - 🎯 **双区推送策略重构** — 一区满3混合推送(2一区+1二区)，一区1-2只正常推，冰点二区≤2只。零冗余公共函数，早盘与回测同源调用。
