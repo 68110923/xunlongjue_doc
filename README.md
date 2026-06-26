@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260624-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260626-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-69.8%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -270,6 +270,11 @@
 ---
 
 ## 📝 更新日志
+
+### V20260626 (2026-06-26)
+- 📊 **Gap低开区间评分压缩** — 平开/微高开区间评分范围整体下移，低开惩罚加重、上限压缩，减少低位假强势票误推。
+- 📏 **Gap二区起点同步下移** — 二区区间起点跟随下段边界下调，保持两段无缝衔接。
+- 🔧 **二区阈值微调** — 二区门槛小数点后移一档，与评分区间更精确对齐。
 
 ### V20260625 (2026-06-25)
 - 📈 **股价上限放宽** — 硬闸股价上限跟随牛市水位上调，减少高价优质标的误杀。
