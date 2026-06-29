@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260626-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260629-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-69.8%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -270,6 +270,12 @@
 ---
 
 ## 📝 更新日志
+
+### V20260629 (2026-06-29)
+- 📊 **大盘系数动态化** — 从固定6档改为基底+均线动态调节两层结构。基底系数向中性收敛，压缩极端行情放大效应。
+- 📈 **融入MA5/MA10位置关系** — 根据首板日收盘价与均线位置（站上/跌破）及穿越状态（上穿/下穿）进行双向微调，区分均线支撑强度。
+- 🧹 **系数计算抽成公共函数** — `get_market_coeff()` 纳入 `hermes_stock_lib`，早盘推送与回测同源调用，消除重复代码。
+- 📄 **策略文档同步** — strategy.md 更新策略17b，从固定系数切换为双层动态系数设计。
 
 ### V20260626 (2026-06-26)
 - 📊 **Gap低开水下惩罚加重** — 真低开（水下开盘）扣分幅度加大，降低弱势竞价票误推。
