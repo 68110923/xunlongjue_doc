@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260629-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260713-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-69.8%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -22,7 +22,7 @@
 
 | 功能 | 介绍 |
 |------|------|
-| 🐉 一进二寻龙 | 全市场 3000+ 首板 → 14 闸过滤 → 双区择优 → ≤3 只推送。每天 9:26 自动推送到微信。 |
+| 🐉 一进二寻龙 | 全市场 3000+ 首板 → 15 闸过滤 → 10 维评分 → 双区择优 → ≤3 只推送。每天 9:26 自动推送到微信。 |
 | 📐 个股/大盘预测 | MA5 + KDJ + MACD + MA10 四维共振打分。秒出信号：🔥强多/🔴偏多/⚪中性/🟢偏空/❄️强空 |
 | 📋 每日复盘 | 收盘自动复盘：推了什么、中了多少、为什么漏了。15:01 自动推送，策略持续迭代。 |
 | 🔍 深度分析 | 主力痕迹拆解：洗盘→试盘→吸筹→出货→拉升。30天全景K线 + AI 拆解。 |
@@ -270,6 +270,11 @@
 ---
 
 ## 📝 更新日志
+
+### V20260713 (2026-07-13)
+- 📊 **MACD 动量评分** — 一进二评分新增 MACD 维度，含 DIF/DEA 位置判定与趋势跟随，提升弱势股识别能力。
+- 🎯 **二空共振惩罚** — 任意两项偏空指标叠加额外扣分，扩大空头信号的过滤覆盖。
+- 📄 **策略文档同步** — strategy.md 新增策略20：MACD 动量评分。
 
 ### V20260629 (2026-06-29)
 - 📊 **大盘系数动态化** — 从固定6档改为基底+均线动态调节两层结构。基底系数向中性收敛，压缩极端行情放大效应。
