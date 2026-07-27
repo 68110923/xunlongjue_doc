@@ -13,8 +13,8 @@
 
 ## 📢 通知
 
-### 定价调整 `-20260801`
-本项目将于 **2026 年 8 月 1 日** 起调整价格为 **688 元/永久**。在调整前购买仍享现价 588 元，望您理解支持！！！
+### 定价说明
+当前售价：**888 元/永久**（源码交付 + 部署教程，策略持续迭代）
 
 ---
 
@@ -182,19 +182,17 @@
 
 ### 💰 定价
 
-<p align="center">
-  <s style="color: #999;">原价 1888</s><br>
-  <b style="font-size: 1.5em;">588 元 / 永久</b><br>
-  源码交付 · 策略持续迭代 · 拉群答疑
-</p>
+| 项目 | 价格 | 说明 |
+|------|------|------|
+| 📦 **源码** | **888 元** | 交付源码 + 部署教程，策略持续迭代 |
+| 🛠️ **协助部署** | **200 元** | 一对一远程协助部署（约2小时） |
 
 <p align="center">
   <b>QQ / 微信：68110923</b><br>
-  <span style="color: #999;">加好友备注「购买源码」</span>
+  <span style="color: #999;">付费用户防止找不到我，加好友谨防走丢</span><br>
+  <span style="color: #e53935; font-size: 12px;">⚠️ 微信暂时被封号，不要发股票相关敏感信息</span>
 </p>
 
-> 一次足浴，换一个 7×24 小时不睡觉的量化助手。
->
 > 💻 自行部署请查看 [部署文档](https://github.com/68110923/xunlongjue/blob/main/DEPLOY.md#%E5%AF%BB%E9%BE%99%E8%AF%80--%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3)
 
 ---
@@ -206,25 +204,20 @@
 <div align="center">
   <table>
   <tr>
-    <td align="center" width="25%">
-      <b>微信支付</b><br>
-      <img src="media/收款码/微信收款码.jpg" width="160" height="160" /><br>
-      <sub>扫码支付 ¥588</sub>
-    </td>
-    <td align="center" width="25%">
+    <td align="center" width="33%">
       <b>支付宝支付</b><br>
       <img src="media/收款码/支付宝收款码.jpg" width="160" height="160" /><br>
-      <sub>扫码支付 ¥588</sub>
+      <sub>扫码支付 ¥888</sub>
     </td>
-    <td align="center" width="25%">
+    <td align="center" width="33%">
       <b>关注公众号</b><br>
       <img src="media/公众号/公众号二维码.jpg" width="160" height="160" /><br>
       <sub>历史实盘案例</sub>
     </td>
-    <td align="center" width="25%">
-      <b>WhatsApp</b><br>
-      <img src="media/联系群/WhatsApp群.jpg" width="160" height="160" /><br>
-      <sub>扫码进付费交流群</sub>
+    <td align="center" width="33%">
+      <b>试用群</b><br>
+      <img src="media/联系群/试用群88入群.jpg" width="160" height="160" /><br>
+      <sub>扫码申请试用（88元/5~7天）</sub>
     </td>
   </tr>
   </table>
@@ -238,27 +231,64 @@
 
 <details>
 <summary><b>Q：每天推几只？会不会推一堆让我挑？</b></summary>
-<p>每天 ≤3 只。不是海选，是精选。宁错过，不做错。你不需要「挑」，推给你的就是系统认为概率最高的。</p>
+<p>每天最多 3 只。不是海选，是精选。宁错过，不做错。你不用纠结买哪只——推给你的就是系统认为胜率最高的。</p>
 </details>
 
 <details>
-<summary><b>Q：胜率 68.5% 够用吗？</b></summary>
-<p>一进二的本质是用高赔率覆盖胜率。命中一次涨停 ≈ 10% 收益，覆盖 2 次失败绰绰有余。V4.2 三区降级牺牲了部分胜率，换来了更低的大面风险——7%+ 高开陷阱一票不碰。</p>
+<summary><b>Q：68% 的胜率够赚钱吗？</b></summary>
+<p>够。因为一进二赚的是涨停的大钱——中一次 ≈10%，够亏两次还有剩。而且系统主动避开了那些高开低走的坑票，亏大钱的票根本不会推给你。</p>
 </details>
 
 <details>
 <summary><b>Q：我完全不懂股票能用吗？</b></summary>
-<p>能。🔥强多 = 可以关注，🟢偏空 = 先等等。系统已经把复杂的 KDJ、MACD、MA 算完了，你只需要看颜色和文字。</p>
+<p>能。🔥强多=可以关注，🟢偏空=先等等。KDJ、MACD 这些你不用管，系统算好了，你只看颜色和文字就行。</p>
 </details>
 
 <details>
-<summary><b>Q：数据安全吗？</b></summary>
-<p>所有数据存本地，不经过任何第三方服务器。你的持仓、你的查询，只有你自己知道。</p>
+<summary><b>Q：数据安全吗？你会看到我的持仓吗？</b></summary>
+<p>所有数据都存在你自己的电脑或服务器上，不过第三方。你的持仓只有你自己知道。</p>
 </details>
 
 <details>
-<summary><b>Q：能用多久？策略会过期吗？</b></summary>
-<p>永久。策略持续迭代——市场变了，策略跟着变。你买的不是一套代码，是一套持续进化的系统。</p>
+<summary><b>Q：888 块能用多久？策略会不会过时？</b></summary>
+<p>永久。市场会变，策略也会跟着优化——你买的不是一套死代码，而是一个持续进化的系统。</p>
+</details>
+
+<details>
+<summary><b>Q：部署到哪里？需要自己买服务器吗？</b></summary>
+<p>可以部署到你自己的电脑上，也可以买一台云服务器（推荐，24小时在线不关机）。以下是两款高性价比服务器，比自己电脑一年电费还便宜：</p>
+<p>☁️ <strong>腾讯云</strong> — <b>99 元/年</b>：<a href="https://curl.qcloud.com/ucrFUOFD" target="_blank">https://curl.qcloud.com/ucrFUOFD</a></p>
+<p>☁️ <strong>阿里云</strong> — <b>38 元/年</b>（需抢购），<b>99 元/年</b>（不用抢）：<a href="https://www.aliyun.com/minisite/goods?userCode=scuhon0q" target="_blank">https://www.aliyun.com/minisite/goods?userCode=scuhon0q</a></p>
+</details>
+
+<details>
+<summary><b>Q：这是个软件吗？具体是什么？</b></summary>
+<p>你可以把它理解成一个 <strong>7×24 小时在线的 AI 炒股助手</strong>。它不是普通软件，而是一整套量化系统——每天自动选股、预测、复盘，到点把结果发到你微信上，你只需要看消息就够了。</p>
+</details>
+
+<details>
+<summary><b>Q：买了之后怎么用？</b></summary>
+<p>收到源码后，部署到你自己的电脑或云服务器上（不会搞可以花 200 元让我远程帮你搞定），绑定好微信，系统就会自动运行。每天到点通过你的微信发消息给你，像朋友聊天一样，不用学、不用管。</p>
+</details>
+
+<details>
+<summary><b>Q：怎么付款？</b></summary>
+<p>直接扫码付款就行，支付宝扫上面的码。付完后备注你的微信或 QQ 号，我看到会第一时间联系你，把源码发给你。</p>
+</details>
+
+<details>
+<summary><b>Q：没有电脑、不想自己部署，只想看推送结果，可以吗？</b></summary>
+<p>可以。我会拉你进群，群里已经有几位用户和你一样没部署。每天早上 <strong>9:28</strong> 左右，我会把当天推送结果截图发到群里，你直接看就行。</p>
+</details>
+
+<details>
+<summary><b>Q：怎么进入试用群？能试用多久？</b></summary>
+<p>扫码支付 <strong>88 元</strong>，备注你的微信名，然后扫试用群二维码申请加入。试用期为 <strong>5~7 个交易日</strong>，试用期间每天在群里看推送结果，<strong>不包含源码</strong>。满意再买源码。</p>
+</details>
+
+<details>
+<summary><b>Q：怎么查看每天的胜率？</b></summary>
+<p>关注上面的公众号，每天/每周都会在公众号里发布胜率统计和复盘文章，你可以看到系统的真实表现。</p>
 </details>
 
 ---
