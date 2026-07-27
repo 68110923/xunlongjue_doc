@@ -186,7 +186,7 @@
 <p align="center">
   <b>QQ / 微信：68110923</b><br>
   <span style="color: #999;">付费用户防止找不到我，加好友谨防走丢</span><br>
-  <span style="color: #e53935; font-size: 12px;">⚠️ 微信暂时被封号，不要发股票相关敏感信息</span>
+  <span style="color: #e53935; font-size: 12px;">⚠️ 微信暂时被封号到 8 月 28 日，加好友谨防走丢，不要发股票相关敏感信息</span>
 </p>
 
 > 💻 自行部署请查看 [部署文档](https://github.com/68110923/xunlongjue/blob/main/DEPLOY.md#%E5%AF%BB%E9%BE%99%E8%AF%80--%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3)
@@ -285,6 +285,11 @@
 <details>
 <summary><b>Q：怎么查看每天的胜率？</b></summary>
 <p>关注上面的公众号，每天/每周都会在公众号里发布胜率统计和复盘文章，你可以看到系统的真实表现。</p>
+</details>
+
+<details>
+<summary><b>Q：为什么试用也要收费？</b></summary>
+<p>原本是免费试用的，但人太多，很多人进群问东问西，最后还举报我，导致微信被封号到 <strong>8 月 28 日</strong>。所以不免费了，宁缺毋滥。收 88 元只是门槛，能过滤掉不真诚的人。</p>
 </details>
 
 ---

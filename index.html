@@ -361,8 +361,9 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
   .dragon{font-size:36px}
   .bar-row .mon{width:58px;font-size:10px}
   .bar-row .pct{width:28px;font-size:10px}
-  .qr-item img{width:130px;height:130px}
-  .qr-row{gap:20px}
+  .qr-item{flex:1;min-width:0}
+  .qr-item img{width:100%;max-width:100px;height:auto;aspect-ratio:1}
+  .qr-row{gap:6px}
   .contact .btns{gap:8px}
   .cta,.cta2{padding:6px 14px;font-size:12px}
   .nav-links a{font-size:11px;padding:6px 8px}
@@ -621,7 +622,7 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
 
   <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);">
     <div style="font-size: 14px; font-weight: 900; color: var(--accent);">付费用户防止找不到我，可加 QQ/微信：68110923</div>
-    <div style="font-size: 11px; color: var(--red); margin-top: 4px;">⚠️ 微信暂时被封号，加好友谨防走丢，不要发股票相关敏感信息</div>
+    <div style="font-size: 11px; color: var(--red); margin-top: 4px;">⚠️ 微信暂时被封号到 8 月 28 日，加好友谨防走丢，不要发股票相关敏感信息</div>
     <div style="display: flex; justify-content: center; gap: 12px; margin-top: 12px; flex-wrap: wrap;">
       <a class="cta" href="#" id="btn-copy-qq">📞 立即联系</a>
       <a class="cta2" href="#" id="btn-go-readme">📖 查看文档</a>
@@ -712,6 +713,10 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
   <details>
     <summary>怎么查看每天的胜率？</summary>
     <p>关注上面的公众号，每天/每周都会在公众号里发布胜率统计和复盘文章，你可以看到系统的真实表现。</p>
+  </details>
+  <details>
+    <summary>为什么试用也要收费？</summary>
+    <p>原本是免费试用的，但人太多，很多人进群问东问西，最后还举报我，导致微信被封号到 <strong>8 月 28 日</strong>。所以不免费了，宁缺毋滥。收 88 元只是门槛，能过滤掉不真诚的人。</p>
   </details>
 </div>
 
