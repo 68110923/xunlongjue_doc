@@ -46,9 +46,8 @@
 │                       → 随时可问你的机器人
 │
 ├─ 🔸 试用体验 ──────────────────────────
-│ ① 扫码付 68 元（备注微信名）
-│ ② 申请入群
-│ ③ 每天 9:28 群里看推送结果
+│ ① 扫码付 68 元（备注微信名）→ ② 下载 Revolt → ③ 添加好友 68110923#4558 申请入群
+│ ④ 每天 9:28 群里看推送结果
 │ 试用 5~7 个交易日，满意再买源码
 └────────────────────────────────────────
 ```
@@ -185,7 +184,9 @@
 
 <p align="center">
   <b>QQ / 微信：68110923</b><br>
-  <span style="color: #999;">付费用户防止找不到我，加好友谨防走丢</span><br>
+  <span style="color: #999;">仅防丢备用，不聊天</span><br>
+  <span style="color: var(--accent);">🌐 Revolt 社群：<a href="https://app.revolt.chat/" target="_blank" style="color:var(--accent)">app.revolt.chat</a> 添加好友 68110923#4558</span><br>
+  <span style="color: #999;">日常交流、试用、正式群都在这里</span><br>
   <span style="color: #e53935; font-size: 12px;">⚠️ 微信暂时被封号到 8 月 28 日，加好友谨防走丢，不要发股票相关敏感信息</span>
 </p>
 
@@ -200,20 +201,15 @@
 <div align="center">
   <table>
   <tr>
-    <td align="center" width="33%">
+    <td align="center" width="50%">
       <b>支付宝支付</b><br>
       <img src="media/收款码/支付宝收款码.jpg" width="160" height="160" /><br>
       <sub>扫码支付 ¥888</sub>
     </td>
-    <td align="center" width="33%">
+    <td align="center" width="50%">
       <b>关注公众号</b><br>
       <img src="media/公众号/公众号二维码.jpg" width="160" height="160" /><br>
       <sub>历史实盘案例</sub>
-    </td>
-    <td align="center" width="33%">
-      <b>试用群</b><br>
-      <img src="media/联系群/试用群88入群.jpg" width="160" height="160" /><br>
-      <sub>扫码申请试用（68元/5~7天）</sub>
     </td>
   </tr>
   </table>
@@ -279,7 +275,7 @@
 
 <details>
 <summary><b>Q：怎么进入试用群？能试用多久？</b></summary>
-<p>扫码支付 <strong>68 元</strong>，备注你的微信名，然后扫试用群二维码申请加入。试用期为 <strong>5~7 个交易日</strong>，每个用户限试用一次，试用期间每天在群里看推送结果，<strong>不包含源码</strong>。满意再买源码。</p>
+<p>扫码支付 <strong>68 元</strong>，备注你的微信名，然后去 <a href="https://app.revolt.chat/" target="_blank"><strong>Revolt</strong></a> 添加好友 <strong>68110923#4558</strong> 申请入群。试用期为 <strong>5~7 个交易日</strong>，每个用户限试用一次，试用期间每天在群里看推送结果，<strong>不包含源码</strong>。满意再买源码。</p>
 </details>
 
 <details>
