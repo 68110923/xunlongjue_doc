@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260713-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260729-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-69.8%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -305,6 +305,12 @@
 ---
 
 ## 📝 更新日志
+
+### V20260729 (2026-07-29)
+- 🔇 **盘中/周刷新静默运行** — 定时数据拉取改为本地存储不推送，零 token 消耗
+- 🐛 **MACD 数据泄漏修复** — 回测指标计算增加日期过滤，防止未来数据污染评分
+- 📄 **部署文档优化** — 路径统一到 skill 分类目录，cron 命令参数格式修正，workdir 消除硬编码
+- 🐛 **通知解析修复** — 补充日期范围格式，通知解析器恢复正常
 
 ### V20260713 (2026-07-13)
 - 📊 **MACD 动量评分** — 一进二评分新增 MACD 维度，含 DIF/DEA 位置判定与趋势跟随，任意两项偏空叠加惩罚，提升弱势股识别能力。
