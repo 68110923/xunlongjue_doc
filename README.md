@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260729-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260730-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-69.8%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -305,6 +305,11 @@
 ---
 
 ## 📝 更新日志
+
+### V20260730 (2026-07-30)
+- 🎯 **涨跌停改用交易所公式** — 不再依赖 is_limit_up / pct 硬阈值，直接用收盘价与涨跌停价比较判定，自动适配各板块幅度（主板±10%、创业板/科创板±20%），并排除 ST。消除阈值误判和漏判。
+- 🧹 **退市股自动清理** — 每周刷新新增清理步骤，数据源不再返回的股票自动标记退市，防止僵尸数据堆积。含 API 异常安全阀，避免误伤全库。
+- 📄 **腾讯云优惠更新** — 网页端更新服务器优惠信息。
 
 ### V20260729 (2026-07-29)
 - 🔇 **盘中/周刷新静默运行** — 定时数据拉取改为本地存储不推送，零 token 消耗
