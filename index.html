@@ -267,6 +267,17 @@ h1{
 .faq summary{font-size:13px;color:var(--wht);cursor:pointer;font-weight:700;user-select:none}
 .faq details p{font-size:12px;color:var(--dim);margin-top:8px;line-height:1.7}
 
+/* FAQ 进群流程图：一行5张 + 点击放大 */
+.flow-row{display:flex;gap:8px;margin-top:12px;flex-wrap:nowrap}
+.flow-row img{flex:1;min-width:0;width:auto;height:auto;max-height:200px;object-fit:contain;cursor:zoom-in;border-radius:6px;border:1px solid var(--border);background:rgba(255,255,255,.04);transition:transform .2s,box-shadow .2s}
+.flow-row img:hover{transform:scale(1.02);box-shadow:0 4px 16px rgba(0,0,0,.35)}
+@media(max-width:600px){.flow-row img{max-height:120px}}
+
+/* 灯箱 */
+.lightbox{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);cursor:zoom-out;align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:92vw;max-height:92vh;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.6);cursor:zoom-out}
+
 /* Footer */
 footer{text-align:center;padding:20px;position:relative;z-index:1}
 footer .risk{font-size:10px;color:var(--dim);line-height:1.6}
@@ -706,12 +717,12 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
   <details>
     <summary>怎么进入试用群？试用多久？有什么限制？</summary>
     <p>具体步骤见上方「试用体验」。试用期为 <strong>5~7 个交易日</strong>，每个用户限试用一次，试用期间每天在群里看推送结果，<strong>不包含源码</strong>。满意再买源码，<strong>试用期内购买可全额抵扣 88 元</strong>（888 → 800），试用期结束则不再抵扣。</p>
-    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
-      <img src="media/进群流程/步骤1.webp" width="200"/>
-      <img src="media/进群流程/步骤2.webp" width="200"/>
-      <img src="media/进群流程/步骤3.webp" width="200"/>
-      <img src="media/进群流程/步骤4.webp" width="200"/>
-      <img src="media/进群流程/步骤5.webp" width="200"/>
+    <div class="flow-row">
+      <img src="media/进群流程/步骤1.webp" loading="lazy" onclick="openLightbox(this)"/>
+      <img src="media/进群流程/步骤2.webp" loading="lazy" onclick="openLightbox(this)"/>
+      <img src="media/进群流程/步骤3.webp" loading="lazy" onclick="openLightbox(this)"/>
+      <img src="media/进群流程/步骤4.webp" loading="lazy" onclick="openLightbox(this)"/>
+      <img src="media/进群流程/步骤5.webp" loading="lazy" onclick="openLightbox(this)"/>
     </div>
   </details>
   <details>
@@ -877,6 +888,24 @@ function loadAll(){
 }
 
 document.addEventListener('DOMContentLoaded',function(){loadAll();document.getElementById('btn-copy-qq')?.addEventListener('click',function(e){e.preventDefault();copyQQ()});document.getElementById('btn-go-readme')?.addEventListener('click',function(e){e.preventDefault();goReadme()})});
+
+// ── 灯箱：点击进群流程图放大，再点关闭 ──
+function openLightbox(img){
+  var lb=document.getElementById('lightbox');
+  var big=document.getElementById('lightboxImg');
+  big.src=img.src;
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  var lb=document.getElementById('lightbox');
+  lb.classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox()});
 </script>
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightboxImg" src="" alt="放大查看"/>
+</div>
 </body>
 </html>
