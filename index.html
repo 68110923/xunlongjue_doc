@@ -266,6 +266,22 @@ h1{
 .faq details[open]{border-color:rgba(129,140,248,.2)}
 .faq summary{font-size:13px;color:var(--wht);cursor:pointer;font-weight:700;user-select:none}
 .faq details p{font-size:12px;color:var(--dim);margin-top:8px;line-height:1.7}
+/* ---- 文本工具类 ---- */
+.t11{font-size:11px}.t12{font-size:12px}.t13{font-size:13px}.t14{font-size:14px}.t15{font-size:15px}
+.c-dim{color:var(--dim)}.c-accent{color:var(--accent)}.c-gold{color:var(--gold)}
+.c-green{color:var(--green)}.c-red{color:var(--red)}.c-orange{color:#ff9800}
+.fw7{font-weight:700}.fw9{font-weight:900}
+
+/* ---- 组件类 ---- */
+.center-dim{text-align:center;color:var(--dim);font-size:12px}
+.case-sub{font-size:12px;color:var(--dim);margin-bottom:12px;text-align:center}
+.panel{flex:1;min-width:280px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;padding:16px 20px;text-align:left}
+.panel-title{font-size:13px;font-weight:700;margin-bottom:8px}
+.t12l24{font-size:12px;line-height:2.4;color:var(--text)}
+.t12l22{font-size:12px;line-height:2.2;color:var(--text)}
+.t12l2dim{font-size:12px;line-height:2;color:var(--dim)}
+.pl24{padding-left:24px}
+
 
 /* FAQ 进群流程图：一行5张 + 点击放大 */
 .flow-row{display:flex;gap:8px;margin-top:12px;flex-wrap:nowrap}
@@ -480,22 +496,22 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
 <div class="anchor" id="chart"></div>
 <div class="chart-wrap">
   <h3>📊 月度有效胜率追踪（2025.01 — 2026.04）</h3>
-  <div class="bar-row"><div class="mon">2025年01月</div><div class="bar-wrap"><div class="bar-fill orange" style="width:52%">52%</div></div><div class="pct" style="color:#ff9800">52%</div></div>
-  <div class="bar-row"><div class="mon">2025年02月</div><div class="bar-wrap"><div class="bar-fill orange" style="width:48%">48%</div></div><div class="pct" style="color:#ff9800">48%</div></div>
-  <div class="bar-row"><div class="mon">2025年03月</div><div class="bar-wrap"><div class="bar-fill orange" style="width:55%">55%</div></div><div class="pct" style="color:#ff9800">55%</div></div>
-  <div class="bar-row"><div class="mon">2025年04月</div><div class="bar-wrap"><div class="bar-fill orange" style="width:59%">59%</div></div><div class="pct" style="color:#ff9800">59%</div></div>
-  <div class="bar-row"><div class="mon">2025年05月</div><div class="bar-wrap"><div class="bar-fill orange" style="width:54%">54%</div></div><div class="pct" style="color:#ff9800">54%</div></div>
-  <div class="bar-row"><div class="mon">2025年06月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:63%">63%</div></div><div class="pct" style="color:var(--accent)">63%</div></div>
-  <div class="bar-row"><div class="mon">2025年07月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:60%">60%</div></div><div class="pct" style="color:var(--accent)">60%</div></div>
-  <div class="bar-row"><div class="mon">2025年08月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:68%">68%</div></div><div class="pct" style="color:var(--accent)">68%</div></div>
-  <div class="bar-row"><div class="mon">2025年09月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:65%">65%</div></div><div class="pct" style="color:var(--accent)">65%</div></div>
-  <div class="bar-row"><div class="mon">2025年10月</div><div class="bar-wrap"><div class="bar-fill green" style="width:71%">71%</div></div><div class="pct" style="color:var(--green)">71%</div></div>
-  <div class="bar-row"><div class="mon">2025年11月</div><div class="bar-wrap"><div class="bar-fill green" style="width:74%">74%</div></div><div class="pct" style="color:var(--green)">74%</div></div>
-  <div class="bar-row"><div class="mon">2025年12月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:69%">69%</div></div><div class="pct" style="color:var(--accent)">69%</div></div>
-  <div class="bar-row"><div class="mon">2026年01月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:64%">64%</div></div><div class="pct" style="color:var(--accent)">64%</div></div>
-  <div class="bar-row"><div class="mon">2026年02月</div><div class="bar-wrap"><div class="bar-fill green" style="width:70%">70%</div></div><div class="pct" style="color:var(--green)">70%</div></div>
-  <div class="bar-row"><div class="mon">2026年03月</div><div class="bar-wrap"><div class="bar-fill green" style="width:76%">76%</div></div><div class="pct" style="color:var(--green)">76%</div></div>
-  <div class="bar-row"><div class="mon">2026年04月</div><div class="bar-wrap"><div class="bar-fill green" style="width:78%">78%</div></div><div class="pct" style="color:var(--green)">78%</div></div>
+  <div class="bar-row"><div class="mon">2025年01月</div><div class="bar-wrap"><div class="bar-fill orange" style="width:52%">52%</div></div><div class="pct c-orange">52%</div></div>
+  <div class="bar-row"><div class="mon">2025年02月</div><div class="bar-wrap"><div class="bar-fill orange" style="width:48%">48%</div></div><div class="pct c-orange">48%</div></div>
+  <div class="bar-row"><div class="mon">2025年03月</div><div class="bar-wrap"><div class="bar-fill orange" style="width:55%">55%</div></div><div class="pct c-orange">55%</div></div>
+  <div class="bar-row"><div class="mon">2025年04月</div><div class="bar-wrap"><div class="bar-fill orange" style="width:59%">59%</div></div><div class="pct c-orange">59%</div></div>
+  <div class="bar-row"><div class="mon">2025年05月</div><div class="bar-wrap"><div class="bar-fill orange" style="width:54%">54%</div></div><div class="pct c-orange">54%</div></div>
+  <div class="bar-row"><div class="mon">2025年06月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:63%">63%</div></div><div class="pct c-accent">63%</div></div>
+  <div class="bar-row"><div class="mon">2025年07月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:60%">60%</div></div><div class="pct c-accent">60%</div></div>
+  <div class="bar-row"><div class="mon">2025年08月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:68%">68%</div></div><div class="pct c-accent">68%</div></div>
+  <div class="bar-row"><div class="mon">2025年09月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:65%">65%</div></div><div class="pct c-accent">65%</div></div>
+  <div class="bar-row"><div class="mon">2025年10月</div><div class="bar-wrap"><div class="bar-fill green" style="width:71%">71%</div></div><div class="pct c-green">71%</div></div>
+  <div class="bar-row"><div class="mon">2025年11月</div><div class="bar-wrap"><div class="bar-fill green" style="width:74%">74%</div></div><div class="pct c-green">74%</div></div>
+  <div class="bar-row"><div class="mon">2025年12月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:69%">69%</div></div><div class="pct c-accent">69%</div></div>
+  <div class="bar-row"><div class="mon">2026年01月</div><div class="bar-wrap"><div class="bar-fill gold" style="width:64%">64%</div></div><div class="pct c-accent">64%</div></div>
+  <div class="bar-row"><div class="mon">2026年02月</div><div class="bar-wrap"><div class="bar-fill green" style="width:70%">70%</div></div><div class="pct c-green">70%</div></div>
+  <div class="bar-row"><div class="mon">2026年03月</div><div class="bar-wrap"><div class="bar-fill green" style="width:76%">76%</div></div><div class="pct c-green">76%</div></div>
+  <div class="bar-row"><div class="mon">2026年04月</div><div class="bar-wrap"><div class="bar-fill green" style="width:78%">78%</div></div><div class="pct c-green">78%</div></div>
 </div>
 
 <div class="divider"></div>
@@ -509,56 +525,56 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
   <div class="kv">
     <div class="kv-item"><span>⚡ 上证信号：</span><b>+2 🔴偏多 → 可以搞</b></div>
     <div class="kv-item"><span>📊 统计：</span><b>昨首板61 → 候选16 → 推送1</b></div>
-    <div class="kv-item"><span>▸ 推送：</span><b style="color:var(--accent)">滨化股份 +67分 Gap +3.27% 123亿 化学原料</b></div>
+    <div class="kv-item"><span>▸ 推送：</span><b class="c-accent">滨化股份 +67分 Gap +3.27% 123亿 化学原料</b></div>
     <div class="kv-item"><span>🏆 最高分：</span><b>百合花 39分 未推送</b></div>
   </div>
-  <div class="result">🐉 14 闸过滤 → 10 维评分 → ≤3 只推送<br><span style="font-size:11px;color:var(--dim)">不是海选，是精选。宁错过，不做错。</span></div>
+  <div class="result">🐉 14 闸过滤 → 10 维评分 → ≤3 只推送<br><span class="t11 c-dim">不是海选，是精选。宁错过，不做错。</span></div>
 </div>
 
 <div class="case">
   <h4>📐 个股预测（微信发代码秒回）</h4>
-  <div style="font-size:12px;color:var(--dim);margin-bottom:12px;text-align:center">天娱数科（002354）· 06/09 预测</div>
+  <div class="case-sub">天娱数科（002354）· 06/09 预测</div>
   <div class="kv">
-    <div class="kv-item"><span>📊 近10天趋势：</span><b style="color:var(--red)">-12 -8 -2 +6 +8</b> 跌停→三连板V型反转</div>
+    <div class="kv-item"><span>📊 近10天趋势：</span><b class="c-red">-12 -8 -2 +6 +8</b> 跌停→三连板V型反转</div>
     <div class="kv-item"><span>📐 评分：</span><b>MA5+3 KDJ+1 MACD+2 MA10+2</b></div>
-    <div class="kv-item"><span>⚡ 信号：</span><b style="color:var(--red)">🔥强多 · 干就完了</b></div>
+    <div class="kv-item"><span>⚡ 信号：</span><b class="c-red">🔥强多 · 干就完了</b></div>
     <div class="kv-item"><span>🔍 解读：</span><b>盘面一句 + 锚点一句</b> 给具体价位触发条件</div>
   </div>
-  <div class="result">📱 微信发个代码 → 秒回完整预测<br><span style="font-size:11px;color:var(--dim)">看到 🔥 就是强，看到仓位就是信心</span></div>
+  <div class="result">📱 微信发个代码 → 秒回完整预测<br><span class="t11 c-dim">看到 🔥 就是强，看到仓位就是信心</span></div>
 </div>
 
 <div class="case">
   <h4>🔍 深度分析（30天全景拆解主力）</h4>
-  <div style="font-size:12px;color:var(--dim);margin-bottom:12px;text-align:center">沃格光电（603773）· 58→150，涨幅 158%</div>
+  <div class="case-sub">沃格光电（603773）· 58→150，涨幅 158%</div>
   <div class="kv">
     <div class="kv-item"><span>🕵️ 主力痕迹：</span></div>
     <div class="kv-item"><span>0424-0430</span> <b>底部吸筹</b> 58-69区间横盘，MACD金叉</div>
-    <div class="kv-item"><span>0514-0518</span> <b style="color:var(--red)">暴力洗盘</b> 三个跌停88→67，地量封死</div>
-    <div class="kv-item"><span>0519-0528</span> <b style="color:var(--green)">V型反转</b> 7天67→110涨64%，四个涨停</div>
-    <div class="kv-item"><span>0601-0609</span> <b style="color:var(--green)">主升第二波</b> 114→150涨32%</div>
+    <div class="kv-item"><span>0514-0518</span> <b class="c-red">暴力洗盘</b> 三个跌停88→67，地量封死</div>
+    <div class="kv-item"><span>0519-0528</span> <b class="c-green">V型反转</b> 7天67→110涨64%，四个涨停</div>
+    <div class="kv-item"><span>0601-0609</span> <b class="c-green">主升第二波</b> 114→150涨32%</div>
     <div class="kv-item"><span>💡 建议：</span><b>守5日线持有，回踩140缩量可加仓</b></div>
   </div>
-  <div class="result">🕵️ 预测给方向，深度分析给逻辑<br><span style="font-size:11px;color:var(--dim)">30天K线+AI拆解，吸筹→洗盘→反转→主升，每一步都还原</span></div>
+  <div class="result">🕵️ 预测给方向，深度分析给逻辑<br><span class="t11 c-dim">30天K线+AI拆解，吸筹→洗盘→反转→主升，每一步都还原</span></div>
 </div>
 
 <div class="case">
   <h4>⭐ 选好票（全市场秒级扫描）</h4>
-  <div style="font-size:12px;color:var(--dim);margin-bottom:12px;text-align:center">3196只主板 · 39秒 · 四维打分 · 按板块分组</div>
+  <div class="case-sub">3196只主板 · 39秒 · 四维打分 · 按板块分组</div>
   <div class="kv">
     <div class="kv-item"><span>模型：</span><b>MA5 + KDJ + MACD + MA10</b></div>
     <div class="kv-item"><span>门槛：</span><b>≥10 分强多票</b></div>
     <div class="kv-item" style="grid-column:1/-1;text-align:center;padding:10px">
       <span>06/09 输出 → </span>
-      <b style="color:var(--accent);font-size:15px">化学原料2只 · 新闻出版2只 · 橡胶2只 · 其他7只</b>
+      <b class="c-accent t15">化学原料2只 · 新闻出版2只 · 橡胶2只 · 其他7只</b>
       <span style="color:var(--dim)"> 双欣材料+12、圣晖集成+12 领跑</span>
     </div>
   </div>
-  <div class="result">🔍 不是推送，是工具箱<br><span style="font-size:11px;color:var(--dim)">大盘回暖想找方向？发个「选好票」，秒回全市场排行榜</span></div>
+  <div class="result">🔍 不是推送，是工具箱<br><span class="t11 c-dim">大盘回暖想找方向？发个「选好票」，秒回全市场排行榜</span></div>
 </div>
 
 <div class="case">
   <h4>📋 每日复盘（15:01 自动推送）</h4>
-  <div style="font-size:12px;color:var(--dim);margin-bottom:12px;text-align:center">06/09 复盘示例</div>
+  <div class="case-sub">06/09 复盘示例</div>
   <div class="kv">
     <div class="kv-item"><span>📊 统计：</span><b>昨首板29 → 候选5 → 推送0 → 涨停0</b></div>
     <div class="kv-item"><span>🔥 推送表现：</span><b>今日无推送，宁错过不做错</b></div>
@@ -566,7 +582,7 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
     <div class="kv-item"><span>📈 整体盘面：</span><b>大盘+1.28%，涨停112家，计算机25只涨停领跑</b></div>
     <div class="kv-item"><span>💡 明日建议：</span><b>关注元件/计算机方向，优先低位补涨，回避高位追涨</b></div>
   </div>
-  <div class="result">📋 策略透明 · 持续进化<br><span style="font-size:11px;color:var(--dim)">推了什么、中了多少、为什么漏——全透明，对在哪错在哪漏在哪一清二楚</span></div>
+  <div class="result">📋 策略透明 · 持续进化<br><span class="t11 c-dim">推了什么、中了多少、为什么漏——全透明，对在哪错在哪漏在哪一清二楚</span></div>
 </div>
 
 <div class="divider"></div>
@@ -597,19 +613,19 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
 <div class="platform">
   <h3>📱 不用装 APP，消息直接推到你微信</h3>
   <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 16px;">
-    <div style="flex: 1; min-width: 280px; background: rgba(255,255,255,.03); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; text-align: left;">
-      <div style="font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 8px;">📦 购买源码</div>
-      <div style="font-size: 12px; line-height: 2.2; color: var(--text);">📦 购买源码 → 收到部署教程 → 拉你进 Revolt 群</div>
-      <div style="font-size: 12px; line-height: 2; color: var(--dim); padding-left: 24px;">├─ <strong>自己部署</strong> — 跟着教程走，免费</div>
-      <div style="font-size: 12px; line-height: 2; color: var(--dim); padding-left: 24px;">└─ <strong>远程协助</strong> — 我远程帮你搞定（约2小时）</div>
+    <div class="panel">
+      <div class="panel-title c-accent">📦 购买源码</div>
+      <div class="t12l22">📦 购买源码 → 收到部署教程 → 拉你进 Revolt 群</div>
+      <div class="t12l2dim pl24">├─ <strong>自己部署</strong> — 跟着教程走，免费</div>
+      <div class="t12l2dim pl24">└─ <strong>远程协助</strong> — 我远程帮你搞定（约2小时）</div>
       <div style="font-size: 12px; line-height: 2.2; color: var(--text); margin-top: 6px;">✅ 部署完成 → 绑定你的微信 → 自动推送消息</div>
-      <div style="font-size: 12px; line-height: 2.2; color: var(--text);">✅ 随时可问你的机器人【预测XXXX】【深度分析XXXX】【选好票】，秒回分析</div>
+      <div class="t12l22">✅ 随时可问你的机器人【预测XXXX】【深度分析XXXX】【选好票】，秒回分析</div>
     </div>
-    <div style="flex: 1; min-width: 280px; background: rgba(255,255,255,.03); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; text-align: left;">
-      <div style="font-size: 13px; font-weight: 700; color: var(--gold); margin-bottom: 8px;">🔸 试用体验</div>
-      <div style="font-size: 12px; line-height: 2.4; color: var(--text);">① 扫码付 <strong>88 元</strong>（备注微信名）</div>
-      <div style="font-size: 12px; line-height: 2.4; color: var(--text);">② 在 <strong>Revolt</strong>（网页聊天）添加好友 <strong>68110923#4558</strong>，拉你进我的群</div>
-      <div style="font-size: 12px; line-height: 2.4; color: var(--text);">③ 每天早上 <strong>9:28</strong> 群里看推送结果</div>
+    <div class="panel">
+      <div class="panel-title c-gold">🔸 试用体验</div>
+      <div class="t12l24">① 扫码付 <strong>88 元</strong>（备注微信名）</div>
+      <div class="t12l24">② 在 <strong>Revolt</strong>（网页聊天）添加好友 <strong>68110923#4558</strong>，拉你进我的群</div>
+      <div class="t12l24">③ 每天早上 <strong>9:28</strong> 群里看推送结果</div>
       <div style="font-size: 11px; line-height: 1.6; color: var(--dim); margin-top: 4px;">试用 5~7 个交易日，满意再买源码</div>
       <div style="font-size: 12px; line-height: 1.8; color: var(--accent); margin-top: 6px;">✅ 试用期内购买源码，88 元可全额抵扣（888 → 800）</div>
     </div>
@@ -634,7 +650,7 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
 
   <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);">
     <div style="font-size: 14px; font-weight: 900; color: var(--accent);">QQ/微信：68110923 <span style="font-size:11px;color:var(--dim);font-weight:400;">（仅防丢备用，不聊天）</span></div>
-    <div style="font-size: 12px; color: var(--accent); margin-top: 2px;">🌐 Revolt 社群：<a href="https://app.revolt.chat/" target="_blank" style="color:var(--accent)">app.revolt.chat</a> 添加好友 68110923#4558 <span style="font-size:11px;color:var(--dim);">（日常交流）</span></div>
+    <div class="t12 c-accent" style="margin-top:2px">🌐 Revolt 社群：<a href="https://app.revolt.chat/" target="_blank" class="c-accent">app.revolt.chat</a> 添加好友 68110923#4558 <span style="font-size:11px;color:var(--dim);">（日常交流）</span></div>
     <div style="font-size: 11px; color: var(--red); margin-top: 4px;">⚠️ 微信暂时被封号到 8 月 28 日，加好友谨防走丢，不要发股票相关敏感信息</div>
     <div style="display: flex; justify-content: center; gap: 12px; margin-top: 12px; flex-wrap: wrap;">
       <a class="cta" href="#" id="btn-copy-qq">📞 立即联系</a>
@@ -688,7 +704,7 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
   </details>
   <details>
     <summary>Revolt 是什么？</summary>
-    <p>Revolt 是一个开源的网页聊天软件，类似 Discord。不用下载安装，打开 <a href="https://app.revolt.chat/" target="_blank" style="color:var(--accent)">app.revolt.chat</a> 注册账号就能用。试用群、正式群、日常交流都在这里。</p>
+    <p>Revolt 是一个开源的网页聊天软件，类似 Discord。不用下载安装，打开 <a href="https://app.revolt.chat/" target="_blank" class="c-accent">app.revolt.chat</a> 注册账号就能用。试用群、正式群、日常交流都在这里。</p>
   </details>
   <details>
     <summary>888 块能用多久？策略会不会过时？</summary>
@@ -699,11 +715,11 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
     <p>可以部署到你自己的电脑上，也可以买一台云服务器（推荐，24小时在线不关机）。以下是两款高性价比服务器，比自己电脑一年电费还便宜：</p>
     <p style="margin-top:8px">
       ☁️ <strong>腾讯云</strong> — <b>99 元/年</b>，买一年送三个月，相当于 <b>99 元 15 个月</b><br>
-      <a href="https://curl.qcloud.com/ucrFUOFD" target="_blank" style="color:var(--accent)">https://curl.qcloud.com/ucrFUOFD</a>
+      <a href="https://curl.qcloud.com/ucrFUOFD" target="_blank" class="c-accent">https://curl.qcloud.com/ucrFUOFD</a>
     </p>
     <p style="margin-top:6px">
       ☁️ <strong>阿里云</strong> — <b>38 元/年</b>（需抢购），<b>99 元/年</b>（不用抢）<br>
-      <a href="https://www.aliyun.com/minisite/goods?userCode=scuhon0q" target="_blank" style="color:var(--accent)">https://www.aliyun.com/minisite/goods?userCode=scuhon0q</a>
+      <a href="https://www.aliyun.com/minisite/goods?userCode=scuhon0q" target="_blank" class="c-accent">https://www.aliyun.com/minisite/goods?userCode=scuhon0q</a>
     </p>
   </details>
   <details>
@@ -742,7 +758,7 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
 <details class="cl-details">
   <summary>📝 更新日志</summary>
   <div id="changelog" class="cl-wrap">
-    <p style="text-align:center;color:var(--dim);font-size:12px">⏳ 加载中...</p>
+    <p class="center-dim">⏳ 加载中...</p>
   </div>
 </details>
 
@@ -797,7 +813,7 @@ function goReadme(){
 }
 
 // ── Markdown → HTML 行内渲染 ──
-function mdToHtml(t){return t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/`(.+?)`/g,'<code>$1</code>').replace(/\[(.+?)\]\((.+?)\)/g,'<a href="$2" target="_blank" style="color:var(--accent)">$1</a>')}
+function mdToHtml(t){return t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/`(.+?)`/g,'<code>$1</code>').replace(/\[(.+?)\]\((.+?)\)/g,'<a href="$2" target="_blank" class="c-accent">$1</a>')}
 
 // ── 更新日志解析 ──
 function parseChangelog(md, el){
@@ -812,7 +828,7 @@ function parseChangelog(md, el){
       if(m)html+='<div class="cl-version"><span class="vtag">'+mdToHtml(m[1].trim())+(m[2]?'<span class="vdate">'+m[2]+'</span>':'')+'</span>';else html+='<div class="cl-version"><span class="vtag">'+mdToHtml(l.replace(/^###\s+/,''))+'</span>'
     }else if(/^\s{2,}\*\s/.test(l)){html+='<div class="cl-sub-item">'+mdToHtml(l.replace(/^\s*\*\s+/,''))+'</div>'}else if(/^-\s/.test(l)){html+='<div class="cl-item">'+mdToHtml(l.replace(/^-\s+/,''))+'</div>'}
   }
-  if(versionOpen)html+='</div>';el.innerHTML=html||'<p style="text-align:center;color:var(--dim);font-size:12px">暂无更新日志</p>'
+  if(versionOpen)html+='</div>';el.innerHTML=html||'<p class="center-dim">暂无更新日志</p>'
 }
 
 // ── 通知解析 ──
@@ -882,7 +898,7 @@ function loadAll(){
 
   fetch('README.md').then(function(r){if(!r.ok)throw Error();return r.text()}).then(apply).catch(function(){
     fetch(RAW_URL).then(function(r2){if(!r2.ok)throw Error();return r2.text()}).then(apply).catch(function(){
-      if(clEl) clEl.innerHTML='<p style="text-align:center;color:var(--dim);font-size:12px">⚠️ 无法加载更新日志</p>';
+      if(clEl) clEl.innerHTML='<p class="center-dim">⚠️ 无法加载更新日志</p>';
     });
   });
 }
