@@ -222,7 +222,17 @@
 ## ❓ 常见问题
 
 <details>
-<summary><b>Q：每天推几只？会不会推一堆让我挑？</b></summary>
+<summary><b>Q：这是个软件吗？具体是什么？</b></summary>
+<p>你可以把它理解成一个 <strong>7×24 小时在线的 AI 炒股助手</strong>。它不是普通软件，而是一整套量化系统——每天自动选股、预测、复盘，到点把结果发到你微信上，你只需要看消息就够了。</p>
+</details>
+
+<details>
+<summary><b>Q：我完全不懂股票，能用吗？</b></summary>
+<p>能。🔥强多=可以关注，🟢偏空=先等等。KDJ、MACD 这些你不用管，系统算好了，你只看颜色和文字就行。</p>
+</details>
+
+<details>
+<summary><b>Q：每天推几只？会不会推一堆让我自己挑？</b></summary>
 <p>每天最多 3 只。不是海选，是精选。宁错过，不做错。你不用纠结买哪只——推给你的就是系统认为胜率最高的。</p>
 </details>
 
@@ -232,13 +242,13 @@
 </details>
 
 <details>
-<summary><b>Q：我完全不懂股票能用吗？</b></summary>
-<p>能。🔥强多=可以关注，🟢偏空=先等等。KDJ、MACD 这些你不用管，系统算好了，你只看颜色和文字就行。</p>
+<summary><b>Q：怎么查看每天的胜率？</b></summary>
+<p>关注上面的公众号，每天/每周都会在公众号里发布胜率统计和复盘文章，你可以看到系统的真实表现。</p>
 </details>
 
 <details>
-<summary><b>Q：数据安全吗？你会看到我的持仓吗？</b></summary>
-<p>所有数据都存在你自己的电脑或服务器上，不过第三方。你的持仓只有你自己知道。</p>
+<summary><b>Q：Revolt 是什么？</b></summary>
+<p>Revolt 是一个开源的网页聊天软件，类似 Discord。不用下载安装，打开 <a href="https://app.revolt.chat/" target="_blank">app.revolt.chat</a> 注册账号就能用。试用群、正式群、日常交流都在这里。</p>
 </details>
 
 <details>
@@ -254,28 +264,18 @@
 </details>
 
 <details>
-<summary><b>Q：这是个软件吗？具体是什么？</b></summary>
-<p>你可以把它理解成一个 <strong>7×24 小时在线的 AI 炒股助手</strong>。它不是普通软件，而是一整套量化系统——每天自动选股、预测、复盘，到点把结果发到你微信上，你只需要看消息就够了。</p>
-</details>
-
-<details>
-<summary><b>Q：买了之后怎么用？</b></summary>
-<p>收到源码后，部署到你自己的电脑或云服务器上（不会搞可以花 200 元让我远程帮你搞定），绑定好微信，系统就会自动运行。每天到点通过你的微信发消息给你，像朋友聊天一样，不用学、不用管。</p>
-</details>
-
-<details>
-<summary><b>Q：怎么付款？</b></summary>
-<p>直接扫码付款就行，支付宝扫上面的码。付完后备注你的微信或 QQ 号，我看到会第一时间联系你，把源码发给你。</p>
-</details>
-
-<details>
 <summary><b>Q：没有电脑、不想自己部署，只想看推送结果，可以吗？</b></summary>
 <p>可以。我会拉你进 Revolt 群，群里已经有几位用户和你一样没部署。每天早上 <strong>9:28</strong> 左右，我会把当天推送结果截图发到群里，你直接看就行。</p>
 </details>
 
 <details>
-<summary><b>Q：怎么进入试用群？能试用多久？</b></summary>
-<p>扫码支付 <strong>88 元</strong>，备注你的微信名，然后去 <a href="https://app.revolt.chat/" target="_blank"><strong>Revolt</strong></a> 添加好友 <strong>68110923#4558</strong> 申请入群。试用期为 <strong>5~7 个交易日</strong>，每个用户限试用一次，试用期间每天在群里看推送结果，<strong>不包含源码</strong>。满意再买源码。</p>
+<summary><b>Q：怎么购买？付款后怎么用？</b></summary>
+<p>直接扫码付款就行，支付宝扫上面的码。付完后备注你的微信或 QQ 号，我看到会第一时间联系你，把源码发给你。收到源码后，部署到你自己的电脑或云服务器上（不会搞可以花 200 元让我远程帮你搞定），绑定好微信，系统就会自动运行。每天到点通过你的微信发消息给你，像朋友聊天一样，不用学、不用管。</p>
+</details>
+
+<details>
+<summary><b>Q：怎么进入试用群？试用多久？有什么限制？</b></summary>
+<p>具体步骤见上方「试用体验」。试用期为 <strong>5~7 个交易日</strong>，每个用户限试用一次，试用期间每天在群里看推送结果，<strong>不包含源码</strong>。满意再买源码。</p>
 <p>
   <img src="media/进群流程/步骤1.png" width="240" />
   <img src="media/进群流程/步骤2.png" width="240" />
@@ -286,18 +286,13 @@
 </details>
 
 <details>
-<summary><b>Q：怎么查看每天的胜率？</b></summary>
-<p>关注上面的公众号，每天/每周都会在公众号里发布胜率统计和复盘文章，你可以看到系统的真实表现。</p>
-</details>
-
-<details>
 <summary><b>Q：为什么试用也要收费？</b></summary>
 <p>原本是免费试用的，但人太多，很多人进群问东问西，最后还举报我，导致微信被封号到 <strong>8 月 28 日</strong>。所以不免费了，宁缺毋滥。收 88 元只是门槛，能过滤掉不真诚的人。</p>
 </details>
 
 <details>
-<summary><b>Q：Revolt 是什么？</b></summary>
-<p>Revolt 是一个开源的网页聊天软件，类似 Discord。不用下载安装，打开 <a href="https://app.revolt.chat/" target="_blank">app.revolt.chat</a> 注册账号就能用。试用群、正式群、日常交流都在这里。</p>
+<summary><b>Q：数据安全吗？你会看到我的持仓吗？</b></summary>
+<p>所有数据都存在你自己的电脑或服务器上，不过第三方。你的持仓只有你自己知道。</p>
 </details>
 
 ---
