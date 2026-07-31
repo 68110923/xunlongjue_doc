@@ -278,11 +278,11 @@
 <summary><b>Q：怎么进入试用群？试用多久？有什么限制？</b></summary>
 <p>具体步骤见上方「试用体验」。试用期为 <strong>5~7 个交易日</strong>，每个用户限试用一次，试用期间每天在群里看推送结果，<strong>不包含源码</strong>。满意再买源码，<strong>试用期内购买可全额抵扣 88 元</strong>（888 → 800），试用期结束则不再抵扣。</p>
 <p>
-  <img src="media/进群流程/步骤1.png" width="240" />
-  <img src="media/进群流程/步骤2.png" width="240" />
-  <img src="media/进群流程/步骤3.png" width="240" />
-  <img src="media/进群流程/步骤4.png" width="240" />
-  <img src="media/进群流程/步骤5.png" width="240" />
+  <img src="media/进群流程/步骤1.webp" width="240" />
+  <img src="media/进群流程/步骤2.webp" width="240" />
+  <img src="media/进群流程/步骤3.webp" width="240" />
+  <img src="media/进群流程/步骤4.webp" width="240" />
+  <img src="media/进群流程/步骤5.webp" width="240" />
 </p>
 </details>
 
