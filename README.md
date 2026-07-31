@@ -279,6 +279,13 @@
 <details>
 <summary><b>Q：怎么进入试用群？能试用多久？</b></summary>
 <p>扫码支付 <strong>68 元</strong>，备注你的微信名，然后去 <a href="https://app.revolt.chat/" target="_blank"><strong>Revolt</strong></a> 添加好友 <strong>68110923#4558</strong> 申请入群。试用期为 <strong>5~7 个交易日</strong>，每个用户限试用一次，试用期间每天在群里看推送结果，<strong>不包含源码</strong>。满意再买源码。</p>
+<p>
+  <img src="media/进群流程/步骤1.png" width="240" />
+  <img src="media/进群流程/步骤2.png" width="240" />
+  <img src="media/进群流程/步骤3.png" width="240" />
+  <img src="media/进群流程/步骤4.png" width="240" />
+  <img src="media/进群流程/步骤5.png" width="240" />
+</p>
 </details>
 
 <details>
