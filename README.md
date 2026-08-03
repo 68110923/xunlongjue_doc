@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260730-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/版本-V20260803-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-71%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
@@ -305,6 +305,13 @@
 ---
 
 ## 📝 更新日志
+
+### V20260803 (2026-08-03)
+- ⚡ **推送链路提速** — 早盘/复盘定时任务减少多余模型调用（skill 模板不再重复加载），推理强度档位调整，推送耗时显著下降。
+- 🔧 **辅助任务统一走主模型** — 消除无认证辅助提供商的无效重试，启动更干净。
+
+### V20260801 (2026-08-01)
+- 📋 **明日观察数量规则** — 输出数量由用户指定（搞前N只只出N只），N≤3 无备用行，N>3 时第4~N只进备用行，操作思路只写指定的N只。
 
 ### V20260731 (2026-07-31)
 - ⏰ **早盘推送时间提前** — 推送从 9:26 提前至 9:25，避开定时轮询相位延迟，确保 9:26 前准时开跑。
