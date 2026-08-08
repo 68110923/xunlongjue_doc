@@ -256,16 +256,30 @@ h1{
 }
 .cta2:hover{opacity:.8}
 
-/* FAQ */
+/* FAQ 两级嵌套：外层大步骤 + 内层子问题 */
 .faq{position:relative;z-index:1;margin-bottom:24px}
-.faq details{
+.faq>details{
   background:linear-gradient(180deg,var(--bg2),var(--section-alt));
   border:1px solid var(--border);border-radius:8px;
   padding:16px 20px;margin-bottom:8px;transition:border-color .3s,background .3s;
 }
-.faq details[open]{border-color:rgba(129,140,248,.2)}
-.faq summary{font-size:13px;color:var(--wht);cursor:pointer;font-weight:700;user-select:none}
-.faq details p{font-size:12px;color:var(--dim);margin-top:8px;line-height:1.7}
+.faq>details[open]{border-color:rgba(129,140,248,.2)}
+.faq>details>summary{
+  font-size:15px;color:var(--wht);cursor:pointer;font-weight:900;
+  user-select:none;letter-spacing:1px;display:flex;align-items:center;gap:6px;
+}
+.faq .faq-inner{margin-top:12px;padding-left:4px}
+.faq .faq-inner details{
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--border);border-radius:6px;
+  padding:12px 16px;margin-bottom:6px;transition:border-color .3s,background .3s;
+}
+.faq .faq-inner details[open]{border-color:rgba(129,140,248,.15)}
+.faq .faq-inner summary{
+  font-size:13px;color:var(--text);cursor:pointer;font-weight:600;
+  user-select:none;display:flex;align-items:center;gap:6px;
+}
+.faq .faq-inner details p{font-size:12px;color:var(--dim);margin-top:8px;line-height:1.7}
 /* ---- 文本工具类 ---- */
 .t11{font-size:11px}.t12{font-size:12px}.t13{font-size:13px}.t14{font-size:14px}.t15{font-size:15px}
 .c-dim{color:var(--dim)}.c-accent{color:var(--accent)}.c-gold{color:var(--gold)}
@@ -283,16 +297,10 @@ h1{
 .pl24{padding-left:24px}
 
 
-/* FAQ 进群流程图：一行5张 + 点击放大 */
+/* FAQ 进群流程图：一行5张（点击子问题展开即可见，无需灯箱放大） */
 .flow-row{display:flex;gap:8px;margin-top:12px;flex-wrap:nowrap}
-.flow-row img{flex:1;min-width:0;width:auto;height:auto;max-height:200px;object-fit:contain;cursor:zoom-in;border-radius:6px;border:1px solid var(--border);background:rgba(255,255,255,.04);transition:transform .2s,box-shadow .2s}
-.flow-row img:hover{transform:scale(1.02);box-shadow:0 4px 16px rgba(0,0,0,.35)}
+.flow-row img{flex:1;min-width:0;width:auto;height:auto;max-height:200px;object-fit:contain;border-radius:6px;border:1px solid var(--border);background:rgba(255,255,255,.04)}
 @media(max-width:600px){.flow-row img{max-height:120px}}
-
-/* 灯箱 */
-.lightbox{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);cursor:zoom-out;align-items:center;justify-content:center;padding:24px}
-.lightbox.open{display:flex}
-.lightbox img{max-width:92vw;max-height:92vh;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.6);cursor:zoom-out}
 
 /* Footer */
 footer{text-align:center;padding:20px;position:relative;z-index:1}
@@ -686,78 +694,75 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
 
 <!-- ═══ FAQ ═══ -->
 <div class="anchor" id="faq"></div>
-<div class="sec-title">❓ 你可能想问</div>
+<div class="sec-title">🚀 三步搞懂寻龙诀</div>
 <div class="faq">
   <details>
-    <summary>这是个软件吗？具体是什么？</summary>
-    <p>你可以把它理解成一个 <strong>7×24 小时在线的 AI 炒股助手</strong>。它不是普通软件，而是一整套量化系统——每天自动选股、预测、复盘，到点把结果发到你微信上，你只需要看消息就够了。</p>
-  </details>
-  <details>
-    <summary>我完全不懂股票，能用吗？</summary>
-    <p>能。🔥强多=可以关注，🟢偏空=先等等。KDJ、MACD 这些你不用管，系统算好了，你只看颜色和文字就行。</p>
-  </details>
-  <details>
-    <summary>每天推几只？会不会推一堆让我自己挑？</summary>
-    <p>每天最多 3 只。不是海选，是精选。宁错过，不做错。你不用纠结买哪只——推给你的就是系统认为胜率最高的。</p>
-  </details>
-  <details>
-    <summary>明日观察是什么？和每天早上的推送有什么区别？</summary>
-    <p>早盘推送是系统自动量化筛选，每天定时推「一进二」候选；<strong>明日观察是盘后 AI 深度分析次日连板概率</strong>——从全市场涨停池精选（一进二、二进三及更高连板都覆盖），结合封单、竞价、换手、板块梯队综合判断，附具体买入条件。它最大的特点是<strong>可定制</strong>：直接和 AI 说你的想法就能调整优化策略，支持加入消息面因素，输出还能直接当复盘文章素材。</p>
-  </details>
-  <details>
-    <summary>75% 的胜率够赚钱吗？</summary>
-    <p>够。因为一进二赚的是涨停的大钱——中一次 ≈10%，够亏两次还有剩。而且系统主动避开了那些高开低走的坑票，亏大钱的票根本不会推给你。</p>
-  </details>
-  <details>
-    <summary>怎么查看每天的胜率？</summary>
-    <p>关注上面的公众号，每天/每周都会在公众号里发布胜率统计和复盘文章，你可以看到系统的真实表现。</p>
-  </details>
-  <details>
-    <summary>Revolt 是什么？</summary>
-    <p>Revolt 是一个开源的网页聊天软件，类似 Discord。不用下载安装，打开 <a href="https://app.revolt.chat/" target="_blank" class="c-accent">app.revolt.chat</a> 注册账号就能用。试用群、正式群、日常交流都在这里。</p>
-  </details>
-  <details>
-    <summary>888 块能用多久？策略会不会过时？</summary>
-    <p>永久。市场会变，策略也会跟着优化——你买的不是一套死代码，而是一个持续进化的系统。</p>
-  </details>
-  <details>
-    <summary>部署到哪里？需要自己买服务器吗？</summary>
-    <p>可以部署到你自己的电脑上，也可以买一台云服务器（推荐，24小时在线不关机）。以下是两款高性价比服务器，比自己电脑一年电费还便宜：</p>
-    <p style="margin-top:8px">
-      ☁️ <strong>腾讯云</strong> — <b>99 元/年</b>，买一年送三个月，相当于 <b>99 元 15 个月</b><br>
-      <a href="https://curl.qcloud.com/ucrFUOFD" target="_blank" class="c-accent">https://curl.qcloud.com/ucrFUOFD</a>
-    </p>
-    <p style="margin-top:6px">
-      ☁️ <strong>阿里云</strong> — <b>38 元/年</b>（需抢购），<b>99 元/年</b>（不用抢）<br>
-      <a href="https://www.aliyun.com/minisite/goods?userCode=scuhon0q" target="_blank" class="c-accent">https://www.aliyun.com/minisite/goods?userCode=scuhon0q</a>
-    </p>
-  </details>
-  <details>
-    <summary>没有电脑、不想自己部署，只想看推送结果，可以吗？</summary>
-    <p>可以。我会拉你进 Revolt 群，群里已经有几位用户和你一样没部署。每天早上 <strong>9:28</strong> 左右，我会把当天推送结果截图发到群里，你直接看就行。</p>
-  </details>
-  <details>
-    <summary>怎么购买？付款后怎么用？</summary>
-    <p>直接扫码付款就行，支付宝扫上面的码。付完后备注你的微信或 QQ 号，我看到会第一时间联系你，把源码发给你。收到源码后，部署到你自己的电脑或云服务器上（不会搞可以花 200 元让我远程帮你搞定），绑定好微信，系统就会自动运行。每天到点通过你的微信发消息给你，像朋友聊天一样，不用学、不用管。</p>
-  </details>
-  <details>
-    <summary>怎么进入试用群？试用多久？有什么限制？</summary>
-    <p>具体步骤见上方「试用体验」。试用期为 <strong>5~7 个交易日</strong>，每个用户限试用一次。<strong>试用期内推送命中不足 2 只涨停，试用期自动延长，抓到为止。</strong>试用期间每天在群里看推送结果，<strong>不包含源码</strong>。满意再买源码，<strong>试用期内购买可全额抵扣 88 元</strong>（888 → 800），试用期结束则不再抵扣。</p>
-    <div class="flow-row">
-      <img src="media/进群流程/步骤1.webp" loading="lazy" onclick="openLightbox(this)"/>
-      <img src="media/进群流程/步骤2.webp" loading="lazy" onclick="openLightbox(this)"/>
-      <img src="media/进群流程/步骤3.webp" loading="lazy" onclick="openLightbox(this)"/>
-      <img src="media/进群流程/步骤4.webp" loading="lazy" onclick="openLightbox(this)"/>
-      <img src="media/进群流程/步骤5.webp" loading="lazy" onclick="openLightbox(this)"/>
+    <summary>👉 第 1 步 · 这是什么？</summary>
+    <div class="faq-inner">
+      <details>
+        <summary>这是个软件吗？具体是什么？</summary>
+        <p>你可以把它理解成一个 <strong>7×24 小时在线的 AI 炒股助手</strong>。它不是普通软件，而是一整套量化系统——每天自动选股、预测、复盘，到点把结果发到你微信上，你只需要看消息就够了。</p>
+      </details>
+      <details>
+        <summary>我完全不懂股票，能用吗？</summary>
+        <p>能。🔥强多=可以关注，🟢偏空=先等等。KDJ、MACD 这些你不用管，系统算好了，你只看颜色和文字就行。</p>
+      </details>
     </div>
   </details>
   <details>
-    <summary>为什么试用也要收费？</summary>
-    <p>原本是免费试用的，但人太多，很多人进群问东问西，最后还举报我，导致微信被封号到 <strong>8 月 28 日</strong>。所以不免费了，宁缺毋滥。收 88 元只是门槛，能过滤掉不真诚的人。</p>
+    <summary>👉 第 2 步 · 能做什么？</summary>
+    <div class="faq-inner">
+      <details>
+        <summary>每天推几只？会不会推一堆让我自己挑？</summary>
+        <p>每天最多 3 只。不是海选，是精选。宁错过，不做错。你不用纠结买哪只——推给你的就是系统认为胜率最高的。</p>
+      </details>
+      <details>
+        <summary>明日观察是什么？和每天早上的推送有什么区别？</summary>
+        <p>早盘推送是系统自动量化筛选，每天定时推「一进二」候选；<strong>明日观察是盘后 AI 深度分析次日连板概率</strong>——从全市场涨停池精选（一进二、二进三及更高连板都覆盖），结合封单、竞价、换手、板块梯队综合判断，附具体买入条件。它最大的特点是<strong>可定制</strong>：直接和 AI 说你的想法就能调整优化策略，支持加入消息面因素，输出还能直接当复盘文章素材。</p>
+      </details>
+      <details>
+        <summary>75% 的胜率够赚钱吗？怎么看每天的胜率？</summary>
+        <p>够。因为一进二赚的是涨停的大钱——中一次 ≈10%，够亏两次还有剩。而且系统主动避开了那些高开低走的坑票，亏大钱的票根本不会推给你。<strong>胜率怎么看：</strong>关注公众号，每天/每周都会发布胜率统计和复盘文章，你能看到系统的真实表现。</p>
+      </details>
+    </div>
   </details>
   <details>
-    <summary>数据安全吗？你会看到我的持仓吗？</summary>
-    <p>所有数据都只存在<strong>你自己的电脑或服务器</strong>上，不经过任何第三方。你和 AI 之间的全部对话，只有你自己看得到——这套系统本质上就是<strong>你自己的服务器 + 你自己的 AI + 你自己的 API Key</strong>，全部东西都属于你。代码虽然是从我这买的，但买完之后<strong>想怎么改就怎么改</strong>，没有任何限制。</p>
+    <summary>👉 第 3 步 · 怎么加入？</summary>
+    <div class="faq-inner">
+      <details>
+        <summary>Revolt 是什么？怎么注册？</summary>
+        <p>Revolt 是一个开源的网页聊天软件，类似 Discord。不用下载安装，打开 <a href="https://app.revolt.chat/" target="_blank" class="c-accent">app.revolt.chat</a> 注册账号就能用。试用群、正式群、日常交流都在这里。注册流程看下面这 5 张图：</p>
+        <div class="flow-row">
+          <img src="media/进群流程/步骤1.webp" loading="lazy"/>
+          <img src="media/进群流程/步骤2.webp" loading="lazy"/>
+          <img src="media/进群流程/步骤3.webp" loading="lazy"/>
+          <img src="media/进群流程/步骤4.webp" loading="lazy"/>
+          <img src="media/进群流程/步骤5.webp" loading="lazy"/>
+        </div>
+      </details>
+      <details>
+        <summary>怎么试用？试用多久？有什么限制？</summary>
+        <p>试用期为 <strong>5~7 个交易日</strong>，每个用户限试用一次。<strong>试用期内推送命中不足 2 只涨停，试用期自动延长，抓到为止。</strong>试用期间每天在群里看推送结果，<strong>不包含源码</strong>。满意再买源码，<strong>试用期内购买可全额抵扣 88 元</strong>（888 → 800），试用期结束则不再抵扣。</p>
+      </details>
+      <details>
+        <summary>怎么购买？付款后怎么用？</summary>
+        <p>直接扫码付款就行，支付宝扫上面的码。付完后备注你的微信或 QQ 号，我看到会第一时间联系你，把源码发给你。收到源码后，部署到你自己的电脑或云服务器上（不会搞可以花 200 元让我远程帮你搞定），绑定好微信，系统就会自动运行。<strong>888 块永久使用</strong>——市场会变，策略也会跟着优化，你买的不是一套死代码，而是一个持续进化的系统。</p>
+      </details>
+      <details>
+        <summary>不会部署怎么办？没电脑能行吗？</summary>
+        <p>三条路任选：<strong>① 自己部署</strong>——部署到你自己的电脑或云服务器（推荐，24小时在线），照着教程走，免费；<strong>② 远程协助</strong>——花 200 元我远程帮你搞定（约 2 小时）；<strong>③ 不部署只看结果</strong>——我拉你进 Revolt 群，群里已有几位用户和你一样没部署，每天早上 <strong>9:28</strong> 左右我把推送结果截图发到群里，你直接看就行。</p>
+        <p style="margin-top:8px">买云服务器的话，以下两款比自己电脑一年电费还便宜：</p>
+        <p style="margin-top:6px">
+          ☁️ <strong>腾讯云</strong> — <b>99 元/年</b>，买一年送三个月，相当于 <b>99 元 15 个月</b><br>
+          <a href="https://curl.qcloud.com/ucrFUOFD" target="_blank" class="c-accent">https://curl.qcloud.com/ucrFUOFD</a>
+        </p>
+        <p style="margin-top:6px">
+          ☁️ <strong>阿里云</strong> — <b>38 元/年</b>（需抢购），<b>99 元/年</b>（不用抢）<br>
+          <a href="https://www.aliyun.com/minisite/goods?userCode=scuhon0q" target="_blank" class="c-accent">https://www.aliyun.com/minisite/goods?userCode=scuhon0q</a>
+        </p>
+        <p style="margin-top:8px">数据安全放心：所有数据只存在<strong>你自己的电脑或服务器</strong>上，不经过任何第三方。</p>
+      </details>
+    </div>
   </details>
 </div>
 
@@ -914,24 +919,6 @@ function loadAll(){
 }
 
 document.addEventListener('DOMContentLoaded',function(){loadAll();document.getElementById('btn-copy-qq')?.addEventListener('click',function(e){e.preventDefault();copyQQ()});document.getElementById('btn-go-readme')?.addEventListener('click',function(e){e.preventDefault();goReadme()})});
-
-// ── 灯箱：点击进群流程图放大，再点关闭 ──
-function openLightbox(img){
-  var lb=document.getElementById('lightbox');
-  var big=document.getElementById('lightboxImg');
-  big.src=img.src;
-  lb.classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeLightbox(){
-  var lb=document.getElementById('lightbox');
-  lb.classList.remove('open');
-  document.body.style.overflow='';
-}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox()});
 </script>
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <img id="lightboxImg" src="" alt="放大查看"/>
-</div>
 </body>
 </html>
