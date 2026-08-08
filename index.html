@@ -221,15 +221,7 @@ h1{
 .pricing .perk::before{content:'✓ ';color:var(--green)}
 .pricing .urgency{font-size:11px;color:var(--red);margin-top:10px;letter-spacing:1px}
 
-/* QR Sections */
-.qr-section{
-  text-align:center;padding:28px 24px;
-  background:linear-gradient(135deg,rgba(129,140,248,.04),rgba(129,140,248,.01));
-  border:1px solid rgba(129,140,248,.12);border-radius:var(--radius);
-  margin-bottom:24px;position:relative;z-index:1;
-}
-.qr-section h3{font-size:15px;color:var(--accent);margin-bottom:6px}
-.qr-section .sub{font-size:11px;color:var(--dim);margin-bottom:20px}
+/* QR（并入 pricing 下单区） */
 .qr-row{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
 .qr-item{text-align:center}
 .qr-item img{width:160px;height:160px;border-radius:8px;border:1px solid var(--border);object-fit:cover}
@@ -470,6 +462,27 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
   </div>
 </div>
 
+<!-- ═══ 适合谁 ═══ -->
+<div class="anchor" id="audience"></div>
+<div class="sec-title">👤 谁在用</div>
+<div class="audience">
+  <div class="aud-card">
+    <div class="emoji">🔰</div>
+    <h4>打板新手</h4>
+    <p>不知道每天打哪只<br>系统帮你筛到 ≤3 只<br>不再大海捞针</p>
+  </div>
+  <div class="aud-card">
+    <div class="emoji">📉</div>
+    <h4>亏多了的老手</h4>
+    <p>追涨杀跌管不住手<br>让量化系统替你决策<br>纪律比直觉可靠</p>
+  </div>
+  <div class="aud-card">
+    <div class="emoji">💼</div>
+    <h4>上班族</h4>
+    <p>没时间盯盘研究<br>微信到点自动推送<br>看看消息就能决定</p>
+  </div>
+</div>
+
 <!-- ═══ 五大功能 ═══ -->
 <div class="anchor" id="features"></div>
 <div class="sec-title">🎯 它能帮你做什么</div>
@@ -532,27 +545,6 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
 
 <div class="divider"></div>
 
-<!-- ═══ 适合谁 ═══ -->
-<div class="anchor" id="audience"></div>
-<div class="sec-title">👤 谁在用</div>
-<div class="audience">
-  <div class="aud-card">
-    <div class="emoji">🔰</div>
-    <h4>打板新手</h4>
-    <p>不知道每天打哪只<br>系统帮你筛到 ≤3 只<br>不再大海捞针</p>
-  </div>
-  <div class="aud-card">
-    <div class="emoji">📉</div>
-    <h4>亏多了的老手</h4>
-    <p>追涨杀跌管不住手<br>让量化系统替你决策<br>纪律比直觉可靠</p>
-  </div>
-  <div class="aud-card">
-    <div class="emoji">💼</div>
-    <h4>上班族</h4>
-    <p>没时间盯盘研究<br>微信到点自动推送<br>看看消息就能决定</p>
-  </div>
-</div>
-
 <!-- ═══ 接入 ═══ -->
 <div class="anchor" id="platform"></div>
 <div class="platform">
@@ -566,20 +558,11 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
       <div style="font-size: 12px; line-height: 2.2; color: var(--text); margin-top: 6px;">✅ 部署完成 → 绑定你的微信 → 自动推送消息</div>
       <div class="t12l22">✅ 随时可问你的机器人【预测XXXX】【深度分析XXXX】【选好票】，秒回分析</div>
     </div>
-    <div class="panel">
-      <div class="panel-title c-gold">🔸 试用体验</div>
-      <div class="t12l24">① 扫码付 <strong>88 元</strong>（备注微信名）</div>
-      <div class="t12l24">② 在 <strong>Revolt</strong>（网页聊天）添加好友 <strong>68110923#4558</strong>，拉你进我的群</div>
-      <div class="t12l24">③ 每天早上 <strong>9:28</strong> 群里看推送结果</div>
-      <div style="font-size: 11px; line-height: 1.6; color: var(--dim); margin-top: 4px;">试用 5~7 个交易日，满意再买源码</div>
-      <div style="font-size: 11px; line-height: 1.6; color: var(--green); margin-top: 2px;">🎯 试用期内抓不到 2 只涨停？自动延长试用期，抓到为止</div>
-      <div style="font-size: 12px; line-height: 1.8; color: var(--accent); margin-top: 6px;">✅ 试用期内购买源码，88 元可全额抵扣（888 → 800）</div>
-    </div>
   </div>
   <div style="font-size: 12px; color: var(--dim); margin-top: 16px;">支持平台：💬 微信 · 🐧 QQ · 📢 钉钉 · 📢 飞书 · 📢 企业微信 · 📢 更多平台</div>
 </div>
 
-<!-- ═══ 定价 ═══ -->
+<!-- ═══ 定价 + 购买 ═══ -->
 <div class="anchor" id="pricing"></div>
 <div class="pricing">
   <div class="price">888 <small>元</small></div>
@@ -593,6 +576,21 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
   <div style="margin-top: 16px; padding: 12px 20px; background: rgba(212, 168, 83, 0.08); border: 1px solid rgba(212, 168, 83, 0.2); border-radius: 8px; display: inline-block;">
     <div style="font-size: 13px; color: var(--gold);">🛠️ 协助部署：<strong>200 元</strong> <span style="color: var(--dim); font-size: 11px;">（一对一远程协助，约2小时）</span></div>
   </div>
+  <div style="font-size: 12px; color: var(--accent); margin-top: 12px;">💡 想先试试？<strong>88 元</strong> 试用 5~7 个交易日，满意再买，<strong>试用期内购买可全额抵扣</strong>（888 → 800）——详见下方 FAQ</div>
+
+  <div class="qr-row" style="margin-top: 24px;">
+    <div class="qr-item">
+      <img src="media/收款码/支付宝收款码.jpg" alt="支付宝支付">
+      <div class="qr-label">支付宝支付</div>
+      <div class="qr-amt">¥888 备注微信/QQ</div>
+    </div>
+    <div class="qr-item">
+      <img src="media/公众号/公众号二维码.jpg" alt="公众号">
+      <div class="qr-label">关注公众号</div>
+      <div class="qr-amt">历史实盘案例</div>
+    </div>
+  </div>
+  <div style="font-size: 11px; color: var(--dim); margin-top: 12px;">不用担心不会搞——买了源码，我教到你会为止。扫码付款后备注你的微信/QQ，收到后拉你进 Revolt 群、发部署教程。</div>
 
   <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);">
     <div style="font-size: 14px; font-weight: 900; color: var(--accent);">QQ/微信：68110923 <span style="font-size:11px;color:var(--dim);font-weight:400;">（仅防丢备用，不聊天）</span></div>
@@ -604,24 +602,6 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
     </div>
   </div>
 
-</div>
-
-<!-- ═══ 购买源码 ═══ -->
-<div class="qr-section">
-  <h3>❤️ 购买源码</h3>
-  <div class="sub">不用担心不会搞——买了源码，我教到你会为止。扫码付款后备注你的微信/QQ，收到后拉你进 Revolt 群、发部署教程：</div>
-  <div class="qr-row">
-    <div class="qr-item">
-      <img src="media/收款码/支付宝收款码.jpg" alt="支付宝支付">
-      <div class="qr-label">支付宝支付</div>
-      <div class="qr-amt">¥888</div>
-    </div>
-    <div class="qr-item">
-      <img src="media/公众号/公众号二维码.jpg" alt="公众号">
-      <div class="qr-label">关注公众号</div>
-      <div class="qr-amt">历史实盘案例</div>
-    </div>
-  </div>
 </div>
 
 <!-- ═══ FAQ ═══ -->
