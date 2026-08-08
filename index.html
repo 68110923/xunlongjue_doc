@@ -297,10 +297,16 @@ h1{
 .pl24{padding-left:24px}
 
 
-/* FAQ 进群流程图：一行5张（点击子问题展开即可见，无需灯箱放大） */
+/* FAQ 进群流程图：一行5张 + 点击放大 */
 .flow-row{display:flex;gap:8px;margin-top:12px;flex-wrap:nowrap}
-.flow-row img{flex:1;min-width:0;width:auto;height:auto;max-height:200px;object-fit:contain;border-radius:6px;border:1px solid var(--border);background:rgba(255,255,255,.04)}
+.flow-row img{flex:1;min-width:0;width:auto;height:auto;max-height:200px;object-fit:contain;cursor:zoom-in;border-radius:6px;border:1px solid var(--border);background:rgba(255,255,255,.04);transition:transform .2s,box-shadow .2s}
+.flow-row img:hover{transform:scale(1.02);box-shadow:0 4px 16px rgba(0,0,0,.35)}
 @media(max-width:600px){.flow-row img{max-height:120px}}
+
+/* 灯箱 */
+.lightbox{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);cursor:zoom-out;align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:92vw;max-height:92vh;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.6);cursor:zoom-out}
 
 /* Footer */
 footer{text-align:center;padding:20px;position:relative;z-index:1}
@@ -701,7 +707,7 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
     <div class="faq-inner">
       <details>
         <summary>这是个软件吗？具体是什么？</summary>
-        <p>你可以把它理解成一个 <strong>7×24 小时在线的 AI 炒股助手</strong>。它不是普通软件，而是一整套量化系统——每天自动选股、预测、复盘，到点把结果发到你微信上，你只需要看消息就够了。</p>
+        <p>它是<strong>部署在你自己的电脑或服务器上的一整套 AI 量化系统</strong>，专门针对 A 股。每天自动选股、预测、复盘，到点把结果发到你微信上，你只需要看消息就够了——数据都在你自己的机器上，不经过任何第三方。</p>
       </details>
       <details>
         <summary>我完全不懂股票，能用吗？</summary>
@@ -713,16 +719,32 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
     <summary>👉 第 2 步 · 能做什么？</summary>
     <div class="faq-inner">
       <details>
-        <summary>每天推几只？会不会推一堆让我自己挑？</summary>
-        <p>每天最多 3 只。不是海选，是精选。宁错过，不做错。你不用纠结买哪只——推给你的就是系统认为胜率最高的。</p>
+        <summary>🔥 一进二寻龙（每天推 ≤3 只）</summary>
+        <p>每天 <strong>9:25</strong> 开盘前，系统扫描全市场 <strong>3000+ 首板</strong>，经过 14 道硬逻辑 + 10 维评分，把最可能连板的 ≤3 只推到你微信。不是海选，是精选——宁错过，不做错。</p>
       </details>
       <details>
-        <summary>明日观察是什么？和每天早上的推送有什么区别？</summary>
-        <p>早盘推送是系统自动量化筛选，每天定时推「一进二」候选；<strong>明日观察是盘后 AI 深度分析次日连板概率</strong>——从全市场涨停池精选（一进二、二进三及更高连板都覆盖），结合封单、竞价、换手、板块梯队综合判断，附具体买入条件。它最大的特点是<strong>可定制</strong>：直接和 AI 说你的想法就能调整优化策略，支持加入消息面因素，输出还能直接当复盘文章素材。</p>
+        <summary>📐 个股 / 大盘预测（发代码秒回）</summary>
+        <p>想知道某只股票明天怎么走？微信发「600519」或「上证指数」，<strong>秒回方向 + 仓位建议</strong>，基于 MA5 / KDJ / MACD / MA10 四维打分。</p>
       </details>
       <details>
-        <summary>75% 的胜率够赚钱吗？怎么看每天的胜率？</summary>
-        <p>够。因为一进二赚的是涨停的大钱——中一次 ≈10%，够亏两次还有剩。而且系统主动避开了那些高开低走的坑票，亏大钱的票根本不会推给你。<strong>胜率怎么看：</strong>关注公众号，每天/每周都会发布胜率统计和复盘文章，你能看到系统的真实表现。</p>
+        <summary>📋 每日自动复盘（15:01 推送）</summary>
+        <p>收盘后自动推送复盘：<strong>推了什么、中了多少、为什么漏了</strong>——全透明。对在哪、错在哪、漏在哪，一清二楚。</p>
+      </details>
+      <details>
+        <summary>🕵️ 深度分析 · 主力痕迹</summary>
+        <p>预测看不清？拉 <strong>30 天全景 K 线</strong>，AI 解析价量序列，吸筹→洗盘→反转→主升，<strong>每一步都还原</strong>，主力意图无处可藏。</p>
+      </details>
+      <details>
+        <summary>⭐ 全市场选好票（秒级扫描）</summary>
+        <p>大盘回暖想找方向？发个「选好票」，全市场 <strong>3000+ 股票秒级扫描</strong>，MA5+KDJ+MACD+MA10 四维打分，按板块分组，<strong>一键筛出强多票</strong>。</p>
+      </details>
+      <details>
+        <summary>🌅 明日观察（预测次日连板概率）</summary>
+        <p>盘后 AI 深度分析次日连板概率——从全市场涨停池精选（一进二、二进三及更高连板都覆盖），结合<strong>封单、竞价、换手、板块梯队</strong>综合判断，附具体买入条件，还能直接当复盘文章素材。</p>
+      </details>
+      <details>
+        <summary>🛠️ 策略随你改 · AI 随你问</summary>
+        <p>系统不是死的——<strong>直接和 AI 说你的想法</strong>就能调整优化策略，支持加入消息面因素；有任何股票问题都可以直接问它，<strong>随时秒回</strong>。</p>
       </details>
     </div>
   </details>
@@ -733,11 +755,11 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
         <summary>Revolt 是什么？怎么注册？</summary>
         <p>Revolt 是一个开源的网页聊天软件，类似 Discord。不用下载安装，打开 <a href="https://app.revolt.chat/" target="_blank" class="c-accent">app.revolt.chat</a> 注册账号就能用。试用群、正式群、日常交流都在这里。注册流程看下面这 5 张图：</p>
         <div class="flow-row">
-          <img src="media/进群流程/步骤1.webp" loading="lazy"/>
-          <img src="media/进群流程/步骤2.webp" loading="lazy"/>
-          <img src="media/进群流程/步骤3.webp" loading="lazy"/>
-          <img src="media/进群流程/步骤4.webp" loading="lazy"/>
-          <img src="media/进群流程/步骤5.webp" loading="lazy"/>
+          <img src="media/进群流程/步骤1.webp" loading="lazy" onclick="openLightbox(this)"/>
+          <img src="media/进群流程/步骤2.webp" loading="lazy" onclick="openLightbox(this)"/>
+          <img src="media/进群流程/步骤3.webp" loading="lazy" onclick="openLightbox(this)"/>
+          <img src="media/进群流程/步骤4.webp" loading="lazy" onclick="openLightbox(this)"/>
+          <img src="media/进群流程/步骤5.webp" loading="lazy" onclick="openLightbox(this)"/>
         </div>
       </details>
       <details>
@@ -919,6 +941,24 @@ function loadAll(){
 }
 
 document.addEventListener('DOMContentLoaded',function(){loadAll();document.getElementById('btn-copy-qq')?.addEventListener('click',function(e){e.preventDefault();copyQQ()});document.getElementById('btn-go-readme')?.addEventListener('click',function(e){e.preventDefault();goReadme()})});
+
+// ── 灯箱：点击进群流程图放大，再点关闭 ──
+function openLightbox(img){
+  var lb=document.getElementById('lightbox');
+  var big=document.getElementById('lightboxImg');
+  big.src=img.src;
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  var lb=document.getElementById('lightbox');
+  lb.classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox()});
 </script>
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightboxImg" src="" alt="放大查看"/>
+</div>
 </body>
 </html>
