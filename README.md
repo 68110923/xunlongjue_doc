@@ -1,5 +1,4 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-V20260803-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/胜率-71%25-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/回测-17个月-gold?style=for-the-badge" />
   <img src="https://img.shields.io/badge/推送-≤3只/日-blue?style=for-the-badge" />
