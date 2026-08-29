@@ -250,6 +250,14 @@
 </details>
 
 <details>
+<summary><b>💡 使用技巧 · 大模型怎么选？</b></summary>
+<p>系统跑起来的 AI 大脑（大模型 API）怎么选？推荐按这个顺序：</p>
+<p>🥇 <strong>首选 智谱 GLM-5.3-Flash</strong> —— 性价比最高，日常预测、复盘完全够用，新用户注册有免费额度。注册入口（我的推荐链接）：<a href="https://www.bigmodel.cn/invite?icode=K8NECDSgXrJnUVrpbVug2%2Bnfet45IvM%2BqDogImfeLyI%3D" target="_blank">bigmodel.cn</a></p>
+<p>🥈 <strong>备选 DeepSeek deepseek-v4-flash-vision-exp</strong> —— 需要图片分析等视觉能力时选它。注册入口：<a href="https://platform.deepseek.com/usage" target="_blank">platform.deepseek.com</a></p>
+<p>两个都免费注册，部署时按教程把 Key 填进去就能跑。</p>
+</details>
+
+<details>
 <summary><b>不会部署怎么办？没电脑能行吗？</b></summary>
 <p>三条路任选：</p>
 <p>① <strong>自己部署</strong> —— 部署到你自己的电脑或云服务器（推荐，24小时在线），照着教程走，免费</p>
@@ -274,6 +282,7 @@
 ### V20260826 (2026-08-26)
 - 📏 **振幅闸放宽** — 首板振幅上限上调，减少大波动换手板的边界误杀，覆盖更多真实换手板。
 - 🧱 **回撤硬闸阈值放宽** — 高位反弹识别的回撤容忍度上调，深回撤区间的高活跃首板不再一刀切，低位启动豁免规则不变，历史与实盘口径保持统一。
+- 🔧 **回测 CLI 简化** — 移除模式参数，直接 `python3 backtest.py [天数|起始日期|日期范围] [--max]`，`--max` 可选输出候选池最高分行（默认仅推送行）。
 
 ### V20260825 (2026-08-25)
 - 📊 **深度分析窗口扩大** — 主力痕迹回看区间从近30天扩至近60天，趋势结构与位置判断覆盖更长运行波段，起涨前形态看得更完整、更客观。
