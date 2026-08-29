@@ -130,9 +130,9 @@
 
 ---
 
-## 🚀 三步搞懂寻龙诀
+## 🚀 快速了解寻龙诀
 
-### 👉 第 1 步 · 这是什么？
+### 这是什么？
 
 <details>
 <summary><b>这是个软件吗？具体是什么？</b></summary>
@@ -144,7 +144,7 @@
 <p>能。🔥强多=可以关注，🟢偏空=先等等。KDJ、MACD 这些你不用管，系统算好了，你只看颜色和文字就行。</p>
 </details>
 
-### 👉 第 2 步 · 能做什么？
+### 能做什么？
 
 <details>
 <summary><b>🔥 一进二寻龙（9:25 推送）</b></summary>
@@ -225,7 +225,7 @@
 <p>系统不是死的——<strong>直接和 AI 说你的想法</strong>就能调整优化策略，支持加入消息面因素；有任何股票问题都可以直接问它，<strong>随时秒回</strong>。</p>
 </details>
 
-### 👉 第 3 步 · 怎么加入？
+### 怎么加入？
 
 <details>
 <summary><b>Revolt 是什么？怎么注册？</b></summary>
@@ -260,6 +260,8 @@
 <p>☁️ <strong>阿里云</strong> — <b>38 元/年</b>（需抢购），<b>99 元/年</b>（不用抢）：<a href="https://www.aliyun.com/minisite/goods?userCode=scuhon0q" target="_blank">https://www.aliyun.com/minisite/goods?userCode=scuhon0q</a></p>
 <p>数据安全放心：所有数据只存在<strong>你自己的电脑或服务器</strong>上，不经过任何第三方。</p>
 </details>
+
+### 💡 使用技巧
 
 <details>
 <summary><b>大模型怎么选？</b></summary>
