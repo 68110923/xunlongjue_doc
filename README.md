@@ -250,14 +250,6 @@
 </details>
 
 <details>
-<summary><b>💡 使用技巧 · 大模型怎么选？</b></summary>
-<p>系统跑起来的 AI 大脑（大模型 API）怎么选？推荐按这个顺序：</p>
-<p>🥇 <strong>首选 智谱 GLM-5.3-Flash</strong> —— 性价比最高，日常预测、复盘完全够用，新用户注册有免费额度。注册入口（我的推荐链接）：<a href="https://www.bigmodel.cn/invite?icode=K8NECDSgXrJnUVrpbVug2%2Bnfet45IvM%2BqDogImfeLyI%3D" target="_blank">bigmodel.cn</a></p>
-<p>🥈 <strong>备选 DeepSeek deepseek-v4-flash-vision-exp</strong> —— 需要图片分析等视觉能力时选它。注册入口：<a href="https://platform.deepseek.com/usage" target="_blank">platform.deepseek.com</a></p>
-<p>两个都免费注册，部署时按教程把 Key 填进去就能跑。</p>
-</details>
-
-<details>
 <summary><b>不会部署怎么办？没电脑能行吗？</b></summary>
 <p>三条路任选：</p>
 <p>① <strong>自己部署</strong> —— 部署到你自己的电脑或云服务器（推荐，24小时在线），照着教程走，免费</p>
@@ -267,6 +259,14 @@
 <p>☁️ <strong>腾讯云</strong> — <b>99 元/年</b>，买一年送三个月，相当于 <b>99 元 15 个月</b>：<a href="https://curl.qcloud.com/ucrFUOFD" target="_blank">https://curl.qcloud.com/ucrFUOFD</a></p>
 <p>☁️ <strong>阿里云</strong> — <b>38 元/年</b>（需抢购），<b>99 元/年</b>（不用抢）：<a href="https://www.aliyun.com/minisite/goods?userCode=scuhon0q" target="_blank">https://www.aliyun.com/minisite/goods?userCode=scuhon0q</a></p>
 <p>数据安全放心：所有数据只存在<strong>你自己的电脑或服务器</strong>上，不经过任何第三方。</p>
+</details>
+
+<details>
+<summary><b>大模型怎么选？</b></summary>
+<p>系统跑起来的 AI 大脑（大模型 API）怎么选？推荐按这个顺序：</p>
+<p>🥇 <strong>首选 智谱 GLM-5.3-Flash</strong> —— 性价比最高，日常预测、复盘完全够用，新用户注册有免费额度。注册入口（我的推荐链接）：<a href="https://www.bigmodel.cn/invite?icode=K8NECDSgXrJnUVrpbVug2%2Bnfet45IvM%2BqDogImfeLyI%3D" target="_blank">bigmodel.cn</a></p>
+<p>🥈 <strong>备选 DeepSeek deepseek-v4-flash-vision-exp</strong> —— 需要图片分析等视觉能力时选它。注册入口：<a href="https://platform.deepseek.com/usage" target="_blank">platform.deepseek.com</a></p>
+<p>两个都免费注册，部署时按教程把 Key 填进去就能跑。</p>
 </details>
 
 ---
