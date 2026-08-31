@@ -67,13 +67,15 @@
 
 > 不用担心不会搞——买了源码不会用？我教到你会为止。
 
+> 💡 想先试试？**88 元** 试用 5~7 个交易日，满意再买，**试用期内购买可全额抵扣**。
+
 <p align="center">
   <b>QQ / 微信：68110923</b><br>
   <span style="color: #e53935; font-weight: 700;">仅防丢备用，不聊天</span><br>
   <span style="color: var(--accent);">🌐 Revolt 社群：<a href="https://app.revolt.chat/" target="_blank" style="color:var(--accent)">app.revolt.chat</a> 添加好友 68110923#4558</span><br>
   <span style="color: #999;">日常交流、试用、正式群都在这里</span><br>
-  <span style="color: #e53935; font-size: 12px;">⚠️ 微信仅添加付费用户，未付费请勿添加</span><br>
-  <span style="color: #e53935; font-size: 12px;">⚠️ 微信/QQ 有关股票、交易等敏感信息一律不回复</span>
+  <span style="color: #e53935; font-size: 12px;">⚠️ 微信仅添加付费用户，未付费请勿添加，防止添加好友频繁</span><br>
+  <span style="color: #e53935; font-size: 12px;">⚠️ 微信/QQ 有关股票、交易、拉群等敏感信息一律不回复，防止被封号</span>
 </p>
 
 > 💻 自行部署请查看 [部署文档](https://github.com/68110923/xunlongjue/blob/main/DEPLOY.md#%E5%AF%BB%E9%BE%99%E8%AF%80--%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3)
@@ -82,25 +84,22 @@
 
 ### ❤️ 购买源码
 
-扫码付款后备注你的微信/QQ，收到后我拉你进 Revolt 群、发部署教程：
+扫码付款时，备注你的微信/QQ 即可，收到后加我 Revolt，我拉你进群、发部署教程：
 
 <div align="center">
   <table>
   <tr>
     <td align="center" width="33%">
       <b>支付宝支付</b><br>
-      <img src="media/收款码/支付宝收款码.jpg" width="160" height="160" /><br>
-      <sub>扫码支付 ¥888</sub>
+      <img src="media/收款码/支付宝收款码.jpg" width="160" height="160" />
     </td>
     <td align="center" width="33%">
       <b>微信支付</b><br>
-      <img src="media/收款码/微信收款码.jpg" width="160" height="160" /><br>
-      <sub>扫码支付 ¥888</sub>
+      <img src="media/收款码/微信收款码.jpg" width="160" height="160" />
     </td>
     <td align="center" width="33%">
-      <b>关注公众号</b><br>
-      <img src="media/公众号/公众号二维码.jpg" width="160" height="160" /><br>
-      <sub>历史实盘案例</sub>
+      <b>公众号</b><br>
+      <img src="media/公众号/公众号二维码.jpg" width="160" height="160" />
     </td>
   </tr>
   </table>
@@ -265,7 +264,7 @@
 <details>
 <summary><b>大模型怎么选？</b></summary>
 <p>系统跑起来的 AI 大脑（大模型 API）怎么选？推荐按这个顺序：</p>
-<p>🥇 <strong>首选 智谱 GLM-5.3-Flash</strong> —— 性价比最高，日常预测、复盘完全够用，新用户注册有免费额度。注册入口（我的推荐链接）：<a href="https://www.bigmodel.cn/invite?icode=K8NECDSgXrJnUVrpbVug2%2Bnfet45IvM%2BqDogImfeLyI%3D" target="_blank">bigmodel.cn</a></p>
+<p>🥇 <strong>首选 智谱 GLM-5.3-Flash</strong> —— 性价比最高，日常预测、复盘完全够用，新用户注册有免费额度。注册入口：<a href="https://www.bigmodel.cn/invite?icode=K8NECDSgXrJnUVrpbVug2%2Bnfet45IvM%2BqDogImfeLyI%3D" target="_blank">bigmodel.cn</a></p>
 <p>🥈 <strong>备选 DeepSeek deepseek-v4-flash-vision-exp</strong> —— 需要图片分析等视觉能力时选它。注册入口：<a href="https://platform.deepseek.com/usage" target="_blank">platform.deepseek.com</a></p>
 <p>两个都免费注册，部署时按教程把 Key 填进去就能跑。</p>
 </details>
