@@ -259,7 +259,11 @@ h1{
 .faq>details>summary{
   font-size:15px;color:var(--wht);cursor:pointer;font-weight:900;
   user-select:none;letter-spacing:1px;display:flex;align-items:center;gap:6px;
+  list-style:none;
 }
+.faq>details>summary::-webkit-details-marker{display:none}
+.faq>details>summary::before{content:'▶';font-size:10px;color:var(--dim);flex-shrink:0;transition:transform .25s}
+.faq>details[open]>summary::before{transform:rotate(90deg)}
 .faq .faq-inner{margin-top:12px;padding-left:4px}
 .faq .faq-inner details{
   background:rgba(255,255,255,.03);
@@ -270,7 +274,11 @@ h1{
 .faq .faq-inner summary{
   font-size:13px;color:var(--text);cursor:pointer;font-weight:600;
   user-select:none;display:flex;align-items:center;gap:6px;
+  list-style:none;
 }
+.faq .faq-inner summary::-webkit-details-marker{display:none}
+.faq .faq-inner summary::before{content:'▶';font-size:9px;color:var(--dim);flex-shrink:0;transition:transform .25s}
+.faq .faq-inner details[open]>summary::before{transform:rotate(90deg)}
 .faq .faq-inner details p{font-size:12px;color:var(--dim);margin-top:8px;line-height:1.7}
 /* ---- 文本工具类 ---- */
 .t11{font-size:11px}.t12{font-size:12px}.t13{font-size:13px}.t14{font-size:14px}.t15{font-size:15px}
