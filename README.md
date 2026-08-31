@@ -10,13 +10,6 @@
 
 ---
 
-## 📢 通知
-
-### 试用优惠 `-20260901`
-近期因微信号、群频繁被封，试用优惠价 **1元**，截止日期 **2026-09-01**
-> ⚠️ 1 元试用不参与「购源码抵扣」活动，仅正常价 88 元试用可在购买源码时全额抵扣（888→800）
-> 🎯 试用承诺：试用期内推送命中 ≥2 只涨停，抓不到自动延长试用期，抓到为止。
-
 ---
 
 ## 👤 谁在用
@@ -76,10 +69,11 @@
 
 <p align="center">
   <b>QQ / 微信：68110923</b><br>
-  <span style="color: #999;">仅防丢备用，不聊天</span><br>
+  <span style="color: #e53935; font-weight: 700;">仅防丢备用，不聊天</span><br>
   <span style="color: var(--accent);">🌐 Revolt 社群：<a href="https://app.revolt.chat/" target="_blank" style="color:var(--accent)">app.revolt.chat</a> 添加好友 68110923#4558</span><br>
   <span style="color: #999;">日常交流、试用、正式群都在这里</span><br>
-  <span style="color: #e53935; font-size: 12px;">⚠️ 微信暂时被封号到 8 月 28 日，加好友谨防走丢，不要发股票相关敏感信息</span>
+  <span style="color: #e53935; font-size: 12px;">⚠️ 微信仅添加付费用户，未付费请勿添加</span><br>
+  <span style="color: #e53935; font-size: 12px;">⚠️ 微信/QQ 有关股票、交易等敏感信息一律不回复</span>
 </p>
 
 > 💻 自行部署请查看 [部署文档](https://github.com/68110923/xunlongjue/blob/main/DEPLOY.md#%E5%AF%BB%E9%BE%99%E8%AF%80--%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3)
