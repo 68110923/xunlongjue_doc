@@ -87,12 +87,17 @@
 <div align="center">
   <table>
   <tr>
-    <td align="center" width="50%">
+    <td align="center" width="33%">
       <b>支付宝支付</b><br>
       <img src="media/收款码/支付宝收款码.jpg" width="160" height="160" /><br>
       <sub>扫码支付 ¥888</sub>
     </td>
-    <td align="center" width="50%">
+    <td align="center" width="33%">
+      <b>微信支付</b><br>
+      <img src="media/收款码/微信收款码.jpg" width="160" height="160" /><br>
+      <sub>扫码支付 ¥888</sub>
+    </td>
+    <td align="center" width="33%">
       <b>关注公众号</b><br>
       <img src="media/公众号/公众号二维码.jpg" width="160" height="160" /><br>
       <sub>历史实盘案例</sub>
