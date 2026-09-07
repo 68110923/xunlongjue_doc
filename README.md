@@ -100,7 +100,7 @@
   <table>
   <tr>
     <td align="center" width="33%">
-      <b>支付宝支付</b><br>
+      <b>支付宝支付（推荐）</b><br>
       <img src="media/收款码/支付宝收款码.jpg" width="160" height="160" />
     </td>
     <td align="center" width="33%">
