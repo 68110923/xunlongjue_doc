@@ -765,6 +765,22 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
         <p style="margin-top:4px">🥈 <strong>备选 DeepSeek deepseek-v4-flash-vision-exp</strong> —— 需要图片分析等视觉能力时选它。注册入口：<a href="https://platform.deepseek.com/usage" target="_blank" class="c-accent">platform.deepseek.com</a></p>
         <p style="margin-top:4px">两个都免费注册，部署时按教程把 Key 填进去就能跑。</p>
       </details>
+      <details>
+        <summary>怎么根据自己的思路二次开发？</summary>
+        <p>寻龙诀不是封闭成品，源码全交付，底层数据库、算法函数都是开放的，你可以按自己的思路扩展：</p>
+        <p style="margin-top:4px">🔧 <strong>依赖寻龙诀，写你自己的项目</strong> —— 在寻龙诀项目外新建一个项目，直接引用它的数据库和算法函数，写自己的选股条件、指标组合、分析工作流。外建项目不动寻龙诀本身，<strong>系统更新（策略迭代、代码修复）照常自动同步，不受影响</strong>，你写的东西也都在，两边互不干扰。</p>
+        <p style="margin-top:4px">🧠 <strong>方法论落地成代码</strong> —— 把你的交易思路翻译成代码，跑历史回测验证；或把数据查出来喂给大模型，按你的方法论自动分析。</p>
+        <p style="margin-top:4px">🤖 <strong>不会写代码也能改</strong> —— 思路说给 AI，让它帮你写代码、做回测、调参数，AI 就是你的程序员。</p>
+        <p style="margin-top:4px">📦 <strong>可直接依赖的模块</strong>（scripts/ 脚本 + references/ 文档）：</p>
+        <p style="margin-top:4px">▸ <code>hermes_stock_lib.py</code> — 核心算法库：评分、硬闸、连板判定，二次开发最常依赖<br>
+        ▸ <code>data_fetcher.py</code> — 数据工厂：全市场日线、数据自动治理<br>
+        ▸ <code>backtest.py</code> — 回测框架：验证自己的策略<br>
+        ▸ <code>market_signal.py</code> / <code>deep_analysis.py</code> / <code>stock_screener.py</code> — 预测、深度分析、选好票现成逻辑<br>
+        ▸ <code>morning_push.py</code> / <code>afternoon_review.py</code> — 早盘推送、收盘复盘流程参考<br>
+        ▸ <code>strategy.md</code> — 策略文档：全部判定逻辑的参数说明<br>
+        ▸ <code>mingri-guancha-workflow.md</code> — 明日观察工作流<br>
+        ▸ <code>xunlongjue-mind.md</code> — 心法：AI 输出风格与思考框架</p>
+      </details>
     </div>
   </details>
 </div>
