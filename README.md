@@ -5,7 +5,7 @@
 </p>
 
 <h1 align="center">🐉 寻龙诀</h1>
-<h3 align="center">官方网站：<a href="https://68110923.github.io/xunlongjue_doc/">大A主板 · 量化系统</a></h3>
+<h3 align="center">官方网站：<a href="https://68110923.github.io/xunlongjue_doc/">大A主板 · 量化系统</a> · 登录看板：<a href="https://xunlongjue.68110923.xyz/">客户数据看板</a></h3>
 <p align="center"><i>—— 不做预测，只抓确定性。首板三千，二板寻龙。</i></p>
 
 ---
@@ -85,7 +85,9 @@
   <span style="color: var(--accent);">🌐 Revolt 社群：<a href="https://app.revolt.chat/" target="_blank" style="color:var(--accent)">app.revolt.chat</a> 添加好友 68110923#4558</span><br>
   <span style="color: #999;">日常交流、试用、正式群都在这里</span><br>
   <span style="color: #e53935; font-size: 12px;">⚠️ 微信仅添加付费用户，未付费请勿添加，防止添加好友频繁</span><br>
-  <span style="color: #e53935; font-size: 12px;">⚠️ 微信/QQ 有关股票、交易、拉群等敏感信息一律不回复，防止被封号</span>
+  <span style="color: #e53935; font-size: 12px;">⚠️ 微信/QQ 有关股票、交易、拉群等敏感信息一律不回复，防止被封号</span><br>
+  <span style="color: var(--accent);">🔐 登录看板：<a href="https://xunlongjue.68110923.xyz/" target="_blank" style="color:var(--accent)">xunlongjue.68110923.xyz</a></span>
+  <span style="color: #999; font-size: 12px;">（已购买用户查看推送记录）</span>
 </p>
 
 > 💻 自行部署请查看 [部署文档](https://github.com/68110923/xunlongjue/blob/main/DEPLOY.md#%E5%AF%BB%E9%BE%99%E8%AF%80--%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3)
