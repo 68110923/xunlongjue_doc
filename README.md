@@ -5,7 +5,12 @@
 </p>
 
 <h1 align="center">🐉 寻龙诀</h1>
-<h3 align="center">官方网站：<a href="https://68110923.github.io/xunlongjue_doc/">大A主板 · 量化系统</a> · 登录看板：<a href="https://xunlongjue.68110923.xyz/">客户数据看板</a></h3>
+<h3 align="center">
+  🆕 <b>寻龙诀 PRO</b>（新版）：<a href="https://68110923.github.io/xunlongjue-doc/index.html">官网介绍</a> ·
+  <a href="https://xunlongjue.68110923.xyz/">登录看板</a><br>
+  📦 <b>寻龙诀 · 经典版</b>（本仓库）：<a href="https://68110923.github.io/xunlongjue_doc/">官方网站</a> ·
+  <a href="https://xunlongjue.68110923.xyz/">客户数据看板</a>
+</h3>
 <p align="center"><i>—— 不做预测，只抓确定性。首板三千，二板寻龙。</i></p>
 
 ---

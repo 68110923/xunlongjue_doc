@@ -411,6 +411,21 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
 }
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 .pulse{animation:pulse 2s infinite}
+
+/* ── 新版入口：导航高亮 + 顶部横幅 ── */
+.nav-links a.nav-pro{color:var(--gold,#d4a853);border:1px solid var(--border,#27272a);border-radius:6px}
+.nav-links a.nav-pro:hover{border-color:var(--gold,#d4a853)}
+.pro-banner{display:flex;align-items:center;gap:10px;margin:18px 0 4px;padding:10px 14px;
+  text-decoration:none;font-size:13px;line-height:1.5;border:1px solid var(--border,#27272a);
+  border-left:3px solid var(--gold,#d4a853);border-radius:10px;background:var(--card,#1a1a23);
+  color:var(--text2,#a1a1aa)}
+.pro-banner:hover{border-color:var(--gold,#d4a853);color:var(--text,#e4e4e7)}
+.pro-banner .pb-new{flex:0 0 auto;font-size:10px;font-weight:700;letter-spacing:.08em;
+  padding:2px 7px;border-radius:999px;background:var(--gold,#d4a853);color:#1a1a23}
+.pro-banner .pb-text{flex:1 1 auto;min-width:0}
+.pro-banner .pb-text b{color:var(--text,#e4e4e7)}
+.pro-banner .pb-go{flex:0 0 auto;color:var(--gold,#d4a853);white-space:nowrap}
+@media (max-width:560px){.pro-banner{flex-wrap:wrap;gap:6px;font-size:12.5px}.pro-banner .pb-go{width:100%;text-align:right}}
 </style>
 </head>
 <body class="light">
@@ -418,6 +433,7 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
 <nav class="top-nav" id="topNav">
   <div class="nav-links">
     <a href="https://68110923.github.io/">🏠 主页</a>
+    <a class="nav-pro" href="https://68110923.github.io/xunlongjue-doc/index.html" target="_blank" rel="noopener">🆕 PRO 版</a>
     <a href="#features">🎯 功能</a>
     <a href="#pricing">💰 定价</a>
     <a href="#faq">🚀 快速了解</a>
@@ -430,6 +446,12 @@ footer .brand{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4
 <div class="bg-glow"></div>
 <div id="notifWrap" class="notif-wrap"></div>
 <div class="wrap">
+
+<a class="pro-banner" href="https://68110923.github.io/xunlongjue-doc/index.html" target="_blank" rel="noopener">
+  <span class="pb-new">NEW</span>
+  <span class="pb-text"><b>寻龙诀 PRO 已发布</b>：全市场真实竞价 · 每个交易日自动选股与复盘</span>
+  <span class="pb-go">去看看 →</span>
+</a>
 
 <header>
   <div class="dragon">🐉</div>
